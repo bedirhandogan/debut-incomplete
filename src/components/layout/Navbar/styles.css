@@ -1,0 +1,70 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: calc(100% - 250px);
+    height: 65px;
+    border-bottom: 1.5px solid var(--border-color-primary);
+}
+
+.navbar .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .navbar-right .navbar-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-right .navbar-search img {
+    position: absolute;
+    left: 10px;
+}
+
+.navbar .navbar-right .navbar-search input {
+    border: 2px solid var(--border-color-primary);
+    background-color: var(--background-color-primary-dark);
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 40px;
+    text-align: right;
+    transition: 200ms all;
+}
+
+.navbar .navbar-right .navbar-search input:focus {
+    outline: none;
+    color: var(--text-color-primary);
+    border: 2px solid var(--border-color-primary-dark);
+}
+
+.navbar .navbar-right .navbar-themeSelector {
+    width: 75px;
+    height: 35px;
+    border: 2px solid var(--border-color-primary);
+    background-color: var(--background-color-primary-dark);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.navbar .navbar-right .navbar-themeSelector :is(.theme-light, .theme-dark) {
+    width: calc(65px / 2);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .navbar-right .navbar-themeSelector :is(.theme-light.active, .theme-dark.active) {
+    background-color: var(--background-color-secondary);
+    border-radius: 5px;
+}

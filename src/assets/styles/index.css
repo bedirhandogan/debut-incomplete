@@ -9,6 +9,7 @@
     --background-color-secondary: #f1f1f1;
 
     --border-color-primary: #E8E8E8;
+    --border-color-primary-dark: #d5d4d4;
 }
 
 html, body {
@@ -16,6 +17,7 @@ html, body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-color-primary);
+    color: var(--text-color-primary);
 }
 
 * {

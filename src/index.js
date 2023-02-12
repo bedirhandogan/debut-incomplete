@@ -1,10 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import Router from "./router";
+import "assets/styles/index.css";
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-      Hello World
+      <Router />
   </React.StrictMode>
 );

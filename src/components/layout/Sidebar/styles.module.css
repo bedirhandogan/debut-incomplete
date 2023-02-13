@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.sidebar .sidebar-header {
+.header {
     width: 100%;
     height: 65px;
     border-bottom: 1.5px solid var(--border-color-primary);
@@ -16,18 +16,15 @@
     align-items: center;
     gap: 10px;
     padding: 0 20px;
+    font-size: 20px;
 }
 
-.sidebar .sidebar-header img {
+.header img {
     width: 24px;
     height: 24px;
 }
 
-.sidebar .sidebar-header {
-    font-size: 20px;
-}
-
-.sidebar .sidebar-body {
+.body {
     margin-top: 20px;
     width: calc(100% - 40px);
     display: flex;
@@ -35,7 +32,7 @@
     gap: 10px;
 }
 
-.sidebar .sidebar-body a {
+.body a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -47,11 +44,11 @@
     transition: all 200ms;
 }
 
-.sidebar .sidebar-body a:hover {
+.body a:hover {
     background-color: var(--background-color-secondary);
 }
 
-.sidebar .sidebar-footer {
+.footer {
     position: absolute;
     bottom: 20px;
     padding: 10px;

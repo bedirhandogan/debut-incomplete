@@ -28,7 +28,7 @@
 }
 
 .search input {
-    border: 2px solid var(--border-color-primary);
+    border: 1.5px solid var(--border-color-primary);
     background-color: var(--background-color-primary-dark);
     width: 200px;
     height: 35px;
@@ -41,13 +41,13 @@
 .search input:focus {
     outline: none;
     color: var(--text-color-primary);
-    border: 2px solid var(--border-color-primary-dark);
+    border: 1.5px solid var(--border-color-primary-dark);
 }
 
 .themeSelector {
     width: 75px;
     height: 35px;
-    border: 2px solid var(--border-color-primary);
+    border: 1.5px solid var(--border-color-primary);
     background-color: var(--background-color-primary-dark);
     border-radius: 5px;
     display: flex;
@@ -57,7 +57,7 @@
 }
 
 .themeSelect {
-    width: calc(65px / 2);
+    width: calc(75px / 2);
     height: 100%;
     display: flex;
     align-items: center;

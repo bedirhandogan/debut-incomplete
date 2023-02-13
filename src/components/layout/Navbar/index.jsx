@@ -1,23 +1,22 @@
-import './styles.css';
-import Image from "../../../assets";
+import styles from './styles.module.css';
+import Image from "assets";
 
 function Navbar() {
     return (
-        <div className={"navbar"}>
-            <div className={"navbar-left"}>
+        <div className={styles.navbar}>
+            <div className={styles.area}>
                 Introduction
             </div>
-
-            <div className={"navbar-right"}>
-                <div className={"navbar-search"}>
+            <div className={styles.area}>
+                <div className={styles.search}>
                     <Image fileName={"search.svg"} alt={"search"} />
                     <input type={"text"} placeholder={"Search"} />
                 </div>
-                <div className={"navbar-themeSelector"}>
-                    <div className={"theme-light active"}>
+                <div className={styles.themeSelector}>
+                    <div className={`${styles.themeSelect} ${styles.active}`}>
                         <Image fileName={"theme-light.svg"} alt={"theme light"} />
                     </div>
-                    <div className={"theme-dark"}>
+                    <div className={`${styles.themeSelect}`}>
                         <Image fileName={"theme-dark.svg"} alt={"theme dark"} />
                     </div>
                 </div>

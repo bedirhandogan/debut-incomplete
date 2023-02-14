@@ -1,44 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url("./normalize.css");
+@import url('./normalize.css');
 
-[data-theme="light"] {
-    --text-color-primary: #373636;
+[data-theme='light'] {
+   --text-color-primary: #373636;
 
-    --background-color-primary: #fff;
-    --background-color-primary-dark: #f7f7f7;
-    --background-color-secondary: #dedede;
+   --background-color-primary: #fff;
+   --background-color-primary-dark: #f7f7f7;
+   --background-color-secondary: #dedede;
 
-    --border-color-primary: #E8E8E8;
-    --border-color-primary-dark: #d5d4d4;
+   --border-color-primary: #e8e8e8;
+   --border-color-primary-dark: #d5d4d4;
 
-    --icon-color-primary: #373636;
+   --icon-color-primary: #373636;
 }
 
-[data-theme="dark"] {
-    --text-color-primary: #d7d7d7;
+[data-theme='dark'] {
+   --text-color-primary: #d7d7d7;
 
-    --background-color-primary: #101010;
-    --background-color-primary-dark: #0e0e0e;
-    --background-color-secondary: #050505;
+   --background-color-primary: #101010;
+   --background-color-primary-dark: #0e0e0e;
+   --background-color-secondary: #050505;
 
-    --border-color-primary: #1c1c1c;
-    --border-color-primary-dark: #151515;
+   --border-color-primary: #1c1c1c;
+   --border-color-primary-dark: #151515;
 
-    --icon-color-primary: #d7d7d7;
+   --icon-color-primary: #d7d7d7;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color-primary);
-    color: var(--text-color-primary);
+html,
+body {
+   margin: 0;
+   padding: 0;
+   font-family: 'Poppins', sans-serif;
+   background-color: var(--background-color-primary);
+   color: var(--text-color-primary);
 }
 
 * {
-    box-sizing: border-box;
+   box-sizing: border-box;
 }
 
-img, input::placeholder {
-    user-select: none;
+img,
+input::placeholder {
+   user-select: none;
 }

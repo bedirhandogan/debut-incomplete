@@ -1,7 +1,12 @@
 import styles from './styles.module.css';
-import Image from "assets";
+import { change } from "store/reducer/theme";
+import {useDispatch, useSelector} from "react-redux";
+import {IconSearch, IconSun, IconMoon, IconBell, IconSettings} from "@tabler/icons-react";
 
 function Navbar() {
+    const { theme } = useSelector((state) => state.theme);
+    const dispatch = useDispatch();
+
     return (
         <div className={styles.navbar}>
             <div className={styles.area}>
@@ -9,19 +14,19 @@ function Navbar() {
             </div>
             <div className={styles.area}>
                 <div className={styles.search}>
-                    <Image fileName={"search.svg"} alt={"search"} />
+                    <IconSearch stroke={1.3} width={20} height={20} style={{ color: "var(--icon-color-primary)"}} />
                     <input type={"text"} placeholder={"Search"} />
                 </div>
-                <div className={styles.themeSelector}>
-                    <div className={`${styles.themeSelect} ${styles.active}`}>
-                        <Image fileName={"theme-light.svg"} alt={"theme light"} />
+                <div className={styles.themeSelector} onClick={() => dispatch(change())}>
+                    <div className={`${styles.themeSelect} ${theme === "light" && styles.active}`}>
+                        <IconSun stroke={1.3} width={20} height={20} style={{ color: "var(--icon-color-primary)"}} />
                     </div>
-                    <div className={`${styles.themeSelect}`}>
-                        <Image fileName={"theme-dark.svg"} alt={"theme dark"} />
+                    <div className={`${styles.themeSelect} ${theme === "dark" && styles.active}`}>
+                        <IconMoon stroke={1.3} width={20} height={20} style={{ color: "var(--icon-color-primary)"}} />
                     </div>
                 </div>
-                <Image fileName={"bell.svg"} alt={"bell"} width={26} height={26} />
-                <Image fileName={"settings.svg"} alt={"settings"} width={26} height={26} />
+                <IconBell stroke={1.3} style={{ color: "var(--icon-color-primary)"}} />
+                <IconSettings stroke={1.3} style={{ color: "var(--icon-color-primary)"}} />
             </div>
         </div>
     );

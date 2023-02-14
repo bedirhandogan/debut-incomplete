@@ -16,6 +16,10 @@
     gap: 10px;
 }
 
+.area img {
+    display: none;
+}
+
 .search {
     position: relative;
     display: flex;
@@ -67,4 +71,44 @@
 .themeSelect.active {
     background-color: var(--background-color-secondary);
     border-radius: 5px;
+}
+
+.notification {
+
+}
+
+.settings {
+
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        width: 100%;
+    }
+
+    .area img {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .themeSelector, .notification, .settings {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .search input {
+        width: 150px;
+        height: 30px;
+    }
+
+    .search svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .area {
+        font-size: 14px;
+    }
 }

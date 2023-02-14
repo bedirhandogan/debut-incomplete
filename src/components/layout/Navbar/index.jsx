@@ -2,6 +2,7 @@ import styles from './styles.module.css';
 import { change } from "store/reducer/theme";
 import {useDispatch, useSelector} from "react-redux";
 import {IconSearch, IconSun, IconMoon, IconBell, IconSettings} from "@tabler/icons-react";
+import logo from "../../../assets/images/logo.svg";
 
 function Navbar() {
     const { theme } = useSelector((state) => state.theme);
@@ -10,6 +11,7 @@ function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles.area}>
+                <img src={logo} alt={"profile"} />
                 Introduction
             </div>
             <div className={styles.area}>
@@ -25,8 +27,12 @@ function Navbar() {
                         <IconMoon stroke={1.3} width={20} height={20} style={{ color: "var(--icon-color-primary)"}} />
                     </div>
                 </div>
-                <IconBell stroke={1.3} style={{ color: "var(--icon-color-primary)"}} />
-                <IconSettings stroke={1.3} style={{ color: "var(--icon-color-primary)"}} />
+                <div className={styles.notification}>
+                    <IconBell stroke={1.3} style={{ color: "var(--icon-color-primary)"}} />
+                </div>
+                <div className={styles.settings}>
+                    <IconSettings stroke={1.3} style={{ color: "var(--icon-color-primary)"}} />
+                </div>
             </div>
         </div>
     );

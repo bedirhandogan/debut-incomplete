@@ -1,37 +1,38 @@
 import styles from './styles.module.css';
 import {Link} from "react-router-dom";
-import Image from "assets";
+import {IconBookmarks, IconListCheck, IconNotes, IconSmartHome, IconSquareRoundedArrowRight} from "@tabler/icons-react";
+import logo from "assets/images/logo.svg";
 
 function Sidebar() {
     return (
         <div className={styles.sidebar}>
             <div className={styles.header}>
-                <Image fileName={"logo.svg"} alt={"logo"} />
+                <img src={logo} alt={"profile"} />
                 Debut
             </div>
             <div className={styles.body}>
                 <Link to={"/app"}>
-                    <Image fileName={"home.svg"} alt={"introduction"} />
+                    <IconSmartHome stroke={1.3} width={24} height={24} style={{ color: "var(--icon-color-primary)"}} />
                     Introduction
                 </Link>
                 <Link to={"tasks"}>
-                    <Image fileName={"tasks.svg"} alt={"tasks"} />
-                    Task
+                    <IconListCheck stroke={1.3} width={24} height={24} style={{ color: "var(--icon-color-primary)"}} />
+                    Tasks
                 </Link>
                 <Link to={"notes"}>
-                    <Image fileName={"note.svg"} alt={"notes"} />
-                    Note
+                    <IconNotes stroke={1.3} width={24} height={24} style={{ color: "var(--icon-color-primary)"}} />
+                    Notes
                 </Link>
                 <Link to={"bookmarks"}>
-                    <Image fileName={"bookmark.svg"} alt={"bookmark"} />
-                    Bookmark
+                    <IconBookmarks stroke={1.3} width={24} height={24} style={{ color: "var(--icon-color-primary)"}} />
+                    Bookmarks
                 </Link>
             </div>
 
             <div className={styles.footer}>
-                <Image fileName={"logo.svg"} alt={"picture"} />
+                <img src={logo} alt={"profile"} />
                 {"username"}
-                <Image fileName={"logout.svg"} alt={"bookmark"} />
+                <IconSquareRoundedArrowRight stroke={1.3} width={24} height={24} style={{ color: "var(--icon-color-primary)"}} />
             </div>
         </div>
     );

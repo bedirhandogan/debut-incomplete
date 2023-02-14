@@ -38,3 +38,7 @@ html, body {
 * {
     box-sizing: border-box;
 }
+
+img, input::placeholder {
+    user-select: none;
+}

@@ -1,12 +1,13 @@
-import Introduction from './App/Introduction'
-import Navbar from './App/Navbar'
-import Sidebar from './App/Sidebar'
+import { lazy } from 'react'
 
 const Layouts = {
+   Home: {
+      Navbar: lazy(() => import('components/layouts/Home/Navbar')),
+   },
    App: {
-      Introduction: () => <Introduction />,
-      Navbar: () => <Navbar />,
-      Sidebar: () => <Sidebar />,
+      Introduction: lazy(() => import('components/layouts/App/Introduction')),
+      Navbar: lazy(() => import('components/layouts/App/Navbar')),
+      Sidebar: lazy(() => import('components/layouts/App/Sidebar')),
    },
 }
 

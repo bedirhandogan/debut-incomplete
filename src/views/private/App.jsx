@@ -1,8 +1,9 @@
-import Sidebar from 'components/layout/Sidebar'
-import Navbar from 'components/layout/Navbar'
+import Layouts from 'components/layouts'
 import { Outlet } from 'react-router-dom'
 
 function App() {
+   const { Sidebar, Navbar } = Layouts.App
+
    return (
       <div className={'app'}>
          <Sidebar />

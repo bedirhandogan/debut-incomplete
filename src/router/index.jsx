@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../views/public/Home'
 import App from '../views/private/App'
-import Introduction from '../components/layout/Introduction'
+import Layouts from 'components/layouts'
 
 function Router() {
+   const { Introduction } = Layouts.App
+
    return (
       <BrowserRouter>
          <Routes>

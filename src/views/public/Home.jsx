@@ -1,5 +1,13 @@
+import Layouts from 'components/layouts'
+
 function Home() {
-   return <div>Hello Word Home</div>
+   const { Navbar } = Layouts.Home
+
+   return (
+      <div>
+         <Navbar />
+      </div>
+   )
 }
 
 export default Home

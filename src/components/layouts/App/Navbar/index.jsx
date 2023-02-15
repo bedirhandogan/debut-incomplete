@@ -8,7 +8,7 @@ import {
    IconBell,
    IconSettings,
 } from '@tabler/icons-react'
-import logo from '../../../../assets/images/logo.svg'
+import logo from 'assets/images/logo.svg'
 
 function Navbar() {
    const { theme } = useSelector((state) => state.theme)

@@ -36,27 +36,31 @@ function Navbar() {
             >
                <div
                   className={`${styles.themeSelect} ${
-                     theme === 'light' && styles.active
-                  }`}
-               >
-                  <IconSun
-                     stroke={1.3}
-                     width={20}
-                     height={20}
-                     style={{ color: 'var(--icon-color-primary)' }}
-                  />
-               </div>
-               <div
-                  className={`${styles.themeSelect} ${
                      theme === 'dark' && styles.active
                   }`}
                >
-                  <IconMoon
-                     stroke={1.3}
-                     width={20}
-                     height={20}
-                     style={{ color: 'var(--icon-color-primary)' }}
-                  />
+                  {theme === 'light' && (
+                     <IconSun
+                        stroke={1.3}
+                        width={20}
+                        height={20}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                     />
+                  )}
+               </div>
+               <div
+                  className={`${styles.themeSelect} ${
+                     theme === 'light' && styles.active
+                  }`}
+               >
+                  {theme === 'dark' && (
+                     <IconMoon
+                        stroke={1.3}
+                        width={20}
+                        height={20}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                     />
+                  )}
                </div>
             </div>
             <div className={styles.notification}>

@@ -51,11 +51,13 @@
    height: 35px;
    border: 1.5px solid var(--border-color-primary);
    background-color: var(--background-color-primary-dark);
-   border-radius: 5px;
+   border-radius: 10px;
    display: flex;
    justify-content: space-between;
+   align-items: center;
    overflow: hidden;
    cursor: pointer;
+   padding: 3px;
 }
 
 .themeSelect {
@@ -68,7 +70,7 @@
 
 .themeSelect.active {
    background-color: var(--background-color-secondary);
-   border-radius: 5px;
+   border-radius: 8px;
 }
 
 .notification {

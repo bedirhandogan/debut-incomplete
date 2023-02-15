@@ -1,0 +1,54 @@
+.loading {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background-color: var(--background-color-primary);
+   z-index: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 2px;
+}
+
+.wrapper {
+   display: flex;
+   gap: 2px;
+   flex-wrap: wrap;
+}
+
+.part {
+   background-color: #ff2835;
+   opacity: 0.25;
+   animation: 1s flashAnimation infinite;
+   animation-direction: alternate;
+}
+
+.wrapper:nth-child(1) {
+   max-width: 18px;
+}
+
+.wrapper:nth-child(1) :is(.part:nth-of-type(1), .part:nth-of-type(2)) {
+   width: 18px;
+   height: 9px;
+   border-radius: 15px;
+}
+
+.wrapper:nth-child(1) .part:nth-of-type(3) {
+   width: 18px;
+   height: 18px;
+   border-radius: 100%;
+}
+
+.wrapper:nth-child(2) :is(.part:nth-of-type(1), .part:nth-of-type(2)) {
+   width: 9px;
+   height: 42px;
+   border-radius: 15px;
+}
+
+@keyframes flashAnimation {
+   to {
+      opacity: 1;
+   }
+}

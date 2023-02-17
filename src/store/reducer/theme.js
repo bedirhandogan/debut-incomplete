@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const theme = createSlice({
-   name: 'themeSelector',
+   name: 'theme',
    initialState: {
       theme: !localStorage.getItem('theme')
          ? (() => {

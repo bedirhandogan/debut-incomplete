@@ -1,20 +1,10 @@
 import styles from './styles.module.css'
-import { change } from 'store/reducer/theme'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-   IconSearch,
-   IconSun,
-   IconMoon,
-   IconBell,
-   IconSettings,
-} from '@tabler/icons-react'
+import { IconSearch, IconBell, IconSettings } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
 import Input from 'components/shared/Input'
+import ThemeSelector from 'components/shared/ThemeSelector'
 
 function Navbar() {
-   const { theme } = useSelector((state) => state.theme)
-   const dispatch = useDispatch()
-
    return (
       <div className={styles.navbar}>
          <div className={styles.area}>
@@ -30,39 +20,7 @@ function Navbar() {
                   style={{ color: 'var(--icon-color-primary)' }}
                />
             </Input>
-            <div
-               className={styles.themeSelector}
-               onClick={() => dispatch(change())}
-            >
-               <div
-                  className={`${styles.themeSelect} ${
-                     theme === 'dark' && styles.active
-                  }`}
-               >
-                  {theme === 'light' && (
-                     <IconSun
-                        stroke={1.3}
-                        width={20}
-                        height={20}
-                        style={{ color: 'var(--icon-color-primary)' }}
-                     />
-                  )}
-               </div>
-               <div
-                  className={`${styles.themeSelect} ${
-                     theme === 'light' && styles.active
-                  }`}
-               >
-                  {theme === 'dark' && (
-                     <IconMoon
-                        stroke={1.3}
-                        width={20}
-                        height={20}
-                        style={{ color: 'var(--icon-color-primary)' }}
-                     />
-                  )}
-               </div>
-            </div>
+            <ThemeSelector />
             <div className={styles.notification}>
                <IconBell
                   stroke={1.3}

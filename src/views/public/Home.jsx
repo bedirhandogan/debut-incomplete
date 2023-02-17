@@ -1,5 +1,58 @@
 import Layouts from 'components/layouts'
 import Modal from 'components/shared/Modal'
+import Input from 'components/shared/Input'
+import Button from 'components/shared/Button'
+import logo from 'assets/images/logo.svg'
+import { IconBrandGoogle } from '@tabler/icons-react'
+
+function ModalWrapper() {
+   return (
+      <Modal style={{ width: '350px', height: 'max-content' }}>
+         <div className={'auth'}>
+            <img src={logo} alt={'logo'} />
+            <p>Login with email or google account</p>
+            <Button
+               color={'red'}
+               style={{
+                  color: '#fff',
+                  border: 'none',
+                  width: '260px',
+                  height: '40px',
+               }}
+            >
+               <IconBrandGoogle
+                  width={14}
+                  stroke={3}
+                  style={{ color: '#fff' }}
+               />
+               Continue with Google
+            </Button>
+            <hr />
+            <Input
+               type={'email'}
+               placeholder={'Email'}
+               style={{
+                  textAlign: 'center',
+                  padding: '10px',
+                  width: '260px',
+                  height: '40px',
+               }}
+            />
+            <Input
+               type={'password'}
+               placeholder={'Password'}
+               style={{
+                  textAlign: 'center',
+                  padding: '10px',
+                  width: '260px',
+                  height: '40px',
+               }}
+            />
+            <Button style={{ width: '260px', height: '40px' }}>Continue</Button>
+         </div>
+      </Modal>
+   )
+}
 
 function Home() {
    const { Navbar } = Layouts.Home
@@ -7,7 +60,7 @@ function Home() {
    return (
       <div>
          <Navbar />
-         <Modal size={{ width: 350, height: 450 }}>sadds</Modal>
+         <ModalWrapper />
       </div>
    )
 }

@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('./normalize.css');
 
+:root {
+   --glb-background-color-primary: #fd2835;
+}
+
 [data-theme='light'] {
    --text-color-primary: #373636;
 
@@ -59,4 +63,30 @@ input::placeholder {
    .app {
       grid-template-columns: 1fr;
    }
+}
+
+.auth {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   padding: 45px 25px;
+   height: 100%;
+   gap: 10px;
+}
+
+.auth hr {
+   width: 200px;
+   border: 1.5px solid var(--border-color-primary);
+   border-radius: 5px;
+}
+
+.auth img {
+   width: 70px;
+   height: 70px;
+   margin-bottom: 25px;
+}
+
+.auth p {
+   margin: 0 0 5px 0;
+   font-size: 14px;
 }

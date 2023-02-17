@@ -1,0 +1,27 @@
+.search {
+   position: relative;
+   display: flex;
+   align-items: center;
+}
+
+.search svg {
+   position: absolute;
+   left: 10px;
+}
+
+.search input {
+   border: 1.5px solid var(--border-color-primary);
+   background-color: var(--background-color-primary-dark);
+   width: 200px;
+   height: 35px;
+   border-radius: 5px;
+   padding: 10px 10px 10px 40px;
+   text-align: right;
+   transition: 200ms all;
+}
+
+.search input:focus {
+   outline: none;
+   color: var(--text-color-primary);
+   border: 1.5px solid var(--border-color-primary-dark);
+}

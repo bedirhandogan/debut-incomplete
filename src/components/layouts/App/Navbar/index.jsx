@@ -9,6 +9,7 @@ import {
    IconSettings,
 } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
+import Input from 'components/shared/Input'
 
 function Navbar() {
    const { theme } = useSelector((state) => state.theme)
@@ -21,15 +22,14 @@ function Navbar() {
             Introduction
          </div>
          <div className={styles.area}>
-            <div className={styles.search}>
+            <Input type={'text'} placeholder={'Search'}>
                <IconSearch
                   stroke={1.3}
                   width={20}
                   height={20}
                   style={{ color: 'var(--icon-color-primary)' }}
                />
-               <input type={'text'} placeholder={'Search'} />
-            </div>
+            </Input>
             <div
                className={styles.themeSelector}
                onClick={() => dispatch(change())}

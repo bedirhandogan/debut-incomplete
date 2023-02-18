@@ -1,13 +1,14 @@
 import styles from './styles.module.css'
 
-function Button({ children, style, color }) {
+function Button({ children, style, color, onClick }) {
    return (
-      <div
+      <button
          className={`${styles.button} ${color === 'red' ? styles.red : null}`}
          style={style}
+         onClick={onClick}
       >
          {children}
-      </div>
+      </button>
    )
 }
 

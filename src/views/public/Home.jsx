@@ -4,11 +4,21 @@ import Input from 'components/shared/Input'
 import Button from 'components/shared/Button'
 import logo from 'assets/images/logo.svg'
 import { IconBrandGoogle } from '@tabler/icons-react'
+import { Auth } from 'api'
+import { Toaster } from 'react-hot-toast'
 
 function ModalWrapper() {
+   const handleSubmit = (event) => {
+      event.preventDefault()
+
+      const [email, password] = [event.target[1].value, event.target[2].value]
+
+      Auth(email, password)
+   }
+
    return (
       <Modal style={{ width: '350px', height: 'max-content' }}>
-         <div className={'auth'}>
+         <form className={'auth'} onSubmit={handleSubmit}>
             <img src={logo} alt={'logo'} />
             <p>Login with email or google account</p>
             <Button
@@ -49,7 +59,7 @@ function ModalWrapper() {
                }}
             />
             <Button style={{ width: '260px', height: '40px' }}>Continue</Button>
-         </div>
+         </form>
       </Modal>
    )
 }
@@ -61,6 +71,7 @@ function Home() {
       <div>
          <Navbar />
          <ModalWrapper />
+         <Toaster />
       </div>
    )
 }

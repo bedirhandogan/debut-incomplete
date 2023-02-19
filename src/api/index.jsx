@@ -20,39 +20,34 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
-function Register(email, password, navigate) {
-   createUserWithEmailAndPassword(auth, email, password)
-      .then((credential) => {
-         toast.success('Your account has been created.', {
+async function Register(email, password, navigate) {
+   try {
+      await createUserWithEmailAndPassword(auth, email, password)
+      toast.success('Your account has been created.', {
+         position: 'top-right',
+      })
+      navigate('app')
+   } catch (e) {
+      if (e.code === 'auth/weak-password')
+         toast.error('Password should be at least 6 characters', {
             position: 'top-right',
          })
-         navigate('app')
-      })
-      .catch((e) => {
-         if (e.code === 'auth/weak-password')
-            toast.error('Password should be at least 6 characters', {
-               position: 'top-right',
-            })
-      })
+   }
 }
 
-function Login(email, password, navigate) {
-   signInWithEmailAndPassword(auth, email, password)
-      .then((credential) => {
-         toast.success('Your account has been successfully logged in.', {
+async function Login(email, password, navigate) {
+   try {
+      await signInWithEmailAndPassword(auth, email, password)
+      toast.success('Your account has been successfully logged in.', {
+         position: 'top-right',
+      })
+      navigate('app')
+   } catch (e) {
+      if (e.code === 'auth/wrong-password')
+         toast.error('You entered an incorrect password, please correct it.', {
             position: 'top-right',
          })
-         navigate('app')
-      })
-      .catch((e) => {
-         if (e.code === 'auth/wrong-password')
-            toast.error(
-               'You entered an incorrect password, please correct it.',
-               {
-                  position: 'top-right',
-               }
-            )
-      })
+   }
 }
 
 async function Auth(email, password, navigate) {

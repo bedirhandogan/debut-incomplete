@@ -4,6 +4,7 @@ import {
    fetchSignInMethodsForEmail,
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
+   signOut,
 } from 'firebase/auth'
 
 import toast from 'react-hot-toast'
@@ -61,4 +62,11 @@ async function Auth(email, password, navigate) {
    Login(email, password, navigate)
 }
 
-export { Auth, auth }
+const Logout = () =>
+   signOut(auth).then(() => {
+      toast.success('Your account has been logged out.', {
+         position: 'top-right',
+      })
+   })
+
+export { Auth, Logout, auth }

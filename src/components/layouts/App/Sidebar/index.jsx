@@ -8,6 +8,7 @@ import {
    IconSquareRoundedArrowRight,
 } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
+import { Logout } from 'api'
 
 function Sidebar() {
    return (
@@ -63,6 +64,7 @@ function Sidebar() {
                width={24}
                height={24}
                style={{ color: 'var(--icon-color-primary)' }}
+               onClick={() => Logout()}
             />
          </div>
       </div>

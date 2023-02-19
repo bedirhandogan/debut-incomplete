@@ -5,15 +5,17 @@ import Button from 'components/shared/Button'
 import logo from 'assets/images/logo.svg'
 import { IconBrandGoogle } from '@tabler/icons-react'
 import { Auth } from 'api'
-import { Toaster } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 function ModalWrapper() {
+   const navigate = useNavigate()
+
    const handleSubmit = (event) => {
       event.preventDefault()
 
       const [email, password] = [event.target[1].value, event.target[2].value]
 
-      Auth(email, password)
+      Auth(email, password, navigate)
    }
 
    return (
@@ -71,7 +73,6 @@ function Home() {
       <div>
          <Navbar />
          <ModalWrapper />
-         <Toaster />
       </div>
    )
 }

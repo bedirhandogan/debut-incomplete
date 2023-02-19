@@ -5,6 +5,7 @@ import {
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
 } from 'firebase/auth'
+
 import toast from 'react-hot-toast'
 
 const firebaseConfig = {
@@ -19,12 +20,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
-function Register(email, password) {
+function Register(email, password, navigate) {
    createUserWithEmailAndPassword(auth, email, password)
       .then((credential) => {
          toast.success('Your account has been created.', {
             position: 'top-right',
          })
+         navigate('app')
       })
       .catch((e) => {
          if (e.code === 'auth/weak-password')
@@ -34,12 +36,13 @@ function Register(email, password) {
       })
 }
 
-function Login(email, password) {
+function Login(email, password, navigate) {
    signInWithEmailAndPassword(auth, email, password)
       .then((credential) => {
          toast.success('Your account has been successfully logged in.', {
             position: 'top-right',
          })
+         navigate('app')
       })
       .catch((e) => {
          if (e.code === 'auth/wrong-password')
@@ -52,17 +55,15 @@ function Login(email, password) {
       })
 }
 
-function Auth(email, password) {
-   fetchSignInMethodsForEmail(auth, email)
-      .then((result) => {
-         if (result.length === 0) {
-            Register(email, password)
-            return
-         }
+async function Auth(email, password, navigate) {
+   const result = await fetchSignInMethodsForEmail(auth, email)
 
-         Login(email, password)
-      })
-      .catch((e) => console.error(e))
+   if (result.length === 0) {
+      Register(email, password, navigate)
+      return
+   }
+
+   Login(email, password, navigate)
 }
 
-export { Auth }
+export { Auth, auth }

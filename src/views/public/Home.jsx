@@ -15,7 +15,7 @@ function ModalWrapper() {
 
       const [email, password] = [event.target[1].value, event.target[2].value]
 
-      if (email.length !== undefined && password !== undefined) {
+      if (email.length !== 0 && password !== 0) {
          Auth(email, password, navigate)
       }
    }

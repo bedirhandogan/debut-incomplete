@@ -1,5 +1,6 @@
 .button {
    border: 2px solid var(--border-color-primary);
+   color: var(--text-color-primary);
    background-color: var(--background-color-primary-dark);
    width: 200px;
    height: 35px;

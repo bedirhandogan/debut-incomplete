@@ -24,3 +24,10 @@
    background-color: var(--background-color-secondary);
    border-radius: 8px;
 }
+
+
+@media screen and (max-width: 768px) {
+   .themeSelector {
+      display: none;
+   }
+}

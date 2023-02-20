@@ -36,7 +36,6 @@
 }
 
 @media screen and (max-width: 768px) {
-   .themeSelector,
    .notification,
    .settings {
       display: none;

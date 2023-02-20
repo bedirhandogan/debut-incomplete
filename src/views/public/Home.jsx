@@ -19,8 +19,9 @@ function ModalWrapper() {
 
       const [email, password] = [event.target[1].value, event.target[2].value]
 
-      if (email.length !== 0 && password.length !== 0) {
-         Auth(email, password, navigate)
+      if (event.nativeEvent.submitter.id === 'password') {
+         if (email.length !== 0 && password.length !== 0)
+            Auth(email, password, navigate)
          return
       }
 
@@ -34,6 +35,7 @@ function ModalWrapper() {
             <p>Login with email or google account</p>
             <Button
                color={'red'}
+               id={'google'}
                style={{
                   color: '#fff',
                   border: 'none',
@@ -69,7 +71,9 @@ function ModalWrapper() {
                   height: '40px',
                }}
             />
-            <Button style={{ width: '260px', height: '40px' }}>Continue</Button>
+            <Button id={'password'} style={{ width: '260px', height: '40px' }}>
+               Continue
+            </Button>
          </form>
       </Modal>
    )

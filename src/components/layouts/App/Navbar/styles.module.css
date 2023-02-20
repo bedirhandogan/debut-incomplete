@@ -43,16 +43,6 @@
 }
 
 @media screen and (max-width: 525px) {
-   .search input {
-      width: 150px;
-      height: 30px;
-   }
-
-   .search svg {
-      width: 18px;
-      height: 18px;
-   }
-
    .area {
       font-size: 14px;
    }

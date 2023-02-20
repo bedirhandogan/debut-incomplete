@@ -25,13 +25,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
-async function Register(email, password, navigate) {
+async function Register(email, password) {
    try {
       await createUserWithEmailAndPassword(auth, email, password)
       toast.success('Your account has been created.', {
          position: 'top-right',
       })
-      navigate('app')
    } catch (e) {
       if (e.code === 'auth/weak-password')
          toast.error('Password should be at least 6 characters', {
@@ -40,13 +39,12 @@ async function Register(email, password, navigate) {
    }
 }
 
-async function Login(email, password, navigate) {
+async function Login(email, password) {
    try {
       await signInWithEmailAndPassword(auth, email, password)
       toast.success('Your account has been successfully logged in.', {
          position: 'top-right',
       })
-      navigate('app')
    } catch (e) {
       if (e.code === 'auth/wrong-password')
          toast.error('You entered an incorrect password, please correct it.', {
@@ -55,15 +53,15 @@ async function Login(email, password, navigate) {
    }
 }
 
-async function Auth(email, password, navigate) {
+async function Auth(email, password) {
    const result = await fetchSignInMethodsForEmail(auth, email)
 
    if (result.length === 0) {
-      Register(email, password, navigate)
+      Register(email, password)
       return
    }
 
-   Login(email, password, navigate)
+   Login(email, password)
 }
 
 async function AuthGoogle() {

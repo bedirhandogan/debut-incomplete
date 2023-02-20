@@ -4,7 +4,7 @@ import Input from 'components/shared/Input'
 import Button from 'components/shared/Button'
 import logo from 'assets/images/logo.svg'
 import { IconBrandGoogle } from '@tabler/icons-react'
-import { Auth } from 'api'
+import { Auth, AuthGoogle } from 'api'
 import { useNavigate } from 'react-router-dom'
 
 function ModalWrapper() {
@@ -17,7 +17,10 @@ function ModalWrapper() {
 
       if (email.length !== 0 && password.length !== 0) {
          Auth(email, password, navigate)
+         return
       }
+
+      AuthGoogle()
    }
 
    return (

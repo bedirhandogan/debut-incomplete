@@ -5,9 +5,13 @@ import {
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
    signOut,
+   GoogleAuthProvider,
+   signInWithPopup,
 } from 'firebase/auth'
 
 import toast from 'react-hot-toast'
+
+const provider = new GoogleAuthProvider()
 
 const firebaseConfig = {
    apiKey: process.env.REACT_APP_API_KEY,
@@ -62,6 +66,10 @@ async function Auth(email, password, navigate) {
    Login(email, password, navigate)
 }
 
+function AuthGoogle() {
+   signInWithPopup(auth, provider)
+}
+
 const Logout = () =>
    signOut(auth).then(() => {
       toast.success('Your account has been logged out.', {
@@ -69,4 +77,4 @@ const Logout = () =>
       })
    })
 
-export { Auth, Logout, auth }
+export { Auth, AuthGoogle, Logout, auth }

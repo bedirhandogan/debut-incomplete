@@ -66,8 +66,15 @@ async function Auth(email, password, navigate) {
    Login(email, password, navigate)
 }
 
-function AuthGoogle() {
-   signInWithPopup(auth, provider)
+async function AuthGoogle() {
+   try {
+      await signInWithPopup(auth, provider)
+      toast.success('Your account has been successfully logged in.', {
+         position: 'top-right',
+      })
+   } catch (e) {
+      console.error(e)
+   }
 }
 
 const Logout = () =>

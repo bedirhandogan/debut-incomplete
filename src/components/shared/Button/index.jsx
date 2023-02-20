@@ -1,14 +1,14 @@
 import styles from './styles.module.css'
 
-function Button({ children, style, color, onClick, id }) {
+function Button(props) {
    return (
       <button
-         className={`${styles.button} ${color === 'red' ? styles.red : null}`}
-         style={style}
-         onClick={onClick}
-         id={id}
+         className={`${styles.button} ${
+            props.color === 'red' ? styles.red : null
+         }`}
+         {...props}
       >
-         {children}
+         {props.children}
       </button>
    )
 }

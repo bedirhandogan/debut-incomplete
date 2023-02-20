@@ -6,12 +6,16 @@ import logo from 'assets/images/logo.svg'
 import { IconBrandGoogle } from '@tabler/icons-react'
 import { Auth, AuthGoogle } from 'api'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { change } from 'store/reducer/modal'
 
 function ModalWrapper() {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
 
    const handleSubmit = (event) => {
       event.preventDefault()
+      dispatch(change(false))
 
       const [email, password] = [event.target[1].value, event.target[2].value]
 

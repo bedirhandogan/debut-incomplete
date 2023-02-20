@@ -12,14 +12,10 @@ function Navbar() {
 
    const handleClick = () => {
       onAuthStateChanged(auth, (user) => {
-         if (user !== null) {
-            navigate('/app')
-
-            return
-         }
-
-         dispatch(change(true))
+         if (user !== null) navigate('/app')
       })
+
+      dispatch(change(true))
    }
 
    return (

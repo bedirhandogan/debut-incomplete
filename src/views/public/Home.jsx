@@ -7,9 +7,11 @@ import { IconBrandGoogle } from '@tabler/icons-react'
 import { Auth, AuthGoogle } from 'api'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/modal'
+import { useNavigate } from 'react-router-dom'
 
 function ModalWrapper() {
    const dispatch = useDispatch()
+   const navigate = useNavigate()
 
    const handleSubmit = (event) => {
       event.preventDefault()
@@ -18,11 +20,12 @@ function ModalWrapper() {
       const [email, password] = [event.target[1].value, event.target[2].value]
 
       if (event.nativeEvent.submitter.id === 'password') {
-         if (email.length !== 0 && password.length !== 0) Auth(email, password)
+         if (email.length !== 0 && password.length !== 0)
+            Auth(email, password, navigate)
          return
       }
 
-      AuthGoogle()
+      AuthGoogle(navigate)
    }
 
    return (

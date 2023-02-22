@@ -25,12 +25,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
-async function Register(email, password) {
+async function Register(email, password, navigate) {
    try {
       await createUserWithEmailAndPassword(auth, email, password)
       toast.success('Your account has been created.', {
          position: 'top-right',
       })
+      navigate('/app')
    } catch (e) {
       if (e.code === 'auth/weak-password')
          toast.error('Password should be at least 6 characters', {
@@ -39,12 +40,13 @@ async function Register(email, password) {
    }
 }
 
-async function Login(email, password) {
+async function Login(email, password, navigate) {
    try {
       await signInWithEmailAndPassword(auth, email, password)
       toast.success('Your account has been successfully logged in.', {
          position: 'top-right',
       })
+      navigate('/app')
    } catch (e) {
       if (e.code === 'auth/wrong-password')
          toast.error('You entered an incorrect password, please correct it.', {
@@ -53,33 +55,35 @@ async function Login(email, password) {
    }
 }
 
-async function Auth(email, password) {
+async function Auth(email, password, navigate) {
    const result = await fetchSignInMethodsForEmail(auth, email)
 
    if (result.length === 0) {
-      Register(email, password)
+      Register(email, password, navigate)
       return
    }
 
-   Login(email, password)
+   Login(email, password, navigate)
 }
 
-async function AuthGoogle() {
+async function AuthGoogle(navigate) {
    try {
       await signInWithPopup(auth, provider)
       toast.success('Your account has been successfully logged in.', {
          position: 'top-right',
       })
+      navigate('/app')
    } catch (e) {
       console.error(e)
    }
 }
 
-const Logout = () =>
+const Logout = (navigate) =>
    signOut(auth).then(() => {
       toast.success('Your account has been logged out.', {
          position: 'top-right',
       })
+      navigate('/')
    })
 
 export { Auth, AuthGoogle, Logout, auth }

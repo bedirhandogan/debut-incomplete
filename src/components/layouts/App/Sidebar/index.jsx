@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
    IconBookmarks,
    IconListCheck,
@@ -11,6 +11,8 @@ import logo from 'assets/images/logo.svg'
 import { Logout } from 'api'
 
 function Sidebar() {
+   const navigate = useNavigate()
+
    return (
       <div className={styles.sidebar}>
          <div className={styles.header}>
@@ -64,7 +66,7 @@ function Sidebar() {
                width={24}
                height={24}
                style={{ color: 'var(--icon-color-primary)' }}
-               onClick={() => Logout()}
+               onClick={() => Logout(navigate)}
             />
          </div>
       </div>

@@ -10,15 +10,7 @@ function App() {
    const location = useLocation()
 
    useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-         if (user == null) {
-            navigate('/')
-
-            return
-         }
-
-         navigate(location.pathname)
-      })
+      onAuthStateChanged(auth, (user) => user == null && navigate('/'))
    }, [navigate, location])
 
    return (

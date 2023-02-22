@@ -2,7 +2,7 @@ import Layouts from 'components/layouts'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from 'api'
+import { auth } from 'db/auth'
 
 function App() {
    const { Sidebar, Navbar } = Layouts.App

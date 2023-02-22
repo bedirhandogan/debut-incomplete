@@ -8,7 +8,7 @@ import {
    IconSquareRoundedArrowRight,
 } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
-import { Logout } from 'api'
+import { Logout } from 'db/auth'
 
 function Sidebar() {
    const navigate = useNavigate()

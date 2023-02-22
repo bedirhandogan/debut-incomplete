@@ -4,10 +4,10 @@ import Input from 'components/shared/Input'
 import Button from 'components/shared/Button'
 import logo from 'assets/images/logo.svg'
 import { IconBrandGoogle } from '@tabler/icons-react'
-import { Auth, AuthGoogle } from 'api'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/modal'
 import { useNavigate } from 'react-router-dom'
+import Auth, { AuthGoogle } from 'db/auth'
 
 function ModalWrapper() {
    const dispatch = useDispatch()

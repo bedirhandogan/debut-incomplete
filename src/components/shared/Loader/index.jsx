@@ -1,8 +1,8 @@
-import styles from 'components/independent/Loading/styles.module.css'
+import styles from './styles.module.css'
 
-function Loading() {
+function Loader() {
    return (
-      <div className={styles.loading}>
+      <div className={styles.loader}>
          <div className={styles.wrapper}>
             <div className={styles.part} />
             <div className={styles.part} />
@@ -16,4 +16,4 @@ function Loading() {
    )
 }
 
-export default Loading
+export default Loader

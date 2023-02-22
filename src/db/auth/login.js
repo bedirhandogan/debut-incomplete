@@ -1,10 +1,10 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import toast from 'react-hot-toast'
-import { auth } from './index'
+import { AuthInstance } from './index'
 
 async function Login(email, password, navigate) {
    try {
-      await signInWithEmailAndPassword(auth, email, password)
+      await signInWithEmailAndPassword(AuthInstance, email, password)
       toast.success('Your account has been successfully logged in.', {
          position: 'top-right',
       })

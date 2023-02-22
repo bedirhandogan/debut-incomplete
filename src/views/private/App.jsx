@@ -2,7 +2,7 @@ import Layouts from 'components/layouts'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from 'db/auth'
+import { AuthInstance } from 'db/auth'
 
 function App() {
    const { Sidebar, Navbar } = Layouts.App
@@ -10,7 +10,7 @@ function App() {
    const location = useLocation()
 
    useEffect(() => {
-      onAuthStateChanged(auth, (user) => user == null && navigate('/'))
+      onAuthStateChanged(AuthInstance, (user) => user == null && navigate('/'))
    }, [navigate, location])
 
    return (

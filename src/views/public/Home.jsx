@@ -7,7 +7,7 @@ import { IconBrandGoogle } from '@tabler/icons-react'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/modal'
 import { useNavigate } from 'react-router-dom'
-import Auth, { AuthGoogle } from 'db/auth'
+import Auth, { GoogleAuth } from 'db/auth'
 
 function ModalWrapper() {
    const dispatch = useDispatch()
@@ -25,7 +25,7 @@ function ModalWrapper() {
          return
       }
 
-      AuthGoogle(navigate)
+      GoogleAuth(navigate)
    }
 
    return (

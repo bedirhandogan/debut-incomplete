@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/modal'
 import { useNavigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
-import auth from 'db/auth'
+import { AuthInstance } from 'db/auth'
 
 function Navbar() {
    const dispatch = useDispatch()
    const navigate = useNavigate()
 
    const handleClick = () => {
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(AuthInstance, (user) => {
          if (user !== null) navigate('/app')
       })
 

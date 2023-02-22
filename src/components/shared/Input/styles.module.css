@@ -27,15 +27,3 @@
    color: var(--text-color-primary);
    border: 1.5px solid var(--border-color-primary-dark);
 }
-
-@media screen and (max-width: 525px) {
-   .input input {
-      width: 150px;
-      height: 30px;
-   }
-
-   .input svg {
-      width: 18px;
-      height: 18px;
-   }
-}

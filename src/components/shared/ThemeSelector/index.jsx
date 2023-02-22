@@ -3,12 +3,15 @@ import { change } from 'store/reducer/theme'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useDispatch, useSelector } from 'react-redux'
 
-function ThemeSelector() {
+function ThemeSelector({ className }) {
    const { theme } = useSelector((state) => state.theme)
    const dispatch = useDispatch()
 
    return (
-      <div className={styles.themeSelector} onClick={() => dispatch(change())}>
+      <div
+         className={`${styles.themeSelector} ${className}`}
+         onClick={() => dispatch(change())}
+      >
          <div
             className={`${styles.themeSelect} ${
                theme === 'dark' && styles.active

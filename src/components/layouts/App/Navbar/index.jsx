@@ -9,10 +9,14 @@ function Navbar() {
       <div className={styles.navbar}>
          <div className={styles.area}>
             <img src={logo} alt={'profile'} />
-            Introduction
+            Debut
          </div>
          <div className={styles.area}>
-            <Input type={'text'} placeholder={'Search'}>
+            <Input
+               type={'text'}
+               placeholder={'Search'}
+               className={styles.navbarSearch}
+            >
                <IconSearch
                   stroke={1.3}
                   width={20}
@@ -20,7 +24,7 @@ function Navbar() {
                   style={{ color: 'var(--icon-color-primary)' }}
                />
             </Input>
-            <ThemeSelector />
+            <ThemeSelector className={styles.navbarThemeSelector} />
             <div className={styles.notification}>
                <IconBell
                   stroke={1.3}

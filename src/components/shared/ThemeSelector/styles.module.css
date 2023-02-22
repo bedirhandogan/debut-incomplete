@@ -25,7 +25,6 @@
    border-radius: 8px;
 }
 
-
 @media screen and (max-width: 768px) {
    .themeSelector {
       display: none;

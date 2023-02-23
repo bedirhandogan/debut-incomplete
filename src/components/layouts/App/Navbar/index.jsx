@@ -1,16 +1,11 @@
 import styles from './styles.module.css'
-import { IconSearch, IconBell, IconSettings } from '@tabler/icons-react'
-import logo from 'assets/images/logo.svg'
+import { IconSearch } from '@tabler/icons-react'
 import Input from 'components/shared/Input'
 import ThemeSelector from 'components/shared/ThemeSelector'
 
 function Navbar() {
    return (
       <div className={styles.navbar}>
-         <div className={styles.area}>
-            <img src={logo} alt={'profile'} />
-            Debut
-         </div>
          <div className={styles.area}>
             <Input
                type={'text'}
@@ -25,18 +20,6 @@ function Navbar() {
                />
             </Input>
             <ThemeSelector className={styles.navbarThemeSelector} />
-            <div className={styles.notification}>
-               <IconBell
-                  stroke={1.3}
-                  style={{ color: 'var(--icon-color-primary)' }}
-               />
-            </div>
-            <div className={styles.settings}>
-               <IconSettings
-                  stroke={1.3}
-                  style={{ color: 'var(--icon-color-primary)' }}
-               />
-            </div>
          </div>
       </div>
    )

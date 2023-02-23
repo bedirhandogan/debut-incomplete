@@ -1,6 +1,6 @@
 .navbar {
    display: inline-flex;
-   justify-content: space-between;
+   justify-content: flex-end;
    align-items: center;
    padding: 20px;
    border-bottom: 1.5px solid var(--border-color-primary);
@@ -14,26 +14,10 @@
    gap: 10px;
 }
 
-.area img {
-   display: none;
-}
-
-.notification, .settings {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 30px;
-   height: 30px;
-}
-
 @media screen and (max-width: 1024px) {
    .navbar {
       grid-column: 1 / 2;
       grid-row: 1;
-   }
-
-   .area img {
-      display: block;
    }
 }
 

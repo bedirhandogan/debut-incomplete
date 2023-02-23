@@ -3,6 +3,7 @@
 
 :root {
    --glb-background-color-primary: #fd2835;
+   --glb-text-color-primary: #fd2835;
 }
 
 [data-theme='light'] {

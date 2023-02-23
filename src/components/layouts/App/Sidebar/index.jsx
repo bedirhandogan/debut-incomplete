@@ -14,11 +14,13 @@ import logo from 'assets/images/logo.svg'
 import defaultProfile from 'assets/images/default-profile.svg'
 import { Logout } from 'db/auth'
 import Tooltip from 'components/shared/Tooltip'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { change } from 'store/reducer/modal'
 
 function Sidebar() {
    const navigate = useNavigate()
    const user = useSelector((state) => state.user)
+   const dispatch = useDispatch()
 
    return (
       <div className={styles.sidebar}>
@@ -76,7 +78,10 @@ function Sidebar() {
                />
                Notification
             </div>
-            <div className={styles.modalTrigger}>
+            <div
+               className={styles.modalTrigger}
+               onClick={() => dispatch(change(true))}
+            >
                <IconSettings
                   stroke={1.3}
                   width={24}

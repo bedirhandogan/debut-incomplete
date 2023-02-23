@@ -5,6 +5,16 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { AuthInstance } from 'db/auth'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/user'
+import Modal from 'components/shared/Modal'
+import Settings from '../../components/layouts/App/Settings'
+
+function ModalWrapper() {
+   return (
+      <Modal style={{ width: 'max-content', height: 'max-content' }}>
+         <Settings />
+      </Modal>
+   )
+}
 
 function App() {
    const { Sidebar, Navbar } = Layouts.App
@@ -32,6 +42,7 @@ function App() {
          <Sidebar />
          <Navbar />
          <Outlet />
+         <ModalWrapper />
       </div>
    )
 }

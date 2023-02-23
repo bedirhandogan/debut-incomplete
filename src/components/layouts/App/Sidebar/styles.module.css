@@ -48,13 +48,10 @@
    border-radius: 5px;
    gap: 10px;
    font-size: 15.8px;
-}
-
-.area a svg path {
    transition: all 200ms;
 }
 
-.area a:hover svg path {
+.area a:hover {
    color: var(--glb-text-color-primary);
 }
 
@@ -68,13 +65,10 @@
    gap: 10px;
    cursor: pointer;
    font-size: 15.8px;
-}
-
-.modalTrigger svg path {
    transition: all 200ms;
 }
 
-.modalTrigger:hover svg path {
+.modalTrigger:hover {
    color: var(--glb-text-color-primary);
 }
 

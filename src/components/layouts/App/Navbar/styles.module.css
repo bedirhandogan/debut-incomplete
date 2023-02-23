@@ -39,7 +39,8 @@
       color: transparent;
    }
 
-   .navbarSearch input, .navbarThemeSelector {
+   .navbarSearch input,
+   .navbarThemeSelector {
       width: 30px;
       height: 30px;
       padding: 0;

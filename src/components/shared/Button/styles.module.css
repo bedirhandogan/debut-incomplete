@@ -27,3 +27,15 @@
 .button.red:hover {
    background-color: #fa0716;
 }
+
+.button.blue {
+   background-color: #00a6ff;
+   color: white;
+   border: none;
+   width: 130px;
+   transition: 200ms all;
+}
+
+.button.blue:hover {
+   background-color: #008cff;
+}

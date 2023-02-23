@@ -4,7 +4,11 @@ function Button(props) {
    return (
       <button
          className={`${styles.button} ${
-            props.color === 'red' ? styles.red : null
+            props.color === 'red'
+               ? styles.red
+               : props.color === 'blue'
+               ? styles.blue
+               : null
          }`}
          {...props}
       >

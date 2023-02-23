@@ -15,14 +15,15 @@ function App() {
    useEffect(() => {
       onAuthStateChanged(AuthInstance, (user) => {
          user == null && navigate('/')
-         dispatch(
-            change({
-               uid: user.uid,
-               displayName: user.displayName,
-               email: user.email,
-               photoUrl: user.photoURL,
-            })
-         )
+         user !== null &&
+            dispatch(
+               change({
+                  uid: user.uid,
+                  displayName: user.displayName,
+                  email: user.email,
+                  photoUrl: user.photoURL,
+               })
+            )
       })
    }, [navigate, location, dispatch])
 

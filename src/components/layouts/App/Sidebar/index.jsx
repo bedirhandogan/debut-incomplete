@@ -14,9 +14,11 @@ import logo from 'assets/images/logo.svg'
 import defaultProfile from 'assets/images/default-profile.svg'
 import { Logout } from 'db/auth'
 import Tooltip from 'components/shared/Tooltip'
+import { useSelector } from 'react-redux'
 
 function Sidebar() {
    const navigate = useNavigate()
+   const user = useSelector((state) => state.user)
 
    return (
       <div className={styles.sidebar}>
@@ -95,8 +97,15 @@ function Sidebar() {
          </div>
          <hr />
          <div className={styles.footer}>
-            <img src={defaultProfile} alt={'profile'} />
-            <div className={styles.username}>Unknown</div>
+            <img
+               src={user.photoUrl !== null ? user.photoUrl : defaultProfile}
+               alt={'profile'}
+            />
+            <div className={styles.username}>
+               {user.displayName !== null
+                  ? user.displayName.slice(0, 10) + '...'
+                  : 'unknown'}
+            </div>
             <Tooltip text={'Logout'} position={'top'}>
                <IconSquareRoundedArrowRight
                   stroke={1.3}

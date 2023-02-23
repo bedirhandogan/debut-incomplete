@@ -95,26 +95,28 @@ function Sidebar() {
                Help & Support
             </div>
          </div>
-         <hr />
          <div className={styles.footer}>
-            <img
-               src={user.photoUrl !== null ? user.photoUrl : defaultProfile}
-               alt={'profile'}
-            />
-            <div className={styles.username}>
-               {user.displayName !== null
-                  ? user.displayName.slice(0, 10) + '...'
-                  : 'unknown'}
-            </div>
-            <Tooltip text={'Logout'} position={'top'}>
-               <IconSquareRoundedArrowRight
-                  stroke={1.3}
-                  width={24}
-                  height={24}
-                  style={{ color: 'var(--icon-color-primary)' }}
-                  onClick={() => Logout(navigate)}
+            <div className={styles.groupName}>Session</div>
+            <div className={styles.session}>
+               <img
+                  src={user.photoUrl !== null ? user.photoUrl : defaultProfile}
+                  alt={'profile'}
                />
-            </Tooltip>
+               <div className={styles.username}>
+                  {user.displayName !== null
+                     ? user.displayName.slice(0, 10) + '...'
+                     : 'unknown'}
+               </div>
+               <Tooltip text={'Logout'} position={'top'}>
+                  <IconSquareRoundedArrowRight
+                     stroke={1.3}
+                     width={24}
+                     height={24}
+                     style={{ color: 'var(--icon-color-primary)' }}
+                     onClick={() => Logout(navigate)}
+                  />
+               </Tooltip>
+            </div>
          </div>
       </div>
    )

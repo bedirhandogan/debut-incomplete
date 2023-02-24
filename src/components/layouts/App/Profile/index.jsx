@@ -4,6 +4,7 @@ import Button from 'components/shared/Button'
 import { useRef } from 'react'
 import uploadImage from 'db/storage/upload-image'
 import { useDispatch, useSelector } from 'react-redux'
+import updateName from 'db/storage/update-name'
 
 function Profile({ state }) {
    const fileRef = useRef()
@@ -13,6 +14,13 @@ function Profile({ state }) {
 
    const handeSubmit = (event) => {
       event.preventDefault()
+      const [name, email] = [event.target[0], event.target[2]]
+
+      name.value.length !== 0 && updateName(name.value, dispatch)
+
+      // normalize
+      name.value = ''
+      email.value = ''
    }
 
    const handleFileChange = async (event) => {
@@ -71,7 +79,7 @@ function Profile({ state }) {
                   className={styles.profilePicture}
                   onClick={handleFileUpload}
                >
-                  <img src={state.data.photoUrl} alt={'profile'} />
+                  <img src={state.photoUrl} alt={'profile'} />
                   <div className={styles.pictureHover}>Upload a photo</div>
                   <input
                      type={'file'}

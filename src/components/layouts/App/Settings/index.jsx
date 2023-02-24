@@ -14,7 +14,7 @@ function Appearance() {
 
 function Settings() {
    const [activeAction, setActiveAction] = useState('profile')
-   const user = useSelector((state) => state.user)
+   const { data } = useSelector((state) => state.user)
 
    return (
       <div className={styles.settings}>
@@ -70,7 +70,7 @@ function Settings() {
          </div>
          <div className={styles.area}>
             {activeAction === 'profile' ? (
-               <Profile state={user} />
+               <Profile state={data} />
             ) : activeAction === 'password' ? (
                <Password />
             ) : activeAction === 'appearance' ? (

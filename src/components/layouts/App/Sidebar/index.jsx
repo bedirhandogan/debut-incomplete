@@ -104,7 +104,9 @@ function Sidebar() {
             <div className={styles.groupName}>Session</div>
             <div className={styles.session}>
                <img
-                  src={data.photoUrl !== null ? data.photoUrl : defaultProfile}
+                  src={
+                     data.photoUrl !== 'null' ? data.photoUrl : defaultProfile
+                  }
                   alt={'profile'}
                />
                <div className={styles.username}>

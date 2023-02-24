@@ -111,7 +111,9 @@ function Sidebar() {
                />
                <div className={styles.username}>
                   {data.displayName !== null
-                     ? data.displayName.slice(0, 10) + '...'
+                     ? data.displayName.length >= 10
+                        ? data.displayName.slice(0, 10) + '...'
+                        : data.displayName
                      : 'unknown'}
                </div>
                <Tooltip text={'Logout'} position={'top'}>

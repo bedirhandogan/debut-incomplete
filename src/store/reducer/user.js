@@ -3,20 +3,26 @@ import { createSlice } from '@reduxjs/toolkit'
 const user = createSlice({
    name: 'user',
    initialState: {
-      uid: 'null',
-      displayName: 'null',
-      email: 'null',
-      photoUrl: 'null',
+      data: {
+         uid: 'null',
+         displayName: 'null',
+         email: 'null',
+         photoUrl: 'null',
+      },
    },
    reducers: {
       change: (state, action) => {
-         state.uid = action.payload.uid
-         state.displayName = action.payload.displayName
-         state.email = action.payload.email
-         state.photoUrl = action.payload.photoUrl
+         state.data = action.payload
+      },
+      edit: (state, action) => {
+         const [key, value] = [
+            ...Object.keys(action.payload),
+            ...Object.values(action.payload),
+         ]
+         state.data[key] = value
       },
    },
 })
 
-export const { change } = user.actions
+export const { change, edit } = user.actions
 export default user.reducer

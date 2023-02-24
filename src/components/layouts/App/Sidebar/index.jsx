@@ -19,7 +19,7 @@ import { change } from 'store/reducer/modal'
 
 function Sidebar() {
    const navigate = useNavigate()
-   const user = useSelector((state) => state.user)
+   const { data } = useSelector((state) => state.user)
    const dispatch = useDispatch()
 
    return (
@@ -104,12 +104,12 @@ function Sidebar() {
             <div className={styles.groupName}>Session</div>
             <div className={styles.session}>
                <img
-                  src={user.photoUrl !== null ? user.photoUrl : defaultProfile}
+                  src={data.photoUrl !== null ? data.photoUrl : defaultProfile}
                   alt={'profile'}
                />
                <div className={styles.username}>
-                  {user.displayName !== null
-                     ? user.displayName.slice(0, 10) + '...'
+                  {data.displayName !== null
+                     ? data.displayName.slice(0, 10) + '...'
                      : 'unknown'}
                </div>
                <Tooltip text={'Logout'} position={'top'}>

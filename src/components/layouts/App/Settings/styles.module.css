@@ -6,6 +6,7 @@
 }
 
 .area {
+   position: relative;
    display: flex;
    flex-direction: column;
    gap: 20px;
@@ -16,6 +17,10 @@
    width: 180px;
    min-height: 500px;
    border-right: 1.5px solid var(--border-color-primary);
+}
+
+.area:nth-of-type(2) {
+    width: calc(100% - 200px);
 }
 
 .actionList {
@@ -46,4 +51,11 @@
 
 .active {
    background-color: var(--background-color-primary-dark);
+}
+
+@media screen and (max-width: 1024px) {
+    .settings {
+        width: 100vw;
+        height: 100vh;
+    }
 }

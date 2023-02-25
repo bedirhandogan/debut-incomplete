@@ -1,12 +1,8 @@
 import styles from './styles.module.css'
-import { IconPaint, IconPassword, IconUserCircle } from '@tabler/icons-react'
+import { IconPassword, IconUserCircle } from '@tabler/icons-react'
 import { useState } from 'react'
 import Profile from '../Profile'
 import Password from '../Password'
-
-function Appearance() {
-   return <div>Hello, Appearance</div>
-}
 
 function Settings() {
    const [activeAction, setActiveAction] = useState('profile')
@@ -45,23 +41,6 @@ function Settings() {
                   Password
                </div>
             </div>
-            <div className={styles.actionList}>
-               <div className={styles.groupName}>Appearify</div>
-               <div
-                  className={`${styles.action} ${
-                     activeAction === 'appearance' && styles.active
-                  }`}
-                  onClick={() => setActiveAction('appearance')}
-               >
-                  <IconPaint
-                     stroke={1.3}
-                     width={24}
-                     height={24}
-                     style={{ color: 'var(--icon-color-primary)' }}
-                  />
-                  Appearance
-               </div>
-            </div>
          </div>
          <div className={styles.area}>
             <div className={styles.actionTitle}>{activeAction}</div>
@@ -69,8 +48,6 @@ function Settings() {
                <Profile />
             ) : activeAction === 'password' ? (
                <Password />
-            ) : activeAction === 'appearance' ? (
-               <Appearance />
             ) : null}
          </div>
       </div>

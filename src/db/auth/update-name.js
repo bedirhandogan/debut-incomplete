@@ -1,8 +1,8 @@
 import { updateProfile } from 'firebase/auth'
-import { AuthInstance } from '../auth'
+import { AuthInstance } from 'db/auth/index'
 import toast from 'react-hot-toast'
 import { edit } from 'store/reducer/user'
-import errorMessages from '../config/error-messages'
+import errorMessages from 'db/config/error-messages'
 
 async function updateName(name, dispatch) {
    try {

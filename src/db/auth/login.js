@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import toast from 'react-hot-toast'
 import { AuthInstance } from './index'
+import errorMessages from '../config/error-messages'
 
 async function Login(email, password, navigate) {
    try {
@@ -10,10 +11,7 @@ async function Login(email, password, navigate) {
       })
       navigate('/app')
    } catch (e) {
-      if (e.code === 'auth/wrong-password')
-         toast.error('You entered an incorrect password, please correct it.', {
-            position: 'top-right',
-         })
+      errorMessages(e.code)
    }
 }
 

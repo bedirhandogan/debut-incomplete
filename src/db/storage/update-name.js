@@ -2,6 +2,7 @@ import { updateProfile } from 'firebase/auth'
 import { AuthInstance } from '../auth'
 import toast from 'react-hot-toast'
 import { edit } from 'store/reducer/user'
+import errorMessages from '../config/error-messages'
 
 async function updateName(name, dispatch) {
    try {
@@ -13,6 +14,7 @@ async function updateName(name, dispatch) {
       })
       dispatch(edit({ displayName: name }))
    } catch (e) {
+      errorMessages(e.code)
       console.error(e)
    }
 }

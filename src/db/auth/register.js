@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import toast from 'react-hot-toast'
 import { AuthInstance } from './index'
+import errorMessages from '../config/error-messages'
 
 async function Register(email, password, navigate) {
    try {
@@ -10,10 +11,7 @@ async function Register(email, password, navigate) {
       })
       navigate('/app')
    } catch (e) {
-      if (e.code === 'auth/weak-password')
-         toast.error('Password should be at least 6 characters', {
-            position: 'top-right',
-         })
+      errorMessages(e.code)
    }
 }
 

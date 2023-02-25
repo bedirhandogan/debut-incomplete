@@ -3,6 +3,7 @@ import { updateProfile } from 'firebase/auth'
 import toast from 'react-hot-toast'
 import { edit } from 'store/reducer/user'
 import { AuthInstance } from '../auth'
+import errorMessages from '../config/error-messages'
 
 const storage = getStorage()
 
@@ -23,6 +24,7 @@ async function uploadImage(fileName, image, dispatch) {
 
       dispatch(edit({ photoUrl: url }))
    } catch (e) {
+      errorMessages(e.code)
       console.error(e)
    }
 }

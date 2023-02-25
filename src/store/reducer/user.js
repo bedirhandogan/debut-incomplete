@@ -8,6 +8,7 @@ const user = createSlice({
          displayName: 'null',
          email: 'null',
          photoUrl: 'null',
+         providerId: 'null',
       },
    },
    reducers: {

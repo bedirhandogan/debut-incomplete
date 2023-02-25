@@ -68,10 +68,12 @@ function Profile({ state }) {
                      }}
                      placeholder={state.email}
                      type={'email'}
+                     disabled={state.providerId === 'google.com'}
                   />
                   <div className={styles.inputNote}>
-                     Please use an email of your own otherwise you will not
-                     receive a confirmation code.
+                     {state.providerId === 'google.com'
+                        ? 'You cannot change your email address because you registered with google.'
+                        : `Please use an email of your own otherwise you will not receive a confirmation code.`}
                   </div>
                </div>
                <Button color={'blue'}>Update Profile</Button>

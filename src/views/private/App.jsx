@@ -32,6 +32,7 @@ function App() {
                   displayName: user.displayName,
                   email: user.email,
                   photoUrl: user.photoURL,
+                  providerId: user.providerData[0].providerId,
                })
             )
       })

@@ -3,9 +3,11 @@ import Input from 'components/shared/Input'
 import Button from 'components/shared/Button'
 import { useState } from 'react'
 import updatePassword from 'db/auth/update-password'
+import { useSelector } from 'react-redux'
 
 function Password() {
    const [confirmColor, setConfirmColor] = useState('')
+   const { data } = useSelector((state) => state.user)
 
    const handleSubmit = async (event) => {
       event.preventDefault()
@@ -33,6 +35,7 @@ function Password() {
                }}
                placeholder={'Enter a new password'}
                type={'text'}
+               disabled={data.providerId === 'google.com'}
             />
          </div>
          <div className={styles.inputWrapper}>
@@ -46,12 +49,19 @@ function Password() {
                }}
                placeholder={'Confirm your new password'}
                type={'text'}
+               disabled={data.providerId === 'google.com'}
             />
             <div className={styles.inputNote}>
-               Please enter a password longer than 6 characters.
+               {data.providerId === 'google.com'
+                  ? 'You cannot change your password because you are registered with Google.'
+                  : 'Please enter a password longer than 6 characters.'}
             </div>
          </div>
-         <Button color={'blue'} style={{ width: '150px' }}>
+         <Button
+            color={'blue'}
+            style={{ width: '150px' }}
+            disabled={data.providerId === 'google.com'}
+         >
             Update Password
          </Button>
       </form>

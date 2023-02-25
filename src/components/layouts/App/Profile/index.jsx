@@ -8,7 +8,7 @@ import updateName from 'db/auth/update-name'
 import defaultProfile from 'assets/images/default-profile.svg'
 import updateEmail from 'db/auth/update-email'
 
-function Profile({ state }) {
+function Profile() {
    const fileRef = useRef()
    const handleFileUpload = () => fileRef.current?.click()
    const { data } = useSelector((state) => state.user)
@@ -50,7 +50,7 @@ function Profile({ state }) {
                         padding: '10px',
                         width: '100%',
                      }}
-                     placeholder={state.displayName}
+                     placeholder={data.displayName}
                      type={'text'}
                   />
                   <div className={styles.inputNote}>
@@ -66,12 +66,12 @@ function Profile({ state }) {
                         padding: '10px',
                         width: '100%',
                      }}
-                     placeholder={state.email}
+                     placeholder={data.email}
                      type={'email'}
-                     disabled={state.providerId === 'google.com'}
+                     disabled={data.providerId === 'google.com'}
                   />
                   <div className={styles.inputNote}>
-                     {state.providerId === 'google.com'
+                     {data.providerId === 'google.com'
                         ? 'You cannot change your email address because you registered with google.'
                         : `Please use an email of your own otherwise you will not receive a confirmation code.`}
                   </div>

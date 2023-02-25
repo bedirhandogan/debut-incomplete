@@ -1,7 +1,6 @@
 import styles from './styles.module.css'
 import { IconPaint, IconPassword, IconUserCircle } from '@tabler/icons-react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import Profile from '../Profile'
 import Password from '../Password'
 
@@ -11,7 +10,6 @@ function Appearance() {
 
 function Settings() {
    const [activeAction, setActiveAction] = useState('profile')
-   const { data } = useSelector((state) => state.user)
 
    return (
       <div className={styles.settings}>
@@ -68,7 +66,7 @@ function Settings() {
          <div className={styles.area}>
             <div className={styles.actionTitle}>{activeAction}</div>
             {activeAction === 'profile' ? (
-               <Profile state={data} />
+               <Profile />
             ) : activeAction === 'password' ? (
                <Password />
             ) : activeAction === 'appearance' ? (

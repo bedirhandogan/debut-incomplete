@@ -3,19 +3,14 @@ import logo from 'assets/images/logo.svg'
 import Button from 'components/shared/Button'
 import { IconBrandGoogle } from '@tabler/icons-react'
 import Input from 'components/shared/Input'
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { change } from 'store/reducer/modal'
 import Auth, { GoogleAuth } from 'db/auth'
 
 function AuthForm() {
-   const dispatch = useDispatch()
    const navigate = useNavigate()
 
    const handleSubmit = (event) => {
       event.preventDefault()
-      dispatch(change(false))
-
       const [email, password] = [event.target[1].value, event.target[2].value]
 
       if (event.nativeEvent.submitter.id === 'password') {

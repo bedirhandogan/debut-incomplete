@@ -6,6 +6,7 @@ import uploadImage from 'db/storage/upload-image'
 import { useDispatch, useSelector } from 'react-redux'
 import updateName from 'db/storage/update-name'
 import updateEmail from '../../../../db/storage/update-email'
+import defaultProfile from '../../../../assets/images/default-profile.svg'
 
 function Profile({ state }) {
    const fileRef = useRef()
@@ -81,7 +82,12 @@ function Profile({ state }) {
                   className={styles.profilePicture}
                   onClick={handleFileUpload}
                >
-                  <img src={state.photoUrl} alt={'profile'} />
+                  <img
+                     src={
+                        data.photoUrl !== null ? data.photoUrl : defaultProfile
+                     }
+                     alt={'profile'}
+                  />
                   <div className={styles.pictureHover}>Upload a photo</div>
                   <input
                      type={'file'}

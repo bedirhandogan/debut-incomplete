@@ -5,8 +5,8 @@ import { useRef } from 'react'
 import uploadImage from 'db/storage/upload-image'
 import { useDispatch, useSelector } from 'react-redux'
 import updateName from 'db/storage/update-name'
-import updateEmail from '../../../../db/storage/update-email'
-import defaultProfile from '../../../../assets/images/default-profile.svg'
+import defaultProfile from 'assets/images/default-profile.svg'
+import updateEmail from 'db/storage/update-email'
 
 function Profile({ state }) {
    const fileRef = useRef()

@@ -6,7 +6,7 @@ import { AuthInstance } from 'db/auth'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/user'
 import Modal from 'components/shared/Modal'
-import Settings from '../../components/layouts/App/Settings'
+import Settings from 'components/layouts/App/Settings'
 
 function ModalWrapper() {
    return (

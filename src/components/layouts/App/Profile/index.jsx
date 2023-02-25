@@ -5,6 +5,7 @@ import { useRef } from 'react'
 import uploadImage from 'db/storage/upload-image'
 import { useDispatch, useSelector } from 'react-redux'
 import updateName from 'db/storage/update-name'
+import updateEmail from '../../../../db/storage/update-email'
 
 function Profile({ state }) {
    const fileRef = useRef()
@@ -14,9 +15,10 @@ function Profile({ state }) {
 
    const handeSubmit = (event) => {
       event.preventDefault()
-      const [name, email] = [event.target[0], event.target[2]]
+      const [name, email] = [event.target[0], event.target[1]]
 
       name.value.length !== 0 && updateName(name.value, dispatch)
+      email.value.length !== 0 && updateEmail(email.value, dispatch)
 
       // normalize
       name.value = ''

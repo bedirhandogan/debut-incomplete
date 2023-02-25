@@ -1,13 +1,6 @@
 .profile {
 }
 
-.actionTitle {
-    width: 100%;
-    margin-bottom: 20px;
-    border-bottom: 1.5px solid var(--border-color-primary);
-    padding-bottom: 7px;
-}
-
 .profileContainer {
     cursor: pointer;
     position: relative;

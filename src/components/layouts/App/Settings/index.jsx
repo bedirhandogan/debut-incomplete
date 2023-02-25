@@ -3,10 +3,7 @@ import { IconPaint, IconPassword, IconUserCircle } from '@tabler/icons-react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Profile from '../Profile'
-
-function Password() {
-   return <div>Hello, Password</div>
-}
+import Password from '../Password'
 
 function Appearance() {
    return <div>Hello, Appearance</div>
@@ -69,6 +66,7 @@ function Settings() {
             </div>
          </div>
          <div className={styles.area}>
+            <div className={styles.actionTitle}>{activeAction}</div>
             {activeAction === 'profile' ? (
                <Profile state={data} />
             ) : activeAction === 'password' ? (

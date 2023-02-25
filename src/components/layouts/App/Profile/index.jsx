@@ -40,7 +40,6 @@ function Profile({ state }) {
 
    return (
       <div className={styles.profile}>
-         <div className={styles.actionTitle}>Profile</div>
          <div className={styles.profileContainer}>
             <form onSubmit={handeSubmit}>
                <div className={styles.inputWrapper}>

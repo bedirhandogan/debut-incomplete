@@ -23,6 +23,13 @@
     width: calc(100% - 200px);
 }
 
+.actionTitle {
+   text-transform: capitalize;
+   width: 100%;
+   border-bottom: 1.5px solid var(--border-color-primary);
+   padding-bottom: 7px;
+}
+
 .actionList {
    display: flex;
    flex-direction: column;

@@ -17,10 +17,11 @@ function Password() {
       if (newPassword.value === confirmPassword.value) {
          setConfirmColor('#01d001')
          await updatePassword(newPassword.value)
-         return
-      }
+      } else setConfirmColor('#fd2835')
 
-      setConfirmColor('#fd2835')
+      // normalize
+      newPassword.value = ''
+      confirmPassword.value = ''
    }
 
    return (

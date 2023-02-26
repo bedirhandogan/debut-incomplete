@@ -59,7 +59,7 @@ function Password() {
             </div>
          </div>
          <Button
-            color={'blue'}
+            type={'secondary'}
             style={{ width: '150px' }}
             disabled={data.providerId === 'google.com'}
          >

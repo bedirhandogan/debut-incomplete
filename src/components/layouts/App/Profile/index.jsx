@@ -76,7 +76,7 @@ function Profile() {
                         : `Please use an email of your own otherwise you will not receive a confirmation code.`}
                   </div>
                </div>
-               <Button color={'blue'}>Update Profile</Button>
+               <Button type={'secondary'}>Update Profile</Button>
             </form>
             <div>
                <div

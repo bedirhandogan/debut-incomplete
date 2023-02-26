@@ -19,16 +19,16 @@
    border: 1.5px solid var(--border-color-primary-dark);
 }
 
-.button.red {
+.button.primary {
    background: var(--glb-background-color-primary);
    transition: 200ms all;
 }
 
-.button.red:hover {
+.button.primary:hover {
    background-color: #fa0716;
 }
 
-.button.blue {
+.button.secondary {
    background-color: #00a6ff;
    color: white;
    border: none;
@@ -36,6 +36,15 @@
    transition: 200ms all;
 }
 
-.button.blue:hover {
+.button.secondary:hover {
    background-color: #008cff;
+}
+
+.button.third {
+   background-color: transparent;
+   border: 2px dashed var(--border-color-primary-dark);
+}
+
+.button.third:hover {
+   background-color: var(--background-color-primary-dark);
 }

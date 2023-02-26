@@ -27,7 +27,7 @@ function AuthForm() {
          <img src={logo} alt={'logo'} />
          <p>Login with email or google account</p>
          <Button
-            color={'red'}
+            type={'primary'}
             id={'google'}
             style={{
                color: '#fff',

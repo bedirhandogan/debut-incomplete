@@ -1,0 +1,36 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.breadcrumbs svg {
+    opacity: 0.8;
+    transition: 200ms all;
+}
+
+.breadcrumbs svg:hover {
+    opacity: 1;
+}
+
+.arrow::before {
+    content: '>';
+    font-weight: 500;
+}
+
+.text {
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 200ms all;
+}
+
+.text:hover {
+    opacity: 1;
+}

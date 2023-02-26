@@ -3,17 +3,27 @@ import { IconSearch } from '@tabler/icons-react'
 import Input from 'components/shared/Input'
 import ThemeSelector from 'components/shared/ThemeSelector'
 import { useLocation } from 'react-router-dom'
+import Breadcrumbs from 'components/shared/Breadcrumbs'
 
 function Navbar() {
    const location = useLocation()
+   console.log(location)
 
    return (
       <div className={styles.navbar}>
          <div className={styles.area}>
             <div className={styles.pageTitle}>
-               {location.pathname === '/app'
-                  ? 'Introduction'
-                  : location.pathname.slice(5)}
+               {location.pathname !== '/app' && (
+                  <Breadcrumbs
+                     path={[
+                        {
+                           name: location.pathname.slice(5),
+                           to: location.pathname,
+                           end: true,
+                        },
+                     ]}
+                  />
+               )}
             </div>
          </div>
          <div className={styles.area}>

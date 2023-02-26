@@ -5,9 +5,8 @@ import {
    IconBookmarks,
    IconLayoutCollage,
    IconMessage2,
-   IconNote,
    IconSettings,
-   IconSquareCheck,
+   IconSmartHome,
    IconSquareRoundedArrowRight,
 } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
@@ -31,7 +30,7 @@ function Sidebar() {
          <div className={styles.area}>
             <div className={styles.groupName}>General</div>
             <Link to={'/app'}>
-               <IconLayoutCollage
+               <IconSmartHome
                   stroke={1.3}
                   width={24}
                   height={24}
@@ -39,23 +38,14 @@ function Sidebar() {
                />
                Introduction
             </Link>
-            <Link to={'tasks'}>
-               <IconSquareCheck
+            <Link to={'projects'}>
+               <IconLayoutCollage
                   stroke={1.3}
                   width={24}
                   height={24}
                   style={{ color: 'var(--icon-color-primary)' }}
                />
-               Tasks
-            </Link>
-            <Link to={'notes'}>
-               <IconNote
-                  stroke={1.3}
-                  width={24}
-                  height={24}
-                  style={{ color: 'var(--icon-color-primary)' }}
-               />
-               Notes
+               Projects
             </Link>
             <Link to={'bookmarks'}>
                <IconBookmarks

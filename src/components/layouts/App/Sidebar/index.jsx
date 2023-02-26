@@ -5,6 +5,7 @@ import {
    IconBookmarks,
    IconLayoutCollage,
    IconMessage2,
+   IconPlus,
    IconSettings,
    IconSmartHome,
    IconSquareRoundedArrowRight,
@@ -15,6 +16,7 @@ import { Logout } from 'db/auth'
 import Tooltip from 'components/shared/Tooltip'
 import { useDispatch, useSelector } from 'react-redux'
 import { change } from 'store/reducer/modal'
+import Button from 'components/shared/Button'
 
 function Sidebar() {
    const navigate = useNavigate()
@@ -89,6 +91,17 @@ function Sidebar() {
                />
                Help & Support
             </div>
+         </div>
+         <div className={styles.area}>
+            <Button type={'third'}>
+               <IconPlus
+                  stroke={1.3}
+                  width={20}
+                  height={20}
+                  style={{ color: 'var(--icon-color-primary)' }}
+               />
+               Create Project
+            </Button>
          </div>
          <div className={styles.footer}>
             <div className={styles.groupName}>Session</div>

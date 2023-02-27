@@ -34,7 +34,9 @@ function Sidebar() {
             <div className={styles.groupName}>General</div>
             <Link
                to={'/app'}
-               className={location.pathname === '/app' && styles.active}
+               className={
+                  location.pathname === '/app' ? styles.active : 'false'
+               }
             >
                <IconSmartHome
                   stroke={1.3}
@@ -47,7 +49,9 @@ function Sidebar() {
             <Link
                to={'projects'}
                className={
-                  location.pathname === '/app/projects' && styles.active
+                  location.pathname === '/app/projects'
+                     ? styles.active
+                     : 'false'
                }
             >
                <IconLayoutCollage
@@ -61,7 +65,9 @@ function Sidebar() {
             <Link
                to={'bookmarks'}
                className={
-                  location.pathname === '/app/bookmarks' && styles.active
+                  location.pathname === '/app/bookmarks'
+                     ? styles.active
+                     : 'false'
                }
             >
                <IconBookmarks

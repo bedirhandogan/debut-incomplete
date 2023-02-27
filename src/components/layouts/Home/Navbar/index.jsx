@@ -14,11 +14,21 @@ function Navbar() {
       onAuthStateChanged(AuthInstance, (user) => {
          if (user !== null) {
             navigate('/app')
-            dispatch(change(false))
+            dispatch(
+               change({
+                  component: 'auth',
+                  active: false,
+               })
+            )
          }
       })
 
-      dispatch(change(true))
+      dispatch(
+         change({
+            component: 'auth',
+            active: true,
+         })
+      )
    }
 
    return (

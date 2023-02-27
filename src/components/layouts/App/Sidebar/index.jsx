@@ -15,8 +15,8 @@ import defaultProfile from 'assets/images/default-profile.svg'
 import { Logout } from 'db/auth'
 import Tooltip from 'components/shared/Tooltip'
 import { useDispatch, useSelector } from 'react-redux'
-import { change } from 'store/reducer/modal'
 import Button from 'components/shared/Button'
+import { change } from 'store/reducer/modal'
 
 function Sidebar() {
    const navigate = useNavigate()
@@ -86,7 +86,14 @@ function Sidebar() {
             </div>
             <div
                className={styles.modalTrigger}
-               onClick={() => dispatch(change(true))}
+               onClick={() =>
+                  dispatch(
+                     change({
+                        component: 'settings',
+                        active: true,
+                     })
+                  )
+               }
             >
                <IconSettings
                   stroke={1.3}

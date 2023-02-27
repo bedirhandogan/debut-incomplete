@@ -5,7 +5,7 @@ import Layouts from 'components/layouts'
 import Tasks from 'components/layouts/App/Projects'
 import Bookmarks from 'components/layouts/App/Bookmarks'
 
-function Router() {
+function Router({ children }) {
    const { Introduction } = Layouts.App
 
    return (
@@ -18,6 +18,7 @@ function Router() {
                <Route path={'bookmarks'} element={<Bookmarks />} />
             </Route>
          </Routes>
+         {children}
       </BrowserRouter>
    )
 }

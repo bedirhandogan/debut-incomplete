@@ -2,9 +2,11 @@ import styles from './styles.module.css'
 import { useCallback, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { change } from 'store/reducer/modal'
+import Settings from 'components/layouts/App/Settings'
+import AuthForm from 'components/layouts/App/Auth'
 
-function Modal({ children, style }) {
-   const { show } = useSelector((state) => state.modal)
+function Modal({ style }) {
+   const { data } = useSelector((state) => state.modal)
    const dispatch = useDispatch()
    const [ref, refWrapper] = [useRef(), useRef()]
 
@@ -14,7 +16,11 @@ function Modal({ children, style }) {
             event.composedPath().includes(ref.current) &&
             !event.composedPath().includes(refWrapper.current)
          )
-            dispatch(change(false))
+            dispatch(
+               change({
+                  active: false,
+               })
+            )
       },
       [ref, refWrapper, dispatch]
    )
@@ -27,11 +33,11 @@ function Modal({ children, style }) {
    return (
       <div
          className={styles.modal}
-         style={{ display: show ? 'flex' : 'none' }}
+         style={{ display: data.active ? 'flex' : 'none' }}
          ref={ref}
       >
          <div className={styles.wrapper} style={style} ref={refWrapper}>
-            {children}
+            {data.component === 'settings' ? <Settings /> : <AuthForm />}
          </div>
       </div>
    )

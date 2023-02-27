@@ -54,6 +54,10 @@
    left: -8px;
 }
 
+.area a.active {
+   background-color: var(--background-color-primary-dark);
+}
+
 .area a:hover {
    background-color: var(--background-color-primary-dark);
 }

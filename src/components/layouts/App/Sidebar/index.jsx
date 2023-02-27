@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
    IconBell,
    IconBookmarks,
@@ -22,6 +22,7 @@ function Sidebar() {
    const navigate = useNavigate()
    const { data } = useSelector((state) => state.user)
    const dispatch = useDispatch()
+   const location = useLocation()
 
    return (
       <div className={styles.sidebar}>
@@ -31,7 +32,10 @@ function Sidebar() {
          </div>
          <div className={styles.area}>
             <div className={styles.groupName}>General</div>
-            <Link to={'/app'}>
+            <Link
+               to={'/app'}
+               className={location.pathname === '/app' && styles.active}
+            >
                <IconSmartHome
                   stroke={1.3}
                   width={24}
@@ -40,7 +44,12 @@ function Sidebar() {
                />
                Introduction
             </Link>
-            <Link to={'projects'}>
+            <Link
+               to={'projects'}
+               className={
+                  location.pathname === '/app/projects' && styles.active
+               }
+            >
                <IconLayoutCollage
                   stroke={1.3}
                   width={24}
@@ -49,7 +58,12 @@ function Sidebar() {
                />
                Projects
             </Link>
-            <Link to={'bookmarks'}>
+            <Link
+               to={'bookmarks'}
+               className={
+                  location.pathname === '/app/bookmarks' && styles.active
+               }
+            >
                <IconBookmarks
                   stroke={1.3}
                   width={24}

@@ -29,6 +29,7 @@
    width: calc(100% - 40px);
    display: flex;
    flex-direction: column;
+   gap: 2px;
 }
 
 .groupName {

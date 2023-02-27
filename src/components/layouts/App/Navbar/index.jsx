@@ -7,7 +7,6 @@ import Breadcrumbs from 'components/shared/Breadcrumbs'
 
 function Navbar() {
    const location = useLocation()
-   console.log(location)
 
    return (
       <div className={styles.navbar}>

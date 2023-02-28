@@ -48,3 +48,12 @@
 .button.third:hover {
    background-color: var(--background-color-primary-dark);
 }
+
+.button.fourth {
+   background-color: var(--background-color-primary-dark);
+   border: none;
+}
+
+.button.fourth:hover {
+   background-color: var(--background-color-secondary);
+}

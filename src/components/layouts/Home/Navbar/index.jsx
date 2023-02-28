@@ -16,7 +16,7 @@ function Navbar() {
             navigate('/app')
             dispatch(
                change({
-                  component: 'auth',
+                  component: 'auth-form',
                   active: false,
                })
             )
@@ -25,7 +25,7 @@ function Navbar() {
 
       dispatch(
          change({
-            component: 'auth',
+            component: 'auth-form',
             active: true,
          })
       )

@@ -16,15 +16,26 @@ const root = createRoot(document.getElementById('root'))
 function ModalWrapper() {
    const { data } = useSelector((state) => state.modal)
 
+   const section = [
+      {
+         name: 'settings',
+         component: <Settings />,
+      },
+      {
+         name: 'auth-form',
+         component: <AuthForm />,
+      },
+      {
+         name: 'create-project',
+         component: <CreateProject />,
+      },
+   ]
+
+   const filtered = section.filter((v) => v.name === data.component)
+
    return (
       <Modal style={{ width: 'max-content', height: 'max-content' }}>
-         {data.component === 'settings' ? (
-            <Settings />
-         ) : data.component === 'auth' ? (
-            <AuthForm />
-         ) : (
-            <CreateProject />
-         )}
+         {filtered[0]?.component}
       </Modal>
    )
 }

@@ -1,110 +1,74 @@
 import styles from './styles.module.css'
-import Input from 'components/shared/Input'
-import Textarea from 'components/shared/Textarea'
 import Button from 'components/shared/Button'
-import { useDispatch, useSelector } from 'react-redux'
-import { edit } from 'store/reducer/create-project'
-import { IconX } from '@tabler/icons-react'
+import { useState } from 'react'
+import Details from './Details'
+import Theme from './Theme'
+import Team from './Team'
+import Check from './Check'
 
 function CreateProject() {
-   const dispatch = useDispatch()
-   const { data } = useSelector((state) => state.createProject)
+   const [stepId, setStepId] = useState(0)
 
-   const handleTag = (event) => {
-      if (event.key === 'Enter') {
-         dispatch(
-            edit({
-               tag: [...data.tag, event.target.value],
-            })
-         )
-
-         // normalize
-         event.target.value = ''
-      }
-   }
-
-   const deleteTag = (index) => {
-      const filtered = data.tag.filter((v, i) => i !== index)
-
-      dispatch(
-         edit({
-            tag: filtered,
-         })
-      )
-   }
+   const section = [<Details />, <Theme />, <Team />, <Check />]
 
    return (
       <div className={styles.createProject}>
          <div className={styles.multiStep}>
-            <div className={`${styles.item} ${styles.active}`}>
+            <div
+               className={`${styles.item} ${
+                  stepId === 0 ? styles.active : 'null'
+               }`}
+            >
                <div className={styles.count}>1</div>
                <div className={styles.text}>Details</div>
             </div>
-            <div className={styles.item}>
+            <div
+               className={`${styles.item} ${
+                  stepId === 1 ? styles.active : 'null'
+               }`}
+            >
                <div className={styles.count}>2</div>
                <div className={styles.text}>Theme</div>
             </div>
-            <div className={styles.item}>
+            <div
+               className={`${styles.item} ${
+                  stepId === 2 ? styles.active : 'null'
+               }`}
+            >
                <div className={styles.count}>3</div>
                <div className={styles.text}>Team</div>
             </div>
-            <div className={styles.item}>
+            <div
+               className={`${styles.item} ${
+                  stepId === 3 ? styles.active : 'null'
+               }`}
+            >
                <div className={styles.count}>4</div>
                <div className={styles.text}>Check</div>
             </div>
          </div>
          <div className={styles.area}>
             <div className={styles.title}>Details</div>
-            <div className={styles.inputWrapper}>
-               <div className={styles.inputName}>Title</div>
-               <Input
-                  placeholder={'Enter a title for draft'}
-                  type={'text'}
-                  style={{ textAlign: 'left', padding: '10px', width: '300px' }}
-               />
-            </div>
-            <div className={styles.inputWrapper}>
-               <div className={styles.inputName}>Description</div>
-               <Textarea
-                  placeholder={'Enter a description for draft'}
-                  style={{
-                     height: '100px',
-                  }}
-               />
-            </div>
-            <div className={styles.inputWrapper}>
-               <div className={styles.inputName}>Tag</div>
-               <Input
-                  placeholder={'Enter a tag for draft'}
-                  type={'text'}
-                  style={{ textAlign: 'left', padding: '10px', width: '200px' }}
-                  onKeyPress={handleTag}
-               />
-               {data.tag.length === 0 && (
-                  <div className={styles.inputNote}>
-                     You haven't added a tag yet.
-                  </div>
-               )}
-            </div>
-            <div className={styles.tags}>
-               {data.tag.map((v, i) => (
-                  <span key={i}>
-                     {v}
-                     <IconX
-                        stroke={2}
-                        width={12}
-                        height={12}
-                        style={{ color: 'var(--icon-color-primary)' }}
-                        onClick={() => deleteTag(i)}
-                     />
-                  </span>
-               ))}
-            </div>
+            {section[stepId]}
             <div className={styles.buttons}>
-               <Button type={'fourth'} style={{ width: '60px' }}>
-                  Prev
-               </Button>
-               <Button type={'secondary'} style={{ width: '60px' }}>
+               {stepId !== 0 && (
+                  <Button
+                     type={'fourth'}
+                     style={{ width: '60px' }}
+                     onClick={() => setStepId((prevState) => prevState - 1)}
+                  >
+                     Prev
+                  </Button>
+               )}
+               <Button
+                  type={'secondary'}
+                  style={{ width: '60px' }}
+                  onClick={() =>
+                     setStepId((prevState) =>
+                        prevState !== 3 ? prevState + 1 : prevState
+                     )
+                  }
+               >
                   Next
                </Button>
             </div>

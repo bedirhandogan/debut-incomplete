@@ -9,7 +9,7 @@ import { Toaster } from 'react-hot-toast'
 import Modal from 'components/shared/Modal'
 import Settings from 'components/layouts/App/Settings'
 import AuthForm from 'components/layouts/App/Auth'
-import CreateProject from 'components/layouts/App/CreateProject'
+import CreatePlan from 'components/layouts/App/CreatePlan'
 
 const root = createRoot(document.getElementById('root'))
 
@@ -27,7 +27,7 @@ function ModalWrapper() {
       },
       {
          name: 'create-project',
-         component: <CreateProject />,
+         component: <CreatePlan />,
       },
    ]
 

@@ -47,11 +47,9 @@ function Sidebar() {
                Introduction
             </Link>
             <Link
-               to={'projects'}
+               to={'plans'}
                className={
-                  location.pathname === '/app/projects'
-                     ? styles.active
-                     : 'false'
+                  location.pathname === '/app/plans' ? styles.active : 'false'
                }
             >
                <IconLayoutCollage
@@ -60,7 +58,7 @@ function Sidebar() {
                   height={24}
                   style={{ color: 'var(--icon-color-primary)' }}
                />
-               Projects
+               Plans
             </Link>
             <Link
                to={'bookmarks'}
@@ -137,7 +135,7 @@ function Sidebar() {
                   height={20}
                   style={{ color: 'var(--icon-color-primary)' }}
                />
-               Create Project
+               Create Plan
             </Button>
          </div>
          <div className={styles.footer}>

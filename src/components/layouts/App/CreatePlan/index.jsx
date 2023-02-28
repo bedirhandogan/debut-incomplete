@@ -6,13 +6,13 @@ import Theme from './Theme'
 import Team from './Team'
 import Check from './Check'
 
-function CreateProject() {
+function CreatePlan() {
    const [stepId, setStepId] = useState(0)
 
    const section = [<Details />, <Theme />, <Team />, <Check />]
 
    return (
-      <div className={styles.createProject}>
+      <div className={styles.createPlan}>
          <div className={styles.multiStep}>
             <div
                className={`${styles.item} ${
@@ -77,4 +77,4 @@ function CreateProject() {
    )
 }
 
-export default CreateProject
+export default CreatePlan

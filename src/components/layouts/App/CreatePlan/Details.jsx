@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { edit } from 'store/reducer/create-project'
-import styles from 'components/layouts/App/CreateProject/styles.module.css'
+import styles from 'components/layouts/App/CreatePlan/styles.module.css'
 import Input from 'components/shared/Input'
 import Textarea from 'components/shared/Textarea'
 import { IconX } from '@tabler/icons-react'
@@ -37,7 +37,7 @@ function Details() {
          <div className={styles.inputWrapper}>
             <div className={styles.inputName}>Title</div>
             <Input
-               placeholder={'Enter a title for draft'}
+               placeholder={'Enter a title for plan'}
                type={'text'}
                style={{ textAlign: 'left', padding: '10px', width: '300px' }}
             />
@@ -45,7 +45,7 @@ function Details() {
          <div className={styles.inputWrapper}>
             <div className={styles.inputName}>Description</div>
             <Textarea
-               placeholder={'Enter a description for draft'}
+               placeholder={'Enter a description for plan'}
                style={{
                   height: '100px',
                }}
@@ -54,7 +54,7 @@ function Details() {
          <div className={styles.inputWrapper}>
             <div className={styles.inputName}>Tag</div>
             <Input
-               placeholder={'Enter a tag for draft'}
+               placeholder={'Enter a tag for plan'}
                type={'text'}
                style={{ textAlign: 'left', padding: '10px', width: '200px' }}
                onKeyPress={handleTag}

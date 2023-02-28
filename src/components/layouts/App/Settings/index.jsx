@@ -1,8 +1,8 @@
 import styles from './styles.module.css'
 import { IconPassword, IconUserCircle } from '@tabler/icons-react'
 import { useState } from 'react'
-import Profile from '../Profile'
-import Password from '../Password'
+import Profile from './Profile'
+import Password from './Password'
 
 function Settings() {
    const [activeAction, setActiveAction] = useState('profile')

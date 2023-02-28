@@ -120,7 +120,17 @@ function Sidebar() {
             </div>
          </div>
          <div className={styles.area}>
-            <Button type={'third'}>
+            <Button
+               type={'third'}
+               onClick={() =>
+                  dispatch(
+                     change({
+                        component: 'create-project',
+                        active: true,
+                     })
+                  )
+               }
+            >
                <IconPlus
                   stroke={1.3}
                   width={20}

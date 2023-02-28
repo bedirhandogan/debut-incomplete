@@ -7,6 +7,7 @@ function Input({
    style,
    className,
    onChange,
+   onKeyPress,
    disabled = false,
 }) {
    return (
@@ -18,6 +19,7 @@ function Input({
             style={style}
             onChange={onChange}
             disabled={disabled}
+            onKeyPress={onKeyPress}
          />
       </div>
    )

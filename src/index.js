@@ -31,11 +31,11 @@ function ModalWrapper() {
       },
    ]
 
-   const filtered = section.filter((v) => v.name === data.component)
+   const index = section.findIndex((v) => v.name === data.component)
 
    return (
       <Modal style={{ width: 'max-content', height: 'max-content' }}>
-         {filtered[0]?.component}
+         {section[index]?.component}
       </Modal>
    )
 }

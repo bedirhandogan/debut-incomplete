@@ -33,7 +33,7 @@ function Details() {
    }
 
    return (
-      <>
+      <div className={styles.details}>
          <div className={styles.inputWrapper}>
             <div className={styles.inputName}>Title</div>
             <Input
@@ -79,7 +79,7 @@ function Details() {
                </span>
             ))}
          </div>
-      </>
+      </div>
    )
 }
 

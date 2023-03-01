@@ -9,7 +9,24 @@ import Check from './Check'
 function CreatePlan() {
    const [stepId, setStepId] = useState(0)
 
-   const section = [<Details />, <Theme />, <Team />, <Check />]
+   const section = [
+      {
+         name: 'details',
+         component: <Details />,
+      },
+      {
+         name: 'theme',
+         component: <Theme />,
+      },
+      {
+         name: 'team',
+         component: <Team />,
+      },
+      {
+         name: 'check',
+         component: <Check />,
+      },
+   ]
 
    return (
       <div className={styles.createPlan}>
@@ -48,8 +65,8 @@ function CreatePlan() {
             </div>
          </div>
          <div className={styles.area}>
-            <div className={styles.title}>Details</div>
-            {section[stepId]}
+            <div className={styles.title}>{section[stepId].name}</div>
+            {section[stepId].component}
             <div className={styles.buttons}>
                {stepId !== 0 && (
                   <Button

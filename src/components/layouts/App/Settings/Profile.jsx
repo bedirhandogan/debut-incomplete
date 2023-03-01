@@ -7,10 +7,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import updateName from 'db/auth/update-name'
 import defaultProfile from 'assets/images/default-profile.svg'
 import updateEmail from 'db/auth/update-email'
+import ImageUpload from 'components/shared/ImageUpload'
 
 function Profile() {
-   const fileRef = useRef()
-   const handleFileUpload = () => fileRef.current?.click()
+   const imageRef = useRef()
    const { data } = useSelector((state) => state.user)
    const dispatch = useDispatch()
 
@@ -26,7 +26,9 @@ function Profile() {
       email.value = ''
    }
 
-   const handleFileChange = async (event) => {
+   const handleFocusInput = () => imageRef.current?.click()
+
+   const handleUpload = async (event) => {
       const type = event.target.files[0].type
 
       if (type === 'image/jpeg' || type === 'image/png') {
@@ -79,9 +81,10 @@ function Profile() {
                <Button type={'secondary'}>Update Profile</Button>
             </form>
             <div>
-               <div
-                  className={styles.profilePicture}
-                  onClick={handleFileUpload}
+               <ImageUpload
+                  reference={imageRef}
+                  handleInputFocus={handleFocusInput}
+                  handleUpload={handleUpload}
                >
                   <img
                      src={
@@ -89,13 +92,7 @@ function Profile() {
                      }
                      alt={'profile'}
                   />
-                  <div className={styles.pictureHover}>Upload a photo</div>
-                  <input
-                     type={'file'}
-                     ref={fileRef}
-                     onChange={handleFileChange}
-                  />
-               </div>
+               </ImageUpload>
             </div>
          </div>
       </div>

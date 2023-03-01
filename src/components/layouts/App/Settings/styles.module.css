@@ -72,44 +72,6 @@
    flex-wrap: wrap-reverse;
 }
 
-.profilePicture {
-   margin-top: 20px;
-}
-
-.pictureHover {
-   position: sticky;
-   width: 150px;
-   height: 150px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: white;
-   font-size: 14px;
-   background-color: rgba(157, 156, 156, 0.37);
-   outline: dashed var(--border-color-primary);
-   outline-offset: 2px;
-   border-radius: 100%;
-   transition: 200ms all;
-}
-
-.profilePicture:hover .pictureHover {
-   background-color: rgba(141, 141, 141, 0.37);
-   outline: dashed var(--border-color-primary-dark);
-}
-
-.profilePicture img {
-   position: absolute;
-   top: 20px;
-   border-radius: 100%;
-   width: 150px;
-   height: 150px;
-   object-fit: cover;
-}
-
-.profilePicture input {
-   display: none;
-}
-
 .inputWrapper {
    width: 350px;
    display: flex;

@@ -13,7 +13,7 @@ function Theme() {
                   style={{
                      width: '100px',
                      height: '100px',
-                     margin: '0',
+                     marginTop: '2px',
                   }}
                >
                   <img src={defaultPlanLogo} alt={'plan-logo'} />

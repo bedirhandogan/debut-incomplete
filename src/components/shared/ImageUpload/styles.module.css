@@ -1,16 +1,20 @@
 .imageUpload {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    font-size: 14px;
     margin-top: 20px;
 }
 
-.pictureHover {
+.imageHover {
+    cursor: pointer;
     position: sticky;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 14px;
     background-color: rgba(157, 156, 156, 0.37);
     outline: dashed var(--border-color-primary);
     outline-offset: 2px;
@@ -18,17 +22,16 @@
     transition: 200ms all;
 }
 
-.imageUpload:hover .pictureHover {
+.imageUpload:hover .imageHover {
     background-color: rgba(141, 141, 141, 0.37);
     outline: dashed var(--border-color-primary-dark);
 }
 
 .imageUpload img {
     position: absolute;
-    top: 20px;
     border-radius: 100%;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 

@@ -5,6 +5,12 @@ import Details from './Details'
 import Theme from './Theme'
 import Team from './Team'
 import Check from './Check'
+import {
+   IconBrain,
+   IconBrush,
+   IconPencil,
+   IconSquareRoundedCheck,
+} from '@tabler/icons-react'
 
 function CreatePlan() {
    const [stepId, setStepId] = useState(0)
@@ -36,32 +42,52 @@ function CreatePlan() {
                   stepId === 0 ? styles.active : 'null'
                }`}
             >
-               <div className={styles.count}>1</div>
-               <div className={styles.text}>Details</div>
+               <div className={styles.icon}>
+                  <IconPencil stroke={1.5} width={18} height={18} />
+               </div>
+               <div className={styles.text}>
+                  Details
+                  <span>Step 1</span>
+               </div>
             </div>
             <div
                className={`${styles.item} ${
                   stepId === 1 ? styles.active : 'null'
                }`}
             >
-               <div className={styles.count}>2</div>
-               <div className={styles.text}>Theme</div>
+               <div className={styles.icon}>
+                  <IconBrush stroke={1.5} width={18} height={18} />
+               </div>
+               <div className={styles.text}>
+                  Theme
+                  <span>Step 2</span>
+               </div>
             </div>
             <div
                className={`${styles.item} ${
                   stepId === 2 ? styles.active : 'null'
                }`}
             >
-               <div className={styles.count}>3</div>
-               <div className={styles.text}>Team</div>
+               <div className={styles.icon}>
+                  <IconBrain stroke={1.5} width={18} height={18} />
+               </div>
+               <div className={styles.text}>
+                  Team
+                  <span>Step 3</span>
+               </div>
             </div>
             <div
                className={`${styles.item} ${
                   stepId === 3 ? styles.active : 'null'
                }`}
             >
-               <div className={styles.count}>4</div>
-               <div className={styles.text}>Check</div>
+               <div className={styles.icon}>
+                  <IconSquareRoundedCheck stroke={1.5} width={18} height={18} />
+               </div>
+               <div className={styles.text}>
+                  Check
+                  <span>Step 4</span>
+               </div>
             </div>
          </div>
          <div className={styles.area}>

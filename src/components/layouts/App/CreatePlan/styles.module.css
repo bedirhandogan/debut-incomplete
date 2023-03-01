@@ -34,7 +34,7 @@
     gap: 10px;
 }
 
-.count {
+.icon {
     width: 30px;
     height: 30px;
     background-color: var(--background-color-primary-dark);
@@ -47,17 +47,27 @@
     font-size: 14px;
 }
 
-.item.active .count {
+.item.active .icon {
     background-color: #00a6ff;
     color: white;
 }
 
 .text {
+    height: 100%;
     color: rgba(0, 0, 0, 0.44);
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
 }
 
 .item.active .text {
     color: var(--text-color-primary);
+}
+
+.text span {
+    font-size: 12px;
 }
 
 .area {

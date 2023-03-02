@@ -3,10 +3,8 @@ import Button from 'components/shared/Button'
 import { useState } from 'react'
 import Details from './Details'
 import Theme from './Theme'
-import Team from './Team'
 import Check from './Check'
 import {
-   IconBrain,
    IconBrush,
    IconPencil,
    IconSquareRoundedCheck,
@@ -23,10 +21,6 @@ function CreatePlan() {
       {
          name: 'theme',
          component: <Theme />,
-      },
-      {
-         name: 'team',
-         component: <Team />,
       },
       {
          name: 'check',
@@ -69,24 +63,11 @@ function CreatePlan() {
                }`}
             >
                <div className={styles.icon}>
-                  <IconBrain stroke={1.5} width={18} height={18} />
-               </div>
-               <div className={styles.text}>
-                  Team
-                  <span>Step 3</span>
-               </div>
-            </div>
-            <div
-               className={`${styles.item} ${
-                  stepId === 3 ? styles.active : 'null'
-               }`}
-            >
-               <div className={styles.icon}>
                   <IconSquareRoundedCheck stroke={1.5} width={18} height={18} />
                </div>
                <div className={styles.text}>
                   Check
-                  <span>Step 4</span>
+                  <span>Step 3</span>
                </div>
             </div>
          </div>
@@ -108,7 +89,7 @@ function CreatePlan() {
                   style={{ width: '60px' }}
                   onClick={() =>
                      setStepId((prevState) =>
-                        prevState !== 3 ? prevState + 1 : prevState
+                        prevState !== 2 ? prevState + 1 : prevState
                      )
                   }
                >

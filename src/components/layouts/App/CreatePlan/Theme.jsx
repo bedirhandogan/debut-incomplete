@@ -1,6 +1,8 @@
 import styles from './styles.module.css'
 import ImageUpload from 'components/shared/ImageUpload'
 import defaultPlanLogo from 'assets/images/default-plan-logo.png'
+import Tooltip from "components/shared/Tooltip";
+import colors from "constants/colors";
 
 function Theme() {
    return (
@@ -20,38 +22,20 @@ function Theme() {
                </ImageUpload>
             </div>
          </div>
-         <div className={styles.colors}>
-            <div className={styles.inputName}>Color</div>
-            <div
-               className={styles.inputWrapper}
-               style={{ flexDirection: 'row', gap: '10px' }}
-            >
-               <input
-                  type={'checkbox'}
-                  className={`${styles.color} ${styles.red}`}
-               />
-               <input
-                  type={'checkbox'}
-                  className={`${styles.color} ${styles.blue2}`}
-               />
-               <input
-                  type={'checkbox'}
-                  className={`${styles.color} ${styles.purple}`}
-               />
-               <input
-                  type={'checkbox'}
-                  className={`${styles.color} ${styles.blue}`}
-               />
-               <input
-                  type={'checkbox'}
-                  className={`${styles.color} ${styles.green}`}
-               />
-               <input
-                  type={'checkbox'}
-                  className={`${styles.color} ${styles.yellow}`}
-               />
-            </div>
-         </div>
+         <fieldset className={styles.colors}>
+             <legend> colors </legend>
+             {colors.map((v, i) =>
+                 <Tooltip text={v.name} style={{ bottom: '-160%', zIndex: '99'}} key={i}>
+                     <input
+                         type={'radio'}
+                         className={styles.color}
+                         style={{ backgroundColor: v.hex }}
+                         name={'color'}
+                         value={v.name}
+                     />
+                 </Tooltip>
+             )}
+         </fieldset>
       </div>
    )
 }

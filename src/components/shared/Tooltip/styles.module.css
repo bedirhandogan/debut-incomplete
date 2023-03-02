@@ -3,6 +3,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   width: max-content;
 }
 
 .tooltip:hover .text {
@@ -16,6 +17,7 @@
    border-radius: 5px;
    display: none;
    font-size: 14px;
+   width: max-content;
 }
 
 .text.left {

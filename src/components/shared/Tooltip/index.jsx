@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 
-function Tooltip({ children, text, position }) {
+function Tooltip({ children, text, position, style }) {
    const pos =
       position === 'top'
          ? styles.top
@@ -14,7 +14,7 @@ function Tooltip({ children, text, position }) {
    return (
       <div className={styles.tooltip}>
          {children}
-         <div className={`${styles.text} ${pos}`}>{text}</div>
+         <div className={`${styles.text} ${pos}`} style={style}>{text}</div>
       </div>
    )
 }

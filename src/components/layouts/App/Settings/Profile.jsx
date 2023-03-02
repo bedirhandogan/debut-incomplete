@@ -81,10 +81,13 @@ function Profile() {
                <Button type={'secondary'}>Update Profile</Button>
             </form>
             <div>
+               <div className={styles.inputName}>Profile Picture</div>
                <ImageUpload
                   reference={imageRef}
                   handleInputFocus={handleFocusInput}
                   handleUpload={handleUpload}
+                  label={'Upload a photo'}
+                  style={{ marginTop: '10px' }}
                >
                   <img
                      src={

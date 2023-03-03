@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import logo from 'assets/images/logo.svg'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/modal'
@@ -32,16 +32,16 @@ function Navbar() {
    }
 
    return (
-      <div className={styles.navbar}>
-         <div className={styles.body}>
-            <img src={logo} alt={'logo'} />
-            <div className={styles.navItem}>Untitled</div>
-            <div className={styles.navItem}>Untitled</div>
-            <div className={styles.navItem}>Untitled</div>
-            <div className={styles.navItem}>Untitled</div>
-            <div className={styles.openAppBtn} onClick={handleClick}>
-               Open App
-            </div>
+      <div className={'navbar'}>
+         <img src={logo} alt={'logo'} id={'navbar-logo'} />
+         <div className={'navbar-navigations'}>
+            <div className={'navbar-navigations-item'}>Untitled</div>
+            <div className={'navbar-navigations-item'}>Untitled</div>
+            <div className={'navbar-navigations-item'}>Untitled</div>
+            <div className={'navbar-navigations-item'}>Untitled</div>
+         </div>
+         <div className={'navbar-trigger-auth-form'} onClick={handleClick}>
+            Open App
          </div>
       </div>
    )

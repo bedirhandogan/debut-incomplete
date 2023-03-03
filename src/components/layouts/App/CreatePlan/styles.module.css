@@ -6,6 +6,7 @@
     display: flex;
     gap: 20px;
     user-select: none;
+    overflow: auto;
 }
 
 .title {
@@ -75,19 +76,18 @@
     width: 100%;
 }
 
-.inputWrapper {
+.wrapper {
     width: 350px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 20px;
 }
 
-.inputName {
+.name {
     font-size: 14px;
 }
 
-.inputNote {
+.note {
     font-size: 12px;
 }
 
@@ -141,7 +141,9 @@
    ----------------------- */
 
 .details {
-
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* -----------------------
@@ -151,10 +153,10 @@
 .theme {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
-.planLogo {
+.logo {
     width: 100px;
 }
 
@@ -174,13 +176,42 @@
 
 .color {
     all: unset;
+    display: block;
     width: 25px;
     height: 25px;
-    background-color: greenyellow;
     border-radius: 100%;
 }
 
 .color:is(:checked, :hover){
     outline: 2px solid var(--border-color-primary);
     outline-offset: 2px;
+}
+
+/* -----------------------
+          Check
+   ----------------------- */
+
+.check {
+    display: flex;
+    gap: 20px 50px;
+    flex-wrap: wrap-reverse;
+}
+
+.checkArea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (max-width: 880px) {
+    .createPlan {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .multiStep {
+        display: none;
+    }
 }

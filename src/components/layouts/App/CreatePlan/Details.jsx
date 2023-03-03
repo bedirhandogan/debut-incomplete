@@ -1,19 +1,33 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { edit } from 'store/reducer/create-project'
-import styles from 'components/layouts/App/CreatePlan/styles.module.css'
+import { edit } from 'store/reducer/create-plan'
+import styles from './styles.module.css'
 import Input from 'components/shared/Input'
 import Textarea from 'components/shared/Textarea'
 import { IconX } from '@tabler/icons-react'
 
 function Details() {
    const dispatch = useDispatch()
-   const { data } = useSelector((state) => state.createProject)
+   const { data } = useSelector((state) => state.createPlan)
+
+   const handleTitle = (event) =>
+      dispatch(
+         edit({
+            title: event.target.value,
+         })
+      )
+
+   const handleDescription = (event) =>
+      dispatch(
+         edit({
+            description: event.target.value,
+         })
+      )
 
    const handleTag = (event) => {
       if (event.key === 'Enter') {
          dispatch(
             edit({
-               tag: [...data.tag, event.target.value],
+               tags: [...data.tags, event.target.value],
             })
          )
 
@@ -23,50 +37,50 @@ function Details() {
    }
 
    const deleteTag = (index) => {
-      const filtered = data.tag.filter((v, i) => i !== index)
+      const filtered = data.tags.filter((v, i) => i !== index)
 
       dispatch(
          edit({
-            tag: filtered,
+            tags: filtered,
          })
       )
    }
 
    return (
       <div className={styles.details}>
-         <div className={styles.inputWrapper}>
-            <div className={styles.inputName}>Title</div>
+         <div className={styles.wrapper}>
+            <div className={styles.name}>Title</div>
             <Input
                placeholder={'Enter a title for plan'}
                type={'text'}
                style={{ textAlign: 'left', padding: '10px', width: '300px' }}
+               onChange={handleTitle}
             />
          </div>
-         <div className={styles.inputWrapper}>
-            <div className={styles.inputName}>Description</div>
+         <div className={styles.wrapper}>
+            <div className={styles.name}>Description</div>
             <Textarea
                placeholder={'Enter a description for plan'}
                style={{
                   height: '100px',
                }}
+               onChange={handleDescription}
             />
          </div>
-         <div className={styles.inputWrapper}>
-            <div className={styles.inputName}>Tag</div>
+         <div className={styles.wrapper}>
+            <div className={styles.name}>Tags</div>
             <Input
                placeholder={'Enter a tag for plan'}
                type={'text'}
                style={{ textAlign: 'left', padding: '10px', width: '200px' }}
                onKeyPress={handleTag}
             />
-            {data.tag.length === 0 && (
-               <div className={styles.inputNote}>
-                  You haven't added a tag yet.
-               </div>
+            {data.tags.length === 0 && (
+               <div className={styles.note}>You haven't added a tag yet.</div>
             )}
          </div>
          <div className={styles.tags}>
-            {data.tag.map((v, i) => (
+            {data.tags.map((v, i) => (
                <span key={i}>
                   {v}
                   <IconX

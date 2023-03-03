@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const createProject = createSlice({
+const createPlan = createSlice({
    name: 'create-project',
    initialState: {
       data: {
-         title: 'untitled',
-         description: '',
-         tag: [],
+         title: 'Untitled',
+         description: 'No description entered',
+         tags: [],
+         logoUrl: '',
+         color: '#2196f3',
       },
    },
    reducers: {
@@ -24,5 +26,5 @@ const createProject = createSlice({
    },
 })
 
-export const { change, edit } = createProject.actions
-export default createProject.reducer
+export const { change, edit } = createPlan.actions
+export default createPlan.reducer

@@ -93,7 +93,7 @@ function CreatePlan() {
                      )
                   }
                >
-                  Next
+                  {stepId !== 2 ? 'Next' : 'Finish'}
                </Button>
             </div>
          </div>

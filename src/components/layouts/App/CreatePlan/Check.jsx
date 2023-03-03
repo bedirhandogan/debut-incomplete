@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import { useSelector } from 'react-redux'
 import defaultPlanLogo from 'assets/images/default-plan-logo.png'
 import Tooltip from 'components/shared/Tooltip'
@@ -12,10 +12,10 @@ function Check() {
    const filteredColor = colors.filter((v) => v.hex === data.color)
 
    return (
-      <div className={styles.check}>
-         <div className={styles.checkArea}>
-            <div className={styles.wrapper}>
-               <div className={styles.name}>Title</div>
+      <div className={'create-plan-check'}>
+         <div className={'create-plan-check-area'}>
+            <div className={'create-plan-wrapper'}>
+               <div className={'create-plan-wrapper-name'}>Title</div>
                <Input
                   placeholder={data.title}
                   type={'text'}
@@ -23,8 +23,8 @@ function Check() {
                   disabled
                />
             </div>
-            <div className={styles.wrapper}>
-               <div className={styles.name}>Description</div>
+            <div className={'create-plan-wrapper'}>
+               <div className={'create-plan-wrapper-name'}>Description</div>
                <Textarea
                   placeholder={data.description}
                   style={{
@@ -33,34 +33,40 @@ function Check() {
                   disabled
                />
             </div>
-            <div className={styles.wrapper}>
-               <div className={styles.name}>Tags</div>
-               <div className={styles.tags}>
+            <div className={'create-plan-wrapper'}>
+               <div className={'create-plan-wrapper-name'}>Tags</div>
+               <div className={'create-plan-tags'}>
                   {data.tags.map((v, i) => (
                      <span key={i}>{v}</span>
                   ))}
                </div>
                {data.tags.length === 0 && (
-                  <div className={styles.note}>
+                  <div className={'create-plan-wrapper-name'}>
                      You haven't added a tag yet.
                   </div>
                )}
             </div>
          </div>
-         <div className={styles.checkArea}>
-            <div className={styles.wrapper} style={{ width: 'max-content' }}>
-               <div className={styles.name}>Plan Logo</div>
+         <div className={'create-plan-check-area'}>
+            <div
+               className={'create-plan-wrapper'}
+               style={{ width: 'max-content' }}
+            >
+               <div className={'create-plan-wrapper-name'}>Plan Logo</div>
                <img
                   width={50}
                   src={!data.logoUrl ? defaultPlanLogo : data.logoUrl}
                   alt={'plan-logo'}
                />
             </div>
-            <div className={styles.wrapper} style={{ width: 'max-content' }}>
-               <div className={styles.name}>Color</div>
+            <div
+               className={'create-plan-wrapper'}
+               style={{ width: 'max-content' }}
+            >
+               <div className={'create-plan-wrapper-name'}>Color</div>
                <Tooltip text={filteredColor[0]?.name} position={'bottom'}>
                   <div
-                     className={styles.color}
+                     className={'create-plan-theme-color'}
                      style={{ backgroundColor: data.color }}
                   />
                </Tooltip>

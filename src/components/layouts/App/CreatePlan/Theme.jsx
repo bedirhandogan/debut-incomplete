@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import ImageUpload from 'components/shared/ImageUpload'
 import defaultPlanLogo from 'assets/images/default-plan-logo.png'
 import Tooltip from 'components/shared/Tooltip'
@@ -29,29 +29,27 @@ function Theme() {
    }
 
    return (
-      <div className={styles.theme}>
-         <div className={styles.logo}>
-            <div className={styles.wrapper}>
-               <div className={styles.name}>Plan Logo</div>
-               <ImageUpload
-                  label={'Upload'}
-                  style={{
-                     width: '100px',
-                     height: '100px',
-                     marginTop: '2px',
-                  }}
-                  reference={logoRef}
-                  handleInputFocus={handleInputFocus}
-                  handleUpload={handleUpload}
-               >
-                  <img
-                     src={!data.logoUrl ? defaultPlanLogo : data.logoUrl}
-                     alt={'plan-logo'}
-                  />
-               </ImageUpload>
-            </div>
+      <div className={'create-plan-theme'}>
+         <div className={'create-plan-wrapper'}>
+            <div className={'create-plan-wrapper-name'}>Plan Logo</div>
+            <ImageUpload
+               label={'Upload'}
+               style={{
+                  width: '100px',
+                  height: '100px',
+                  marginTop: '2px',
+               }}
+               reference={logoRef}
+               handleInputFocus={handleInputFocus}
+               handleUpload={handleUpload}
+            >
+               <img
+                  src={!data.logoUrl ? defaultPlanLogo : data.logoUrl}
+                  alt={'plan-logo'}
+               />
+            </ImageUpload>
          </div>
-         <fieldset className={styles.colors}>
+         <fieldset className={'create-plan-theme-colors'}>
             <legend> Colors </legend>
             {colors.map((v, i) => (
                <Tooltip
@@ -61,7 +59,7 @@ function Theme() {
                >
                   <input
                      type={'radio'}
-                     className={styles.color}
+                     className={'create-plan-theme-color'}
                      style={{ backgroundColor: v.hex }}
                      name={'color'}
                      value={v.hex}

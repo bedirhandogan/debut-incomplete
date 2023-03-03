@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { edit } from 'store/reducer/create-plan'
-import styles from './styles.module.css'
+import './styles.scss'
 import Input from 'components/shared/Input'
 import Textarea from 'components/shared/Textarea'
 import { IconX } from '@tabler/icons-react'
@@ -47,9 +47,9 @@ function Details() {
    }
 
    return (
-      <div className={styles.details}>
-         <div className={styles.wrapper}>
-            <div className={styles.name}>Title</div>
+      <div className={'create-plan-details'}>
+         <div className={'create-plan-wrapper'}>
+            <div className={'create-plan-wrapper-name'}>Title</div>
             <Input
                placeholder={'Enter a title for plan'}
                type={'text'}
@@ -57,8 +57,8 @@ function Details() {
                onChange={handleTitle}
             />
          </div>
-         <div className={styles.wrapper}>
-            <div className={styles.name}>Description</div>
+         <div className={'create-plan-wrapper'}>
+            <div className={'create-plan-wrapper-name'}>Description</div>
             <Textarea
                placeholder={'Enter a description for plan'}
                style={{
@@ -67,8 +67,8 @@ function Details() {
                onChange={handleDescription}
             />
          </div>
-         <div className={styles.wrapper}>
-            <div className={styles.name}>Tags</div>
+         <div className={'create-plan-wrapper'}>
+            <div className={'create-plan-wrapper-name'}>Tags</div>
             <Input
                placeholder={'Enter a tag for plan'}
                type={'text'}
@@ -76,10 +76,12 @@ function Details() {
                onKeyPress={handleTag}
             />
             {data.tags.length === 0 && (
-               <div className={styles.note}>You haven't added a tag yet.</div>
+               <div className={'create-plan-wrapper-note'}>
+                  You haven't added a tag yet.
+               </div>
             )}
          </div>
-         <div className={styles.tags}>
+         <div className={'create-plan-tags'}>
             {data.tags.map((v, i) => (
                <span key={i}>
                   {v}

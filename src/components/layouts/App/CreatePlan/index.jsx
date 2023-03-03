@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import Button from 'components/shared/Button'
 import { useState } from 'react'
 import Details from './Details'
@@ -29,52 +29,52 @@ function CreatePlan() {
    ]
 
    return (
-      <div className={styles.createPlan}>
-         <div className={styles.multiStep}>
+      <div className={'create-plan'}>
+         <div className={'create-plan-steps'}>
             <div
-               className={`${styles.item} ${
-                  stepId === 0 ? styles.active : 'null'
+               className={`create-plan-step ${
+                  stepId === 0 ? 'active' : 'null'
                }`}
             >
-               <div className={styles.icon}>
+               <div className={'create-plan-step-icon'}>
                   <IconPencil stroke={1.5} width={18} height={18} />
                </div>
-               <div className={styles.text}>
+               <div className={'create-plan-step-text'}>
                   Details
                   <span>Step 1</span>
                </div>
             </div>
             <div
-               className={`${styles.item} ${
-                  stepId === 1 ? styles.active : 'null'
+               className={`create-plan-step ${
+                  stepId === 1 ? 'active' : 'null'
                }`}
             >
-               <div className={styles.icon}>
+               <div className={'create-plan-step-icon'}>
                   <IconBrush stroke={1.5} width={18} height={18} />
                </div>
-               <div className={styles.text}>
+               <div className={'create-plan-step-text'}>
                   Theme
                   <span>Step 2</span>
                </div>
             </div>
             <div
-               className={`${styles.item} ${
-                  stepId === 2 ? styles.active : 'null'
+               className={`create-plan-step ${
+                  stepId === 2 ? 'active' : 'null'
                }`}
             >
-               <div className={styles.icon}>
+               <div className={'create-plan-step-icon'}>
                   <IconSquareRoundedCheck stroke={1.5} width={18} height={18} />
                </div>
-               <div className={styles.text}>
+               <div className={'create-plan-step-text'}>
                   Check
                   <span>Step 3</span>
                </div>
             </div>
          </div>
-         <div className={styles.area}>
-            <div className={styles.title}>{section[stepId].name}</div>
+         <div className={'create-plan-main'}>
+            <div className={'create-plan-title'}>{section[stepId].name}</div>
             {section[stepId].component}
-            <div className={styles.buttons}>
+            <div className={'create-plan-main-buttons'}>
                {stepId !== 0 && (
                   <Button
                      type={'fourth'}

@@ -1,0 +1,194 @@
+.create-plan {
+    width: 880px;
+    height: 500px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    user-select: none;
+    overflow: auto;
+
+    .create-plan-title {
+        width: 100%;
+        height: 30px;
+        margin-bottom: 20px;
+        border-bottom: var(--glb-border);
+        text-transform: capitalize;
+    }
+
+    .create-plan-steps {
+        width: 180px;
+        height: 100%;
+        padding-right: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        border-right: var(--glb-border);
+        box-sizing: border-box;
+
+        .create-plan-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .create-plan-step-icon {
+                width: 30px;
+                height: 30px;
+                background-color: var(--background-color-primary-dark);
+                color: rgba(0, 0, 0, 0.32);
+                font-weight: 500;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+            }
+
+            .create-plan-step-text {
+                height: 100%;
+                color: rgba(0, 0, 0, 0.44);
+                font-size: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 3px;
+
+                span {
+                    font-size: 12px;
+                }
+            }
+
+            &.active .create-plan-step-text {
+                color: var(--text-color-primary);
+            }
+
+            &.active .create-plan-step-icon {
+                background-color: #00a5fd;
+                color: white;
+            }
+        }
+    }
+
+    .create-plan-main {
+        position: relative;
+        width: 100%;
+
+        .create-plan-main-buttons {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    .create-plan-wrapper {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .create-plan-wrapper-name {
+            font-size: 14px;
+        }
+
+        .create-plan-wrapper-note {
+            font-size: 12px;
+        }
+    }
+
+    .create-plan-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 500px;
+        max-height: 100px;
+        overflow: auto;
+
+        span {
+            font-size: 12px;
+            background-color: var(--background-color-primary-dark);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            svg {
+                transition: 200ms all;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    .create-plan-details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .create-plan-theme {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .create-plan-theme-colors {
+            all: unset;
+            max-width: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            legend {
+                color: var(--text-color-primary);
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    .create-plan-theme-color {
+        all: unset;
+        display: block;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+
+        &:checked,
+        &:hover {
+            outline: 2px solid var(--border-color-primary);
+            outline-offset: 2px;
+        }
+    }
+
+    .create-plan-check {
+        display: flex;
+        gap: 20px 50px;
+        flex-wrap: wrap-reverse;
+
+        .create-plan-check-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .create-plan {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .create-plan {
+        .create-plan-steps {
+            display: none;
+        }
+    }
+}

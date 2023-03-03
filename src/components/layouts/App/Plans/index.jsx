@@ -1,8 +1,8 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Plans() {
    return (
-      <div className={styles.plans}>
+      <div className={'plans'}>
          <div>Plans</div>
       </div>
    )

@@ -9,9 +9,9 @@
    align-items: center;
    justify-content: center;
    backdrop-filter: blur(3px);
-}
 
-.wrapper {
-   background: var(--background-color-primary);
-   border-radius: 10px;
+   .modal-main {
+      background: var(--background-color-primary);
+      border-radius: 10px;
+   }
 }

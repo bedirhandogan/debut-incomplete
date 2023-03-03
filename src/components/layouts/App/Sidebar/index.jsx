@@ -20,12 +20,13 @@ import { change } from 'store/reducer/modal'
 
 function Sidebar() {
    const navigate = useNavigate()
-   const { data } = useSelector((state) => state.user)
    const dispatch = useDispatch()
    const location = useLocation()
+   const { data } = useSelector((state) => state.user)
+   const { show } = useSelector((state) => state.sidebar)
 
    return (
-      <div className={'sidebar'}>
+      <div className={`sidebar ${show && 'show'}`}>
          <div className={'sidebar-header'}>
             <img src={logo} alt={'logo'} />
             Debut
@@ -113,6 +114,9 @@ function Sidebar() {
          </div>
          <div className={'sidebar-section'}>
             <Button
+               style={{
+                  width: '100%',
+               }}
                type={'third'}
                onClick={() =>
                   dispatch(
@@ -140,21 +144,19 @@ function Sidebar() {
                   alt={'profile'}
                />
                <div className={'sidebar-footer-username'}>
-                  {data.displayName !== null
-                     ? data.displayName.length >= 10
-                        ? data.displayName.slice(0, 10) + '...'
-                        : data.displayName
-                     : 'unknown'}
+                  {data.displayName !== null ? data.displayName : 'unknown'}
                </div>
-               <Tooltip text={'Logout'} position={'top'}>
-                  <IconSquareRoundedArrowRight
-                     stroke={1.3}
-                     width={24}
-                     height={24}
-                     style={{ color: 'var(--icon-color-primary)' }}
-                     onClick={() => Logout(navigate)}
-                  />
-               </Tooltip>
+               <div className={'sidebar-footer-logout-button'}>
+                  <Tooltip text={'Logout'} position={'top'}>
+                     <IconSquareRoundedArrowRight
+                        stroke={1.3}
+                        width={24}
+                        height={24}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                        onClick={() => Logout(navigate)}
+                     />
+                  </Tooltip>
+               </div>
             </div>
          </div>
       </div>

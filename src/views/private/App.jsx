@@ -5,6 +5,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { AuthInstance } from 'db/auth'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducer/user'
+import Main from 'components/layouts/App/Main'
 
 function App() {
    const { Sidebar, Navbar } = Layouts.App
@@ -32,7 +33,9 @@ function App() {
       <div className={'app'}>
          <Sidebar />
          <Navbar />
-         <Outlet />
+         <Main>
+            <Outlet />
+         </Main>
       </div>
    )
 }

@@ -2,7 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import theme from './reducer/theme'
 import modal from './reducer/modal'
 import user from './reducer/user'
-import createPlan from 'store/reducer/create-plan'
+import createPlan from './reducer/create-plan'
+import sidebar from './reducer/sidebar'
 
 export const store = configureStore({
    reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
       modal,
       user,
       createPlan,
+      sidebar,
    },
 })

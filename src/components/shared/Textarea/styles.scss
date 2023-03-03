@@ -6,10 +6,10 @@
     padding: 10px;
     font-size: 14px;
     resize: none;
-}
 
-.textarea:focus {
-    outline: none;
-    color: var(--text-color-primary);
-    border: 1.5px solid var(--border-color-primary-dark);
+    &:focus {
+        outline: none;
+        color: var(--text-color-primary);
+        border: 1.5px solid var(--border-color-primary-dark);
+    }
 }

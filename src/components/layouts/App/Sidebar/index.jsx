@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
    IconBell,
@@ -25,18 +25,16 @@ function Sidebar() {
    const location = useLocation()
 
    return (
-      <div className={styles.sidebar}>
-         <div className={styles.header}>
+      <div className={'sidebar'}>
+         <div className={'sidebar-header'}>
             <img src={logo} alt={'logo'} />
             Debut
          </div>
-         <div className={styles.area}>
-            <div className={styles.groupName}>General</div>
+         <div className={'sidebar-section'}>
+            <div className={'sidebar-section-name'}>General</div>
             <Link
                to={'/app'}
-               className={
-                  location.pathname === '/app' ? styles.active : 'false'
-               }
+               className={location.pathname === '/app' ? 'active' : ''}
             >
                <IconSmartHome
                   stroke={1.3}
@@ -48,9 +46,7 @@ function Sidebar() {
             </Link>
             <Link
                to={'plans'}
-               className={
-                  location.pathname === '/app/plans' ? styles.active : 'false'
-               }
+               className={location.pathname === '/app/plans' ? 'active' : ''}
             >
                <IconLayoutCollage
                   stroke={1.3}
@@ -63,9 +59,7 @@ function Sidebar() {
             <Link
                to={'bookmarks'}
                className={
-                  location.pathname === '/app/bookmarks'
-                     ? styles.active
-                     : 'false'
+                  location.pathname === '/app/bookmarks' ? 'active' : ''
                }
             >
                <IconBookmarks
@@ -77,9 +71,9 @@ function Sidebar() {
                Bookmarks
             </Link>
          </div>
-         <div className={styles.area}>
-            <div className={styles.groupName}>Account</div>
-            <div className={styles.modalTrigger}>
+         <div className={'sidebar-section'}>
+            <div className={'sidebar-section-name'}>Account</div>
+            <div className={'section-modal-trigger'}>
                <IconBell
                   stroke={1.3}
                   width={24}
@@ -89,7 +83,7 @@ function Sidebar() {
                Notification
             </div>
             <div
-               className={styles.modalTrigger}
+               className={'section-modal-trigger'}
                onClick={() =>
                   dispatch(
                      change({
@@ -107,7 +101,7 @@ function Sidebar() {
                />
                Settings
             </div>
-            <div className={styles.modalTrigger}>
+            <div className={'section-modal-trigger'}>
                <IconMessage2
                   stroke={1.3}
                   width={24}
@@ -117,7 +111,7 @@ function Sidebar() {
                Help & Support
             </div>
          </div>
-         <div className={styles.area}>
+         <div className={'sidebar-section'}>
             <Button
                type={'third'}
                onClick={() =>
@@ -138,14 +132,14 @@ function Sidebar() {
                Create Plan
             </Button>
          </div>
-         <div className={styles.footer}>
-            <div className={styles.groupName}>Session</div>
-            <div className={styles.session}>
+         <div className={'sidebar-footer'}>
+            <div className={'sidebar-section-name'}>Session</div>
+            <div className={'sidebar-footer-session'}>
                <img
                   src={data.photoUrl !== null ? data.photoUrl : defaultProfile}
                   alt={'profile'}
                />
-               <div className={styles.username}>
+               <div className={'sidebar-footer-username'}>
                   {data.displayName !== null
                      ? data.displayName.length >= 10
                         ? data.displayName.slice(0, 10) + '...'

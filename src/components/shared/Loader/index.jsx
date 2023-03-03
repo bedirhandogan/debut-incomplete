@@ -1,16 +1,16 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Loader() {
    return (
-      <div className={styles.loader}>
-         <div className={styles.wrapper}>
-            <div className={styles.part} />
-            <div className={styles.part} />
-            <div className={styles.part} />
+      <div className={'loader'}>
+         <div className={'loader-section'}>
+            <div className={'loader-section-item'} />
+            <div className={'loader-section-item'} />
+            <div className={'loader-section-item'} />
          </div>
-         <div className={styles.wrapper}>
-            <div className={styles.part} />
-            <div className={styles.part} />
+         <div className={'loader-section'}>
+            <div className={'loader-section-item'} />
+            <div className={'loader-section-item'} />
          </div>
       </div>
    )

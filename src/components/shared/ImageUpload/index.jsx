@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function ImageUpload({
    reference,
@@ -9,13 +9,9 @@ function ImageUpload({
    label,
 }) {
    return (
-      <div
-         className={styles.imageUpload}
-         onClick={handleInputFocus}
-         style={style}
-      >
+      <div className={'image-upload'} onClick={handleInputFocus} style={style}>
          {children}
-         <div className={styles.imageHover}>{label}</div>
+         <div className={'image-upload-hover'}>{label}</div>
          <input type={'file'} ref={reference} onChange={handleUpload} />
       </div>
    )

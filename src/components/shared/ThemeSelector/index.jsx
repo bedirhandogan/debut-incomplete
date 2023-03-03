@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import { change } from 'store/reducer/theme'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,14 +9,10 @@ function ThemeSelector({ className }) {
 
    return (
       <div
-         className={`${styles.themeSelector} ${className}`}
+         className={`theme-selector ${className}`}
          onClick={() => dispatch(change())}
       >
-         <div
-            className={`${styles.themeSelect} ${
-               theme === 'dark' && styles.active
-            }`}
-         >
+         <div className={`theme-selector-item ${theme === 'dark' && 'active'}`}>
             {theme === 'light' && (
                <IconSun
                   stroke={1.3}
@@ -27,9 +23,7 @@ function ThemeSelector({ className }) {
             )}
          </div>
          <div
-            className={`${styles.themeSelect} ${
-               theme === 'light' && styles.active
-            }`}
+            className={`theme-selector-item ${theme === 'light' && 'active'}`}
          >
             {theme === 'dark' && (
                <IconMoon

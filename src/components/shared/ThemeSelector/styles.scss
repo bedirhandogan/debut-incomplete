@@ -1,0 +1,26 @@
+.theme-selector {
+   width: 75px;
+   height: 35px;
+   border: var(--glb-border);
+   background-color: var(--background-color-primary-dark);
+   border-radius: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   overflow: hidden;
+   cursor: pointer;
+   padding: 3px;
+
+   .theme-selector-item {
+      width: calc(75px / 2);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+         background-color: var(--background-color-secondary);
+         border-radius: 8px;
+      }
+   }
+}

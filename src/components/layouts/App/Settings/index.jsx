@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import { IconPassword, IconUserCircle } from '@tabler/icons-react'
 import { useState } from 'react'
 import Profile from './Profile'
@@ -8,13 +8,13 @@ function Settings() {
    const [activeAction, setActiveAction] = useState('profile')
 
    return (
-      <div className={styles.settings}>
-         <div className={styles.area}>
-            <div className={styles.actionList}>
-               <div className={styles.groupName}>Account</div>
+      <div className={'settings'}>
+         <div className={'settings-section'}>
+            <div className={'settings-action-list'}>
+               <div className={'settings-action-name'}>Account</div>
                <div
-                  className={`${styles.action} ${
-                     activeAction === 'profile' && styles.active
+                  className={`settings-action ${
+                     activeAction === 'profile' && 'active'
                   }`}
                   onClick={() => setActiveAction('profile')}
                >
@@ -27,8 +27,8 @@ function Settings() {
                   Profile
                </div>
                <div
-                  className={`${styles.action} ${
-                     activeAction === 'password' && styles.active
+                  className={`settings-action ${
+                     activeAction === 'password' && 'active'
                   }`}
                   onClick={() => setActiveAction('password')}
                >
@@ -42,8 +42,8 @@ function Settings() {
                </div>
             </div>
          </div>
-         <div className={styles.area}>
-            <div className={styles.actionTitle}>{activeAction}</div>
+         <div className={'settings-section'}>
+            <div className={'settings-title'}>{activeAction}</div>
             {activeAction === 'profile' ? (
                <Profile />
             ) : activeAction === 'password' ? (

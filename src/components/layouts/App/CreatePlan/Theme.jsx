@@ -4,7 +4,7 @@ import defaultPlanLogo from 'assets/images/default-plan-logo.png'
 import Tooltip from 'components/shared/Tooltip'
 import colors from 'constants/colors'
 import { useRef } from 'react'
-import { edit } from 'store/reducer/create-plan'
+import { edit } from 'store/reducers/create-plan'
 import { useDispatch, useSelector } from 'react-redux'
 
 function Theme() {

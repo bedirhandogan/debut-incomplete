@@ -16,7 +16,7 @@ import { Logout } from 'db/auth'
 import Tooltip from 'components/shared/Tooltip'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from 'components/shared/Button'
-import { change } from 'store/reducer/modal'
+import { change } from 'store/reducers/modal'
 
 function Sidebar() {
    const navigate = useNavigate()

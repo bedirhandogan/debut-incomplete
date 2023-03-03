@@ -1,7 +1,7 @@
 import './styles.scss'
 import { useCallback, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { change } from 'store/reducer/modal'
+import { change } from 'store/reducers/modal'
 
 function Modal({ children, style }) {
    const { data } = useSelector((state) => state.modal)

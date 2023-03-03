@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { AuthInstance } from 'db/auth'
 import { useDispatch } from 'react-redux'
-import { change } from 'store/reducer/user'
+import { change } from 'store/reducers/user'
 import Main from 'components/layouts/App/Main'
 
 function App() {

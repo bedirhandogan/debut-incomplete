@@ -1,7 +1,7 @@
 import './styles.scss'
 import logo from 'assets/images/logo.svg'
 import { useDispatch } from 'react-redux'
-import { change } from 'store/reducer/modal'
+import { change } from 'store/reducers/modal'
 import { useNavigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import { AuthInstance } from 'db/auth'

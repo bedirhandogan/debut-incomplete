@@ -1,7 +1,7 @@
 import { updateEmail as updateMail } from 'firebase/auth'
 import { AuthInstance } from 'db/auth/index'
 import toast from 'react-hot-toast'
-import { edit } from 'store/reducer/user'
+import { edit } from 'store/reducers/user'
 import errorMessages from 'db/config/error-messages'
 
 async function updateEmail(email, dispatch) {

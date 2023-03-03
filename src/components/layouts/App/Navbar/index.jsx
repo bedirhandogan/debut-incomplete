@@ -7,7 +7,7 @@ import {
 import Input from 'components/shared/Input'
 import ThemeSelector from 'components/shared/ThemeSelector'
 import { useDispatch, useSelector } from 'react-redux'
-import { change } from 'store/reducer/sidebar'
+import { change } from 'store/reducers/sidebar'
 
 function Navbar() {
    const dispatch = useDispatch()

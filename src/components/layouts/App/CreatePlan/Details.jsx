@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { edit } from 'store/reducer/create-plan'
+import { edit } from 'store/reducers/create-plan'
 import './styles.scss'
 import Input from 'components/shared/Input'
 import Textarea from 'components/shared/Textarea'

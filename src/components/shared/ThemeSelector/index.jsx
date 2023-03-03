@@ -1,5 +1,5 @@
 import './styles.scss'
-import { change } from 'store/reducer/theme'
+import { change } from 'store/reducers/theme'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useDispatch, useSelector } from 'react-redux'
 

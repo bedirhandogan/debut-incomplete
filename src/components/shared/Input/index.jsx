@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Input({
    children,
@@ -11,7 +11,7 @@ function Input({
    disabled = false,
 }) {
    return (
-      <div className={`${styles.input} ${className}`}>
+      <div className={`input ${className}`}>
          {children}
          <input
             type={type}

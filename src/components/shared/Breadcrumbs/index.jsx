@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import { IconLayoutCollage } from '@tabler/icons-react'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,8 +6,8 @@ function Breadcrumbs({ path }) {
    const navigate = useNavigate()
 
    return (
-      <div className={styles.breadcrumbs}>
-         <div className={styles.item}>
+      <div className={'breadcrumbs'}>
+         <div className={'breadcrumbs-item'}>
             <IconLayoutCollage
                stroke={1.3}
                width={24}
@@ -15,13 +15,19 @@ function Breadcrumbs({ path }) {
                style={{ color: 'var(--icon-color-primary)', cursor: 'pointer' }}
                onClick={() => navigate('/app')}
             />
-            <span className={styles.arrow} />
+            <span className={'breadcrumbs-item-arrow-symbol'} />
          </div>
 
          {path.map((v, i) => (
-            <div className={styles.item} onClick={() => navigate(v.to)} key={i}>
-               <div className={styles.text}>{v.name}</div>
-               {v.end !== true && <span className={styles.arrow} />}
+            <div
+               className={'breadcrumbs-item'}
+               onClick={() => navigate(v.to)}
+               key={i}
+            >
+               <div className={'breadcrumbs-item-text'}>{v.name}</div>
+               {v.end !== true && (
+                  <span className={'breadcrumbs-item-arrow-symbol'} />
+               )}
             </div>
          ))}
       </div>

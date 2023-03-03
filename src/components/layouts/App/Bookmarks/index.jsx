@@ -1,8 +1,8 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Bookmarks() {
    return (
-      <div className={styles.bookmarks}>
+      <div className={'bookmarks'}>
          <div>Bookmarks</div>
       </div>
    )

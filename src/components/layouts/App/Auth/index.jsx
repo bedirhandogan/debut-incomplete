@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import './styles.scss'
 import logo from 'assets/images/logo.svg'
 import Button from 'components/shared/Button'
 import { IconBrandGoogle } from '@tabler/icons-react'
@@ -23,9 +23,9 @@ function AuthForm() {
    }
 
    return (
-      <form className={styles.auth} onSubmit={handleSubmit}>
-         <img src={logo} alt={'logo'} />
-         <p>Login with email or google account</p>
+      <form className={'auth-form'} onSubmit={handleSubmit}>
+         <img src={logo} alt={'logo'} id={'auth-form-logo'} />
+         <p className={'auth-form-note'}>Login with email or google account</p>
          <Button
             type={'primary'}
             id={'google'}
@@ -39,7 +39,7 @@ function AuthForm() {
             <IconBrandGoogle width={14} stroke={3} style={{ color: '#fff' }} />
             Continue with Google
          </Button>
-         <hr />
+         <hr className={'auth-form-break-line'} />
          <Input
             type={'email'}
             placeholder={'Email'}

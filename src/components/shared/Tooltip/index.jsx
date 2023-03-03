@@ -1,20 +1,23 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Tooltip({ children, text, position, style }) {
    const pos =
       position === 'top'
-         ? styles.top
+         ? 'tooltip-position-top'
          : position === 'bottom'
-         ? styles.bottom
+         ? 'tooltip-position-bottom'
          : position === 'left'
-         ? styles.left
+         ? 'tooltip-position-left'
          : position === 'right'
-         ? styles.right
-         : null
+         ? 'tooltip-position-right'
+         : ''
+
    return (
-      <div className={styles.tooltip}>
+      <div className={'tooltip'}>
          {children}
-         <div className={`${styles.text} ${pos}`} style={style}>{text}</div>
+         <div className={`tooltip-text ${pos}`} style={style}>
+            {text}
+         </div>
       </div>
    )
 }

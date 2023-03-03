@@ -1,0 +1,39 @@
+.tooltip {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: max-content;
+
+   .tooltip-text {
+      width: max-content;
+      position: absolute;
+      background-color: var(--background-color-primary-dark);
+      padding: 8px 16px;
+      border-radius: 5px;
+      display: none;
+      font-size: 14px;
+
+      $position: 160%;
+
+      &.tooltip-position-left {
+         right: $position;
+      }
+
+      &.tooltip-position-right {
+         left: $position;
+      }
+
+      &.tooltip-position-top {
+         top: -$position;
+      }
+
+      &.tooltip-position-bottom {
+         bottom: -$position;
+      }
+   }
+
+   &:hover .tooltip-text {
+      display: block;
+   }
+}

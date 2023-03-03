@@ -1,8 +1,8 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Button(props) {
    return (
-      <button className={`${styles.button} ${styles[props.type]}`} {...props}>
+      <button className={`button ${props.type}`} {...props}>
          {props.children}
       </button>
    )

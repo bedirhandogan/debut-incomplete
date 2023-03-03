@@ -1,7 +1,7 @@
-import styles from './styles.module.css'
+import './styles.scss'
 
 function Introduction() {
-   return <div className={styles.introduction}>introduction area</div>
+   return <div className={'introduction'}>introduction area</div>
 }
 
 export default Introduction

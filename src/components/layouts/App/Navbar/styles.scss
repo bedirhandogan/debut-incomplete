@@ -1,4 +1,5 @@
-.navbar {
+.app-navbar {
+   all: unset;
    display: inline-flex;
    justify-content: space-between;
    align-items: center;
@@ -7,7 +8,7 @@
    grid-column: var(--navbar-grid-column);
    grid-row: var(--navbar-grid-row);
 
-   .navbar-section {
+   .app-navbar-section {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -30,7 +31,7 @@
 }
 
 @media screen and (max-width: 768px) {
-   .navbar-search {
+   .app-navbar-search {
       width: 30px;
       display: flex;
       align-items: center;

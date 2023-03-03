@@ -14,8 +14,8 @@ function Navbar() {
    const { show } = useSelector((state) => state.sidebar)
 
    return (
-      <div className={'navbar'}>
-         <div className={'navbar-section'}>
+      <div className={'app-navbar'}>
+         <div className={'app-navbar-section'}>
             <div
                className={`sidebar-show-trigger ${show ? 'active' : ''}`}
                onClick={() => dispatch(change(!show))}
@@ -37,11 +37,11 @@ function Navbar() {
                )}
             </div>
          </div>
-         <div className={'navbar-section'}>
+         <div className={'app-navbar-section'}>
             <Input
                type={'text'}
                placeholder={'Search'}
-               className={'navbar-search'}
+               className={'app-navbar-search'}
             >
                <IconSearch
                   stroke={1.3}

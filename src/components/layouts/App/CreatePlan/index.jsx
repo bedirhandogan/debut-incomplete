@@ -13,7 +13,7 @@ import {
 function CreatePlan() {
    const [stepId, setStepId] = useState(0)
 
-   const section = [
+   const sections = [
       {
          name: 'details',
          component: <Details />,
@@ -71,30 +71,28 @@ function CreatePlan() {
                </div>
             </div>
          </div>
-         <div className={'create-plan-main'}>
-            {section[stepId].component}
-            <div className={'create-plan-main-buttons'}>
-               {stepId !== 0 && (
-                  <Button
-                     type={'fourth'}
-                     style={{ width: '60px' }}
-                     onClick={() => setStepId((prevState) => prevState - 1)}
-                  >
-                     Prev
-                  </Button>
-               )}
+         <div className={'create-plan-main'}>{sections[stepId].component}</div>
+         <div className={'create-plan-buttons'}>
+            {stepId !== 0 && (
                <Button
-                  type={'secondary'}
+                  type={'fourth'}
                   style={{ width: '60px' }}
-                  onClick={() =>
-                     setStepId((prevState) =>
-                        prevState !== 2 ? prevState + 1 : prevState
-                     )
-                  }
+                  onClick={() => setStepId((prevState) => prevState - 1)}
                >
-                  {stepId !== 2 ? 'Next' : 'Finish'}
+                  Prev
                </Button>
-            </div>
+            )}
+            <Button
+               type={'secondary'}
+               style={{ width: '60px' }}
+               onClick={() =>
+                  setStepId((prevState) =>
+                     prevState !== 2 ? prevState + 1 : prevState
+                  )
+               }
+            >
+               {stepId !== 2 ? 'Next' : 'Finish'}
+            </Button>
          </div>
       </div>
    )

@@ -53,7 +53,7 @@ function Details() {
             <Input
                placeholder={'Enter a title for plan'}
                type={'text'}
-               style={{ textAlign: 'left', padding: '10px', width: '300px' }}
+               style={{ textAlign: 'left', padding: '10px', width: '100%' }}
                onChange={handleTitle}
             />
          </div>
@@ -72,7 +72,7 @@ function Details() {
             <Input
                placeholder={'Enter a tag for plan'}
                type={'text'}
-               style={{ textAlign: 'left', padding: '10px', width: '200px' }}
+               style={{ textAlign: 'left', padding: '10px', width: '100%' }}
                onKeyPress={handleTag}
             />
             {data.tags.length === 0 && (

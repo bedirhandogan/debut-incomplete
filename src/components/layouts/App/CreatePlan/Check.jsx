@@ -41,7 +41,7 @@ function Check() {
                   ))}
                </div>
                {data.tags.length === 0 && (
-                  <div className={'create-plan-wrapper-name'}>
+                  <div className={'create-plan-wrapper-note'}>
                      You haven't added a tag yet.
                   </div>
                )}

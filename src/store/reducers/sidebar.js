@@ -11,15 +11,15 @@ const sidebar = createSlice({
 
          const properties = [
             {
-               property: '--grid-columns',
+               property: '--g-grid-columns',
                value: !action.payload ? '1fr' : '250px 1fr',
             },
             {
-               property: '--navbar-grid-column',
+               property: '--g-navbar-grid-column',
                value: !action.payload ? '1 / 2' : '2 / 3',
             },
             {
-               property: '--main-grid-column',
+               property: '--g-main-grid-column',
                value: !action.payload ? '1 / 2' : '2 / 3',
             },
          ]

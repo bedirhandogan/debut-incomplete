@@ -72,7 +72,6 @@ function CreatePlan() {
             </div>
          </div>
          <div className={'create-plan-main'}>
-            <div className={'create-plan-title'}>{section[stepId].name}</div>
             {section[stepId].component}
             <div className={'create-plan-main-buttons'}>
                {stepId !== 0 && (

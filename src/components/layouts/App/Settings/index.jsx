@@ -43,7 +43,6 @@ function Settings() {
             </div>
          </div>
          <div className={'settings-section'}>
-            <div className={'settings-title'}>{activeAction}</div>
             {activeAction === 'profile' ? (
                <Profile />
             ) : activeAction === 'password' ? (

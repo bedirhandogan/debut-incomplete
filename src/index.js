@@ -16,7 +16,7 @@ const root = createRoot(document.getElementById('root'))
 function ModalWrapper() {
    const { data } = useSelector((state) => state.modal)
 
-   const section = [
+   const sections = [
       {
          name: 'settings',
          component: <Settings />,
@@ -26,16 +26,16 @@ function ModalWrapper() {
          component: <AuthForm />,
       },
       {
-         name: 'create-project',
+         name: 'create-plan',
          component: <CreatePlan />,
       },
    ]
 
-   const index = section.findIndex((v) => v.name === data.component)
+   const index = sections.findIndex((v) => v.name === data.component)
 
    return (
-      <Modal style={{ width: 'max-content', height: 'max-content' }}>
-         {section[index]?.component}
+      <Modal title={sections[index]?.name.replace('-', ' ')}>
+         {sections[index]?.component}
       </Modal>
    )
 }

@@ -48,13 +48,6 @@
             }
          }
       }
-
-      .settings-title {
-         width: 100%;
-         border-bottom: var(--g-border);
-         padding-bottom: 7px;
-         text-transform: capitalize;
-      }
    }
 
    .settings-input-wrapper {
@@ -93,6 +86,6 @@
 @media screen and (max-width: 900px) {
     .settings {
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 65px);
     }
 }

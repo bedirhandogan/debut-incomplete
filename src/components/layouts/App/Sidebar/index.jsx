@@ -121,7 +121,7 @@ function Sidebar() {
                onClick={() =>
                   dispatch(
                      change({
-                        component: 'create-project',
+                        component: 'create-plan',
                         active: true,
                      })
                   )

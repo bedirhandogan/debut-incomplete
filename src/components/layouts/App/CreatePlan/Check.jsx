@@ -19,7 +19,7 @@ function Check() {
                <Input
                   placeholder={data.title}
                   type={'text'}
-                  style={{ textAlign: 'left', padding: '10px', width: '200px' }}
+                  style={{ textAlign: 'left', padding: '10px', width: '100%' }}
                   disabled
                />
             </div>
@@ -29,6 +29,7 @@ function Check() {
                   placeholder={data.description}
                   style={{
                      height: '100px',
+                     width: '100%',
                   }}
                   disabled
                />

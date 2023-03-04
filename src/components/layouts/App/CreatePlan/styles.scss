@@ -11,7 +11,7 @@
         width: 100%;
         height: 30px;
         margin-bottom: 20px;
-        border-bottom: var(--glb-border);
+        border-bottom: var(--g-border);
         text-transform: capitalize;
     }
 
@@ -23,7 +23,7 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
-        border-right: var(--glb-border);
+        border-right: var(--g-border);
         box-sizing: border-box;
 
         .create-plan-step {
@@ -34,8 +34,8 @@
             .create-plan-step-icon {
                 width: 30px;
                 height: 30px;
-                background-color: var(--background-color-primary-dark);
-                color: rgba(0, 0, 0, 0.32);
+                background-color: var(--background-color-primary-variant);
+                color: var(--icon-color-primary-variant);
                 font-weight: 500;
                 border-radius: 5px;
                 display: flex;
@@ -46,7 +46,7 @@
 
             .create-plan-step-text {
                 height: 100%;
-                color: rgba(0, 0, 0, 0.44);
+                color: var(--text-color-primary-variant);
                 font-size: 15px;
                 display: flex;
                 flex-direction: column;
@@ -107,7 +107,7 @@
 
         span {
             font-size: 12px;
-            background-color: var(--background-color-primary-dark);
+            background-color: var(--background-color-primary-variant);
             padding: 5px 10px;
             border-radius: 5px;
             display: flex;

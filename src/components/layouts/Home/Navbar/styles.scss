@@ -20,7 +20,7 @@
          border-radius: 5px;
 
          &:hover {
-            background-color: var(--background-color-primary-dark);
+            background-color: var(--background-color-primary-variant);
          }
       }
    }
@@ -28,8 +28,8 @@
    .navbar-trigger-auth-form {
       width: 110px;
       height: 32px;
-      border: var(--glb-border);
-      background-color: var(--background-color-primary-dark);
+      border: var(--g-border);
+      background-color: var(--background-color-primary-variant);
       font-size: 14px;
       display: flex;
       align-items: center;
@@ -41,7 +41,7 @@
       transition: 200ms all;
 
       &:hover {
-         border: 1.5px solid var(--border-color-primary-dark);
+         border: 1.5px solid var(--border-color-primary-variant);
       }
    }
 }

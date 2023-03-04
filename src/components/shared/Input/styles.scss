@@ -10,8 +10,8 @@
 
    input {
       color: var(--text-color-primary);
-      border: var(--glb-border);
-      background-color: var(--background-color-primary-dark);
+      border: var(--g-border);
+      background-color: var(--background-color-primary-variant);
       width: 200px;
       height: 35px;
       border-radius: 5px;
@@ -23,7 +23,7 @@
       &:focus {
          outline: none;
          color: var(--text-color-primary);
-         border: 1.5px solid var(--border-color-primary-dark);
+         border: 1.5px solid var(--border-color-primary-variant);
       }
    }
 }

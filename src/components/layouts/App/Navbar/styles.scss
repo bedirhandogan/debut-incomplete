@@ -3,10 +3,10 @@
    display: inline-flex;
    justify-content: space-between;
    align-items: center;
-   border-bottom: var(--glb-border);
+   border-bottom: var(--g-border);
    padding: 0 20px 0 10px;
-   grid-column: var(--navbar-grid-column);
-   grid-row: var(--navbar-grid-row);
+   grid-column: var(--g-navbar-grid-column);
+   grid-row: var(--g-navbar-grid-row);
 
    .app-navbar-section {
       display: flex;
@@ -24,7 +24,7 @@
          transition: 200ms all;
 
          &:hover {
-            background-color: var(--background-color-primary-dark);
+            background-color: var(--background-color-primary-variant);
          }
       }
    }

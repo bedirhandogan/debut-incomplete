@@ -3,11 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
    IconBell,
    IconBookmarks,
+   IconGraph,
    IconLayoutCollage,
    IconMessage2,
    IconPlus,
    IconSettings,
-   IconSmartHome,
    IconSquareRoundedArrowRight,
 } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
@@ -37,13 +37,13 @@ function Sidebar() {
                to={'/app'}
                className={location.pathname === '/app' ? 'active' : ''}
             >
-               <IconSmartHome
+               <IconGraph
                   stroke={1.3}
                   width={24}
                   height={24}
                   style={{ color: 'var(--icon-color-primary)' }}
                />
-               Introduction
+               Overview
             </Link>
             <Link
                to={'plans'}

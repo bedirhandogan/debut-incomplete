@@ -52,11 +52,7 @@ function Theme() {
          <fieldset className={'create-plan-theme-colors'}>
             <legend> Colors </legend>
             {colors.map((v, i) => (
-               <Tooltip
-                  text={v.name}
-                  style={{ bottom: '-160%', zIndex: '99' }}
-                  key={i}
-               >
+               <Tooltip text={v.name} position={'bottom'} key={i}>
                   <input
                      type={'radio'}
                      className={'create-plan-theme-color'}

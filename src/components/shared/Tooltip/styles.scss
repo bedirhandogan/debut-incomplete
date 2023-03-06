@@ -4,17 +4,20 @@
    align-items: center;
    justify-content: center;
    width: max-content;
+   height: max-content;
 
    .tooltip-text {
       width: max-content;
       position: absolute;
       background-color: var(--background-color-primary-variant);
-      padding: 8px 16px;
+      border: var(--g-border);
+      padding: 5px 10px;
       border-radius: 5px;
       display: none;
-      font-size: 14px;
+      font-size: 12px;
+      z-index: 1;
 
-      $position: 160%;
+      $position: 120%;
 
       &.tooltip-position-left {
          right: $position;
@@ -25,11 +28,11 @@
       }
 
       &.tooltip-position-top {
-         top: -$position;
+         bottom: $position;
       }
 
       &.tooltip-position-bottom {
-         bottom: -$position;
+         top: $position;
       }
    }
 

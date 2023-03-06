@@ -6,6 +6,7 @@
    height: 100vh;
    background: var(--background-color-third);
    backdrop-filter: blur(3px);
+   z-index: 99;
 
    .modal-main {
       background: var(--background-color-primary);

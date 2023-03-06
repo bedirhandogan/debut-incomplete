@@ -13,6 +13,10 @@
       align-items: center;
       gap: 10px;
 
+      .app-sidebar-title {
+         text-transform: capitalize;
+      }
+
       .sidebar-show-trigger {
          position: relative;
          width: 35px;

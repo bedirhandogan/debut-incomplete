@@ -8,9 +8,11 @@ import Input from 'components/shared/Input'
 import ThemeSelector from 'components/shared/ThemeSelector'
 import { useDispatch, useSelector } from 'react-redux'
 import { change } from 'store/reducers/sidebar'
+import { useLocation } from 'react-router-dom'
 
 function Navbar() {
    const dispatch = useDispatch()
+   const location = useLocation()
    const { show } = useSelector((state) => state.sidebar)
 
    return (
@@ -35,6 +37,11 @@ function Navbar() {
                      style={{ color: 'var(--icon-color-primary)' }}
                   />
                )}
+            </div>
+            <div className={'app-sidebar-title'}>
+               {location.pathname === '/app'
+                  ? 'Overview'
+                  : location.pathname.slice(5)}
             </div>
          </div>
          <div className={'app-navbar-section'}>

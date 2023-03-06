@@ -84,7 +84,6 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 100%;
     }
 
     .plan-card-body-preview {
@@ -150,6 +149,7 @@
         border-radius: 100%;
         background-color: var(--background-color-secondary);
         font-size: 12px;
+        font-weight: 500;
         user-select: none;
         z-index: 3;
       }

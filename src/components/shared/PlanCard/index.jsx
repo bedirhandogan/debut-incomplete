@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 function PlanCard({ data }) {
    const [showPopup, setShowPopup] = useState(false)
-   console.log(data)
 
    return (
       <div className={'plan-card'}>

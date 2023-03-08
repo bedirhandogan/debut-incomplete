@@ -2,9 +2,15 @@ import './styles.scss'
 import { IconDots, IconTrash } from '@tabler/icons-react'
 import Tooltip from 'components/shared/Tooltip'
 import { useState } from 'react'
+import prettyMs from 'pretty-ms'
 
 function PlanCard({ data }) {
    const [showPopup, setShowPopup] = useState(false)
+
+   const date = prettyMs(new Date().getTime() - data.date.updatedAt, {
+      compact: true,
+      verbose: true,
+   })
 
    return (
       <div className={'plan-card'}>
@@ -78,7 +84,7 @@ function PlanCard({ data }) {
                   <div className={'plan-card-plus-members'}>+3</div>
                </div>
             </Tooltip>
-            <div className={'plan-card-date'}>{data.date.updatedAt}</div>
+            <div className={'plan-card-date'}>{date} ago</div>
          </div>
       </div>
    )

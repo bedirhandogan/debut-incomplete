@@ -4,6 +4,7 @@ import modal from './reducers/modal'
 import user from './reducers/user'
 import createPlan from './reducers/create-plan'
 import sidebar from './reducers/sidebar'
+import plans from './reducers/plans'
 
 export const store = configureStore({
    reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
       user,
       createPlan,
       sidebar,
+      plans,
    },
 })

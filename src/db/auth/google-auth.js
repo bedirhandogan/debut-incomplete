@@ -2,7 +2,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import toast from 'react-hot-toast'
 import { AuthInstance } from './index'
 import errorMessages from '../config/error-messages'
-import createDocument from "db/storage/create-document";
+import createDocument from 'db/storage/create-document'
 
 const provider = new GoogleAuthProvider()
 

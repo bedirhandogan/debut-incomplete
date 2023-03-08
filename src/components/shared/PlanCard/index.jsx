@@ -3,15 +3,23 @@ import { IconDots, IconTrash } from '@tabler/icons-react'
 import Tooltip from 'components/shared/Tooltip'
 import { useState } from 'react'
 
-function PlanCard() {
+function PlanCard({ data }) {
    const [showPopup, setShowPopup] = useState(false)
+   console.log(data)
 
    return (
       <div className={'plan-card'}>
          <div className={'plan-card-header'}>
             <div className={'plan-card-tags'}>
-               <div className={'plan-card-tag'}> Website </div>
-               <div className={'plan-card-tag'}> UX </div>
+               {data.tags.length === 0 ? (
+                  <div className={'plan-card-tag'}>Unlabeled</div>
+               ) : (
+                  data.tags.map((v, i) => (
+                     <div className={'plan-card-tag'} key={i}>
+                        {v}
+                     </div>
+                  ))
+               )}
             </div>
             <div className={'plan-card-options'}>
                <div
@@ -44,7 +52,7 @@ function PlanCard() {
             </div>
          </div>
          <div className={'plan-card-body'}>
-            <div className={'plan-card-body-title'}>Debut State Management</div>
+            <div className={'plan-card-body-title'}>{data.title}</div>
             <div className={'plan-card-body-preview'}></div>
          </div>
          <div className={'plan-card-footer'}>
@@ -71,7 +79,7 @@ function PlanCard() {
                   <div className={'plan-card-plus-members'}>+3</div>
                </div>
             </Tooltip>
-            <div className={'plan-card-date'}>2 days ago</div>
+            <div className={'plan-card-date'}>{data.date.updatedAt}</div>
          </div>
       </div>
    )

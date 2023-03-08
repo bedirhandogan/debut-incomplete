@@ -42,7 +42,7 @@ function ModalWrapper() {
 
 function Root() {
    return (
-      <React.StrictMode>
+      <>
          <Provider store={store}>
             <Suspense fallback={<Loader />}>
                <Router>
@@ -51,7 +51,7 @@ function Root() {
                <Toaster />
             </Suspense>
          </Provider>
-      </React.StrictMode>
+      </>
    )
 }
 

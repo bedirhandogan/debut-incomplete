@@ -12,9 +12,11 @@ function Plans() {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      getPlans(user).then((v) => {
-         dispatch(change(v))
-      })
+      ;(async () => {
+         const plans = await getPlans(user)
+
+         dispatch(change(plans))
+      })()
    }, [dispatch, user])
 
    return (

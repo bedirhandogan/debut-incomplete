@@ -34,9 +34,11 @@ function Plans() {
             </div>
          </div>
 
-         {plans?.map((v) => (
-            <PlanCard key={v.id} data={v} />
-         ))}
+         <div className={'plans-grid'}>
+            {plans?.map((v) => (
+               <PlanCard key={v.id} data={v} />
+            ))}
+         </div>
       </div>
    )
 }

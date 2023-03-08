@@ -24,7 +24,7 @@ function Details() {
       )
 
    const handleTag = (event) => {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && data.tags.length < 5) {
          dispatch(
             edit({
                tags: [...data.tags, event.target.value],

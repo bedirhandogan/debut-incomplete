@@ -7,8 +7,6 @@ const createPlan = createSlice({
          title: 'Untitled',
          description: 'No description entered',
          tags: [],
-         logoUrl: '',
-         color: '#2196f3',
       },
    },
    reducers: {

@@ -2,13 +2,8 @@ import './styles.scss'
 import Button from 'components/shared/Button'
 import { useState } from 'react'
 import Details from './Details'
-import Theme from './Theme'
 import Check from './Check'
-import {
-   IconBrush,
-   IconPencil,
-   IconSquareRoundedCheck,
-} from '@tabler/icons-react'
+import { IconPencil, IconSquareRoundedCheck } from '@tabler/icons-react'
 
 function CreatePlan() {
    const [stepId, setStepId] = useState(0)
@@ -17,10 +12,6 @@ function CreatePlan() {
       {
          name: 'details',
          component: <Details />,
-      },
-      {
-         name: 'theme',
-         component: <Theme />,
       },
       {
          name: 'check',
@@ -50,24 +41,11 @@ function CreatePlan() {
                }`}
             >
                <div className={'create-plan-step-icon'}>
-                  <IconBrush stroke={1.5} width={18} height={18} />
-               </div>
-               <div className={'create-plan-step-text'}>
-                  Theme
-                  <span>Step 2</span>
-               </div>
-            </div>
-            <div
-               className={`create-plan-step ${
-                  stepId === 2 ? 'active' : 'null'
-               }`}
-            >
-               <div className={'create-plan-step-icon'}>
                   <IconSquareRoundedCheck stroke={1.5} width={18} height={18} />
                </div>
                <div className={'create-plan-step-text'}>
                   Check
-                  <span>Step 3</span>
+                  <span>Step 2</span>
                </div>
             </div>
          </div>
@@ -76,7 +54,7 @@ function CreatePlan() {
             {stepId !== 0 && (
                <Button
                   type={'fourth'}
-                  style={{ width: '60px' }}
+                  style={{ width: '100%' }}
                   onClick={() => setStepId((prevState) => prevState - 1)}
                >
                   Prev
@@ -84,14 +62,14 @@ function CreatePlan() {
             )}
             <Button
                type={'secondary'}
-               style={{ width: '60px' }}
+               style={{ width: '100%' }}
                onClick={() =>
                   setStepId((prevState) =>
-                     prevState !== 2 ? prevState + 1 : prevState
+                     prevState !== 1 ? prevState + 1 : prevState
                   )
                }
             >
-               {stepId !== 2 ? 'Next' : 'Finish'}
+               {stepId !== 1 ? 'Next' : 'Create'}
             </Button>
          </div>
       </div>

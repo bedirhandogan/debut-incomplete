@@ -1,15 +1,10 @@
 import './styles.scss'
 import { useSelector } from 'react-redux'
-import defaultPlanLogo from 'assets/images/default-plan-logo.png'
-import Tooltip from 'components/shared/Tooltip'
-import colors from 'constants/colors'
 import Input from 'components/shared/Input'
 import Textarea from 'components/shared/Textarea'
 
 function Check() {
    const { data } = useSelector((state) => state.createPlan)
-
-   const filteredColor = colors.filter((v) => v.hex === data.color)
 
    return (
       <div className={'create-plan-check'}>
@@ -46,31 +41,6 @@ function Check() {
                      You haven't added a tag yet.
                   </div>
                )}
-            </div>
-         </div>
-         <div className={'create-plan-check-area'}>
-            <div
-               className={'create-plan-wrapper'}
-               style={{ width: 'max-content' }}
-            >
-               <div className={'create-plan-wrapper-name'}>Plan Logo</div>
-               <img
-                  width={50}
-                  src={!data.logoUrl ? defaultPlanLogo : data.logoUrl}
-                  alt={'plan-logo'}
-               />
-            </div>
-            <div
-               className={'create-plan-wrapper'}
-               style={{ width: 'max-content' }}
-            >
-               <div className={'create-plan-wrapper-name'}>Color</div>
-               <Tooltip text={filteredColor[0]?.name} position={'bottom'}>
-                  <div
-                     className={'create-plan-theme-color'}
-                     style={{ backgroundColor: data.color }}
-                  />
-               </Tooltip>
             </div>
          </div>
       </div>

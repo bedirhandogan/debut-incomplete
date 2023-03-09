@@ -5,6 +5,7 @@ import { useState } from 'react'
 import prettyMs from 'pretty-ms'
 import { useNavigate } from 'react-router-dom'
 import Members from 'components/shared/Members'
+import Tags from 'components/shared/Tags'
 
 function PlanCard({ data }) {
    const navigate = useNavigate()
@@ -21,17 +22,7 @@ function PlanCard({ data }) {
          onClick={() => navigate(`/app/plan/${data.id}`)}
       >
          <div className={'plan-card-header'}>
-            <div className={'plan-card-tags'}>
-               {data.tags.length === 0 ? (
-                  <div className={'plan-card-tag'}>Unlabeled</div>
-               ) : (
-                  data.tags.map((v, i) => (
-                     <div className={'plan-card-tag'} key={i}>
-                        {v}
-                     </div>
-                  ))
-               )}
-            </div>
+            <Tags data={data} />
             <div className={'plan-card-options'}>
                <div
                   className={`plan-card-popup-trigger ${

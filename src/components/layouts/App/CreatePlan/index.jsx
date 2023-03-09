@@ -25,7 +25,7 @@ function CreatePlan() {
       const date = new Date()
 
       await addPlan(user, {
-         id: '#' + CryptoJS.lib.WordArray.random(4).toString(CryptoJS.enc.hex),
+         id: CryptoJS.lib.WordArray.random(4).toString(CryptoJS.enc.hex),
          ...createPlan,
          date: {
             createdAt: date.getTime(),

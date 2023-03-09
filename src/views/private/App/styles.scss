@@ -1,0 +1,11 @@
+.app {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: var(--g-grid-columns);
+  grid-template-rows: var(--g-grid-rows);
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 100% 1fr;
+  }
+}

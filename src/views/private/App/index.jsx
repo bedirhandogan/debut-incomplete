@@ -6,6 +6,7 @@ import { AuthInstance } from 'db/auth'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducers/user'
 import Main from 'components/layouts/App/Main'
+import './styles.scss'
 
 function App() {
    const { Sidebar, Navbar } = Layouts.App

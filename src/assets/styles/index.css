@@ -69,14 +69,6 @@ input::placeholder {
    user-select: none;
 }
 
-.app {
-   height: 100vh;
-
-   display: grid;
-   grid-template-columns: var(--g-grid-columns);
-   grid-template-rows: var(--g-grid-rows);
-}
-
 ::-webkit-scrollbar {
    background-color: var(--background-color-primary-variant);
    width: 5px;
@@ -84,10 +76,4 @@ input::placeholder {
 
 ::-webkit-scrollbar-thumb {
    background-color: var(--background-color-secondary);
-}
-
-@media screen and (max-width: 500px) {
-   .app {
-      grid-template-columns: 100% 1fr;
-   }
 }

@@ -3,8 +3,11 @@ import { IconDots, IconTrash } from '@tabler/icons-react'
 import Tooltip from 'components/shared/Tooltip'
 import { useState } from 'react'
 import prettyMs from 'pretty-ms'
+import { useNavigate } from 'react-router-dom'
+import Members from 'components/shared/Members'
 
 function PlanCard({ data }) {
+   const navigate = useNavigate()
    const [showPopup, setShowPopup] = useState(false)
 
    const date = prettyMs(new Date().getTime() - data.date.updatedAt, {
@@ -13,7 +16,10 @@ function PlanCard({ data }) {
    })
 
    return (
-      <div className={'plan-card'}>
+      <div
+         className={'plan-card'}
+         onClick={() => navigate(`/app/plan/${data.id}`)}
+      >
          <div className={'plan-card-header'}>
             <div className={'plan-card-tags'}>
                {data.tags.length === 0 ? (
@@ -62,27 +68,7 @@ function PlanCard({ data }) {
          </div>
          <div className={'plan-card-footer'}>
             <Tooltip position={'bottom'} text={'Members'}>
-               <div className={'plan-card-members'}>
-                  <img
-                     src={
-                        'https://lh3.googleusercontent.com/a/AGNmyxbEkc42O7o24_Her58lNnXcLn2LWX1AKHhJ2IYhRQ=s96-c'
-                     }
-                     alt={'user'}
-                  />
-                  <img
-                     src={
-                        'https://lh3.googleusercontent.com/a/AGNmyxbEkc42O7o24_Her58lNnXcLn2LWX1AKHhJ2IYhRQ=s96-c'
-                     }
-                     alt={'user'}
-                  />
-                  <img
-                     src={
-                        'https://lh3.googleusercontent.com/a/AGNmyxbEkc42O7o24_Her58lNnXcLn2LWX1AKHhJ2IYhRQ=s96-c'
-                     }
-                     alt={'user'}
-                  />
-                  <div className={'plan-card-plus-members'}>+3</div>
-               </div>
+               <Members />
             </Tooltip>
             <div className={'plan-card-date'}>{date} ago</div>
          </div>

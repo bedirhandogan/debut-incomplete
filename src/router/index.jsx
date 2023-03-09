@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from 'views/public/Home'
-import Bookmarks from 'components/layouts/App/Bookmarks'
 import App from 'views/private/App'
 import Overview from 'views/private/Overview'
 import Plans from 'views/private/Plans'
+import Bookmarks from 'views/private/Bookmarks'
 
 function Router({ children }) {
    return (

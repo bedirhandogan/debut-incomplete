@@ -19,7 +19,7 @@ function PlanCard({ data }) {
    return (
       <div
          className={'plan-card'}
-         onClick={() => navigate(`/app/plan/${data.id}`)}
+         onClick={() => navigate(`/app/plans/${data.id}`)}
       >
          <div className={'plan-card-header'}>
             <Tags data={data} />

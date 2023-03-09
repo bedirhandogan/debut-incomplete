@@ -5,11 +5,9 @@
   .tags-tag {
     font-size: 12px;
     background-color: var(--background-color-secondary);
-    height: 100%;
+    height: max-content;
     padding: 5px 7px;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
     opacity: 0.8;
   }
 }

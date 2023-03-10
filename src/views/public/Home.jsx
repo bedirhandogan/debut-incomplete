@@ -1,8 +1,6 @@
-import Layouts from 'components/layouts'
+import Navbar from 'components/layouts/Home/Navbar'
 
 function Home() {
-   const { Navbar } = Layouts.Home
-
    return (
       <div>
          <Navbar />

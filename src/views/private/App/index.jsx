@@ -1,4 +1,3 @@
-import Layouts from 'components/layouts'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -6,10 +5,11 @@ import { AuthInstance } from 'db/auth'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducers/user'
 import Main from 'components/layouts/App/Main'
+import Sidebar from 'components/layouts/App/Sidebar'
+import Navbar from 'components/layouts/App/Navbar'
 import './styles.scss'
 
 function App() {
-   const { Sidebar, Navbar } = Layouts.App
    const navigate = useNavigate()
    const location = useLocation()
    const dispatch = useDispatch()

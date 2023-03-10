@@ -1,10 +1,9 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import Router from 'router'
 import 'assets/styles/index.css'
 import { Provider, useSelector } from 'react-redux'
 import { store } from 'store'
-import Loader from 'components/shared/Loader'
 import { Toaster } from 'react-hot-toast'
 import Modal from 'components/shared/Modal'
 import Settings from 'components/layouts/App/Settings'
@@ -42,16 +41,12 @@ function ModalWrapper() {
 
 function Root() {
    return (
-      <>
-         <Provider store={store}>
-            <Suspense fallback={<Loader />}>
-               <Router>
-                  <ModalWrapper />
-               </Router>
-               <Toaster />
-            </Suspense>
-         </Provider>
-      </>
+      <Provider store={store}>
+         <Router>
+            <ModalWrapper />
+         </Router>
+         <Toaster />
+      </Provider>
    )
 }
 

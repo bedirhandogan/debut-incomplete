@@ -1,7 +1,6 @@
 import './styles.scss'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { IconDots } from '@tabler/icons-react'
 import Members from 'components/shared/Members'
 import Tags from 'components/shared/Tags'
 import prettyMs from 'pretty-ms'

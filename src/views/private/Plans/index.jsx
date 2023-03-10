@@ -1,23 +1,10 @@
 import './styles.scss'
 import PlanCard from 'components/shared/PlanCard'
 import { IconFilter } from '@tabler/icons-react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import getPlans from 'db/storage/get-plans'
-import { change } from 'store/reducers/plans'
+import { useSelector } from 'react-redux'
 
 function Plans() {
    const plans = useSelector((state) => state.plans.data)
-   const user = useSelector((state) => state.user.data)
-   const dispatch = useDispatch()
-
-   useEffect(() => {
-      ;(async () => {
-         const plans = await getPlans(user)
-
-         dispatch(change(plans))
-      })()
-   }, [dispatch, user])
 
    return (
       <div className={'plans'}>

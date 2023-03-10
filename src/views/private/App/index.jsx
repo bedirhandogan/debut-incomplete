@@ -1,25 +1,29 @@
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { AuthInstance } from 'db/auth'
-import { useDispatch } from 'react-redux'
-import { change } from 'store/reducers/user'
+import { useDispatch, useSelector } from 'react-redux'
+import { change as userChange } from 'store/reducers/user'
+import { change as plansChange } from 'store/reducers/plans'
+import { change as loaderChange } from 'store/reducers/loader'
 import Main from 'components/layouts/App/Main'
 import Sidebar from 'components/layouts/App/Sidebar'
 import Navbar from 'components/layouts/App/Navbar'
 import './styles.scss'
+import getPlans from 'db/storage/get-plans'
 
 function App() {
    const navigate = useNavigate()
-   const location = useLocation()
    const dispatch = useDispatch()
+   const user = useSelector((state) => state.user.data)
+   const plans = useSelector((state) => state.plans.data)
 
    useEffect(() => {
       onAuthStateChanged(AuthInstance, (user) => {
          user == null && navigate('/')
          user !== null &&
             dispatch(
-               change({
+               userChange({
                   uid: user.uid,
                   displayName: user.displayName,
                   email: user.email,
@@ -28,7 +32,19 @@ function App() {
                })
             )
       })
-   }, [navigate, location, dispatch])
+   }, [navigate, dispatch])
+
+   useEffect(() => {
+      ;(async () => {
+         if (plans.length === 0) {
+            dispatch(loaderChange(true))
+            const plans = await getPlans(user)
+
+            await dispatch(plansChange(plans))
+            dispatch(loaderChange(false))
+         }
+      })()
+   }, [dispatch, user, plans])
 
    return (
       <div className={'app'}>

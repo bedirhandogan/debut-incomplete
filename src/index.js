@@ -9,6 +9,7 @@ import Modal from 'components/shared/Modal'
 import Settings from 'components/layouts/App/Settings'
 import CreatePlan from 'components/layouts/App/CreatePlan'
 import AuthForm from 'components/layouts/Home/Auth'
+import Loader from 'components/shared/Loader'
 
 const root = createRoot(document.getElementById('root'))
 
@@ -46,6 +47,7 @@ function Root() {
             <ModalWrapper />
          </Router>
          <Toaster />
+         <Loader />
       </Provider>
    )
 }

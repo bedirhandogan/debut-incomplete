@@ -11,9 +11,9 @@ function Plan() {
    const { id } = useParams()
    const plans = useSelector((state) => state.plans.data)
 
-   const data = plans.find((v) => v.id === id)
+   const data = plans?.find((v) => v.id === id) || {}
 
-   const createdDate = new Date(data.date.createdAt)
+   const createdDate = new Date(data.date?.createdAt)
    const [year, month, day] = [
       createdDate.getFullYear(),
       createdDate.getMonth(),
@@ -21,7 +21,7 @@ function Plan() {
    ]
 
    const formattedUpdateDate = prettyMs(
-      new Date().getTime() - data.date.updatedAt,
+      new Date().getTime() - data.date?.updatedAt || 0,
       {
          compact: true,
          verbose: true,

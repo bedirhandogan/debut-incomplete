@@ -1,11 +1,11 @@
 import './styles.scss'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import Members from 'components/shared/Members'
-import Tags from 'components/shared/Tags'
 import prettyMs from 'pretty-ms'
 import months from 'constants/months'
-import Tooltip from 'components/shared/Tooltip'
+import { IconBookmark, IconDots } from '@tabler/icons-react'
+import Members from 'components/shared/Members'
+import Tags from 'components/shared/Tags'
 
 function Plan() {
    const { id } = useParams()
@@ -33,29 +33,51 @@ function Plan() {
    return (
       <div className={'plan'}>
          <div className={'plan-header'}>
-            <div className={'plan-header-area'}>
+            <div className={'plan-header-section'}>
                <div className={'plan-header-title'}>{data.title}</div>
-               <div className={'plan-header-dates'}>
-                  <Tooltip position={'bottom'} text={'Created'}>
-                     <div className={'plan-header-date-result'}>
-                        {formattedCreateDate}
-                     </div>
-                  </Tooltip>
-                  <Tooltip position={'bottom'} text={'Updated'}>
-                     <div className={'plan-header-date-result'}>
-                        {formattedUpdateDate}
-                     </div>
-                  </Tooltip>
+               <Tags data={data} />
+               <div className={'plan-header-options'}>
+                  <div className={'plan-header-option'}>
+                     <IconBookmark
+                        stroke={1.3}
+                        width={22}
+                        height={22}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                     />
+                  </div>
+                  <div className={'plan-header-option'}>
+                     <IconDots
+                        stroke={1.3}
+                        width={22}
+                        height={22}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                     />
+                  </div>
                </div>
             </div>
-            <div className={'plan-header-area'}>
+            <div className={'plan-header-section'}>
                <div className={'plan-header-description'}>
                   {data.description}
                </div>
             </div>
-            <div className={'plan-header-area'}>
-               <Tags data={data} />
-               <Members />
+            <div className={'plan-header-section'}>
+               <div className={'plan-header-details'}>
+                  <div className={'plan-header-label'}>Created</div>
+                  <div className={'plan-header-date'}>
+                     {formattedCreateDate}
+                  </div>
+               </div>
+               <div className={'plan-header-details'}>
+                  <div className={'plan-header-label'}>Updated</div>
+                  <div className={'plan-header-date'}>
+                     {formattedUpdateDate}
+                  </div>
+               </div>
+               <div className={'plan-header-details'}>
+                  <div className={'plan-header-label'}>Members</div>
+                  <Members />
+               </div>
+               <div className={'plan-header-button'}>+ Add Member</div>
             </div>
          </div>
       </div>

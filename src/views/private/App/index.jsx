@@ -36,7 +36,7 @@ function App() {
 
    useEffect(() => {
       ;(async () => {
-         if (plans.length === 0) {
+         if (plans?.length === 0) {
             dispatch(loaderChange(true))
             const plans = await getPlans(user)
 

@@ -28,7 +28,7 @@ function Plan() {
    const [year, month, day] = [
       createdDate.getFullYear(),
       createdDate.getMonth(),
-      createdDate.getDay(),
+      createdDate.getDate(),
    ]
 
    const formattedUpdateDate = prettyMs(

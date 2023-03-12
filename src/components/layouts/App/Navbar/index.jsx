@@ -9,18 +9,25 @@ import ThemeSelector from 'components/shared/ThemeSelector'
 import { useDispatch, useSelector } from 'react-redux'
 import { change } from 'store/reducers/sidebar'
 import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function Navbar() {
    const dispatch = useDispatch()
    const location = useLocation()
    const { show } = useSelector((state) => state.sidebar)
 
+   const handleSidebarShow = () => dispatch(change(!show))
+
+   useEffect(() => {
+      window.innerWidth <= 500 && dispatch(change(false))
+   }, [dispatch])
+
    return (
       <div className={'app-navbar'}>
          <div className={'app-navbar-section'}>
             <div
                className={`sidebar-show-trigger ${show ? 'active' : ''}`}
-               onClick={() => dispatch(change(!show))}
+               onClick={handleSidebarShow}
             >
                {show ? (
                   <IconLayoutSidebarLeftCollapse

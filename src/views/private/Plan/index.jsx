@@ -108,6 +108,7 @@ function Plan() {
                      style={{ color: 'var(--icon-color-primary)' }}
                   />
                   Notes
+                  {activeSection === 'notes' ? <span /> : ''}
                </div>
                <div
                   className={'plan-header-item'}
@@ -120,6 +121,7 @@ function Plan() {
                      style={{ color: 'var(--icon-color-primary)' }}
                   />
                   Tasks
+                  {activeSection === 'tasks' ? <span /> : ''}
                </div>
                <div
                   className={'plan-header-item'}
@@ -132,6 +134,7 @@ function Plan() {
                      style={{ color: 'var(--icon-color-primary)' }}
                   />
                   Todos
+                  {activeSection === 'todos' ? <span /> : ''}
                </div>
             </div>
          </div>

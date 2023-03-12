@@ -47,7 +47,7 @@ function Sidebar() {
             </Link>
             <Link
                to={'plans'}
-               className={location.pathname === '/app/plans' ? 'active' : ''}
+               className={location.pathname.includes('plans') ? 'active' : ''}
             >
                <IconLayoutCollage
                   stroke={1.3}

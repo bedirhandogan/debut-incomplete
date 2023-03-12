@@ -61,19 +61,19 @@ function Plan() {
                </div>
             </div>
             <div className={'plan-header-section'}>
-               <div className={'plan-header-details'}>
+               <div className={'plan-header-detail'}>
                   <div className={'plan-header-label'}>Created</div>
                   <div className={'plan-header-date'}>
                      {formattedCreateDate}
                   </div>
                </div>
-               <div className={'plan-header-details'}>
+               <div className={'plan-header-detail'}>
                   <div className={'plan-header-label'}>Updated</div>
                   <div className={'plan-header-date'}>
                      {formattedUpdateDate}
                   </div>
                </div>
-               <div className={'plan-header-details'}>
+               <div className={'plan-header-detail'}>
                   <div className={'plan-header-label'}>Members</div>
                   <Members />
                </div>

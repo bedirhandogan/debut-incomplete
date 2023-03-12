@@ -3,13 +3,24 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import prettyMs from 'pretty-ms'
 import months from 'constants/months'
-import { IconBookmark, IconDots } from '@tabler/icons-react'
+import {
+   IconBookmark,
+   IconDots,
+   IconLayoutGrid,
+   IconLayoutKanban,
+   IconLayoutList,
+} from '@tabler/icons-react'
 import Members from 'components/shared/Members'
 import Tags from 'components/shared/Tags'
+import { useState } from 'react'
+import Notes from 'views/private/Plan/Notes'
+import Tasks from 'views/private/Plan/Tasks'
+import Todos from 'views/private/Plan/Todos'
 
 function Plan() {
    const { id } = useParams()
    const plans = useSelector((state) => state.plans.data)
+   const [activeSection, setActiveSection] = useState('notes')
 
    const data = plans?.find((v) => v.id === id) || {}
 
@@ -29,6 +40,12 @@ function Plan() {
    )
 
    const formattedCreateDate = `${day} ${months[month]} ${year}`
+
+   const sections = {
+      notes: <Notes />,
+      tasks: <Tasks />,
+      todos: <Todos />,
+   }
 
    return (
       <div className={'plan'}>
@@ -79,7 +96,46 @@ function Plan() {
                </div>
                <div className={'plan-header-button'}>+ Add Member</div>
             </div>
+            <div className={'plan-header-navigation'}>
+               <div
+                  className={'plan-header-item'}
+                  onClick={() => setActiveSection('notes')}
+               >
+                  <IconLayoutGrid
+                     stroke={1.5}
+                     width={20}
+                     height={20}
+                     style={{ color: 'var(--icon-color-primary)' }}
+                  />
+                  Notes
+               </div>
+               <div
+                  className={'plan-header-item'}
+                  onClick={() => setActiveSection('tasks')}
+               >
+                  <IconLayoutKanban
+                     stroke={1.5}
+                     width={20}
+                     height={20}
+                     style={{ color: 'var(--icon-color-primary)' }}
+                  />
+                  Tasks
+               </div>
+               <div
+                  className={'plan-header-item'}
+                  onClick={() => setActiveSection('todos')}
+               >
+                  <IconLayoutList
+                     stroke={1.5}
+                     width={20}
+                     height={20}
+                     style={{ color: 'var(--icon-color-primary)' }}
+                  />
+                  Todos
+               </div>
+            </div>
          </div>
+         {sections[activeSection]}
       </div>
    )
 }

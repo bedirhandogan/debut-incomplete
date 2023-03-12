@@ -7,17 +7,18 @@
   .plan-header {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     border-bottom: var(--g-border);
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 
     .plan-header-section {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
 
       .plan-header-title {
         font-size: 20px;
+        margin-right: 5px;
       }
 
       .plan-header-options {
@@ -76,6 +77,29 @@
         margin-top: auto;
         padding: 0 10px;
         font-size: 12px;
+        cursor: pointer;
+        transition: 200ms all;
+
+        &:hover {
+          background-color: var(--background-color-secondary);
+        }
+      }
+    }
+
+    .plan-header-navigation {
+      display: flex;
+      gap: 10px;
+      border-top: var(--g-border);
+      padding-top: 10px;
+
+      .plan-header-item {
+        background-color: var(--background-color-primary-variant);
+        border-radius: 5px;
+        padding: 6px 10px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         cursor: pointer;
         transition: 200ms all;
 

@@ -1,4 +1,5 @@
 .plan {
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -118,6 +119,79 @@
           height: 1.3px;
           background-color: var(--border-color-primary);
         }
+      }
+    }
+  }
+
+  .notes {
+    height: 100%;
+
+    &-header {
+      height: max-content;
+      position: static;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0 15px 0;
+
+     &-title {
+        font-size: 14px;
+      }
+    }
+
+    &-grid {
+      position: relative;
+      height: calc((100% - 35px) - 20px);
+      display: grid;
+
+      &-message {
+        width: max-content;
+        height: max-content;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .tasks {
+    @extend .notes;
+
+    &-header {
+      @extend .notes-header;
+
+      &-title {
+        @extend .notes-header-title;
+      }
+    }
+
+    &-grid {
+      @extend .notes-grid;
+
+      &-message {
+        @extend .notes-grid-message;
+      }
+    }
+  }
+
+  .todos {
+    @extend .notes;
+
+    &-header {
+      @extend .notes-header;
+
+      &-title {
+        @extend .notes-header-title;
+      }
+    }
+
+    &-grid {
+      @extend .notes-grid;
+
+      &-message {
+        @extend .notes-grid-message;
       }
     }
   }

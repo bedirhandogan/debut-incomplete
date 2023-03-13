@@ -87,7 +87,7 @@ function Plan() {
                <div className={'plan-header-detail'}>
                   <div className={'plan-header-label'}>Updated</div>
                   <div className={'plan-header-date'}>
-                     {formattedUpdateDate}
+                     {formattedUpdateDate} ago
                   </div>
                </div>
                <div className={'plan-header-detail'}>

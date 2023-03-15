@@ -7,15 +7,15 @@ import Logout from './logout'
 
 const AuthInstance = getAuth(app)
 
-async function Auth(email, password, navigate) {
+async function Auth(email, password, navigate, dispatch) {
    const result = await fetchSignInMethodsForEmail(AuthInstance, email)
 
    if (result.length === 0) {
-      Register(email, password, navigate)
+      Register(email, password, navigate, dispatch)
       return
    }
 
-   Login(email, password, navigate)
+   Login(email, password, navigate, dispatch)
 }
 
 export { GoogleAuth, Logout, AuthInstance }

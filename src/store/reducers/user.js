@@ -3,24 +3,27 @@ import { createSlice } from '@reduxjs/toolkit'
 const user = createSlice({
    name: 'user',
    initialState: {
-      data: {
-         uid: 'null',
-         displayName: 'null',
-         email: 'null',
-         photoUrl: 'null',
-         providerId: 'null',
-      },
+      data: !localStorage.getItem('user')
+         ? (() => {
+              localStorage.setItem('user', JSON.stringify({}))
+
+              return {}
+           })()
+         : JSON.parse(localStorage.getItem('user')),
    },
    reducers: {
       change: (state, action) => {
          state.data = action.payload
+         localStorage.setItem('user', JSON.stringify(action.payload))
       },
-      edit: (state, action) => {
+      edit: async (state, action) => {
          const [key, value] = [
             ...Object.keys(action.payload),
             ...Object.values(action.payload),
          ]
+
          state.data[key] = value
+         await localStorage.setItem('user', JSON.stringify(state.data))
       },
    },
 })

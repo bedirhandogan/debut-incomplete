@@ -5,21 +5,31 @@ import { IconBrandGoogle } from '@tabler/icons-react'
 import Input from 'components/shared/Input'
 import { useNavigate } from 'react-router-dom'
 import Auth, { GoogleAuth } from 'db/auth'
+import { useDispatch } from 'react-redux'
+import { change } from 'store/reducers/modal'
 
 function AuthForm() {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
 
    const handleSubmit = (event) => {
       event.preventDefault()
       const [email, password] = [event.target[1].value, event.target[2].value]
 
+      dispatch(
+         change({
+            component: 'auth-form',
+            active: false,
+         })
+      )
+
       if (event.nativeEvent.submitter.id === 'password') {
          if (email.length !== 0 && password.length !== 0)
-            Auth(email, password, navigate)
+            Auth(email, password, navigate, dispatch)
          return
       }
 
-      GoogleAuth(navigate)
+      GoogleAuth(navigate, dispatch)
    }
 
    return (

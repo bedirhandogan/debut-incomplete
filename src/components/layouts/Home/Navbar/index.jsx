@@ -3,25 +3,22 @@ import logo from 'assets/images/logo.svg'
 import { useDispatch } from 'react-redux'
 import { change } from 'store/reducers/modal'
 import { useNavigate } from 'react-router-dom'
-import { onAuthStateChanged } from 'firebase/auth'
-import { AuthInstance } from 'db/auth'
 
 function Navbar() {
    const dispatch = useDispatch()
    const navigate = useNavigate()
 
    const handleClick = () => {
-      onAuthStateChanged(AuthInstance, (user) => {
-         if (user !== null) {
-            navigate('/app')
-            dispatch(
-               change({
-                  component: 'auth-form',
-                  active: false,
-               })
-            )
-         }
-      })
+      if (Object.keys(JSON.parse(localStorage.getItem('user'))).length !== 0) {
+         navigate('/app')
+         dispatch(
+            change({
+               component: 'auth-form',
+               active: false,
+            })
+         )
+         return
+      }
 
       dispatch(
          change({

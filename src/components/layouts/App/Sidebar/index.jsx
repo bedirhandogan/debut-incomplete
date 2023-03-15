@@ -153,7 +153,7 @@ function Sidebar() {
                         width={24}
                         height={24}
                         style={{ color: 'var(--icon-color-primary)' }}
-                        onClick={() => Logout(navigate)}
+                        onClick={() => Logout(navigate, dispatch)}
                      />
                   </Tooltip>
                </div>

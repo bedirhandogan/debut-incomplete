@@ -1,9 +1,6 @@
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import { onAuthStateChanged } from 'firebase/auth'
-import { AuthInstance } from 'db/auth'
 import { useDispatch, useSelector } from 'react-redux'
-import { change as userChange } from 'store/reducers/user'
 import { change as plansChange } from 'store/reducers/plans'
 import { change as loaderChange } from 'store/reducers/loader'
 import Main from 'components/layouts/App/Main'
@@ -19,22 +16,11 @@ function App() {
    const plans = useSelector((state) => state.plans.data)
 
    useEffect(() => {
-      onAuthStateChanged(AuthInstance, (user) => {
-         user == null && navigate('/')
-         user !== null &&
-            dispatch(
-               userChange({
-                  uid: user.uid,
-                  displayName: user.displayName,
-                  email: user.email,
-                  photoUrl: user.photoURL,
-                  providerId: user.providerData[0].providerId,
-               })
-            )
-      })
-   }, [navigate, dispatch])
+      if (Object.keys(JSON.parse(localStorage.getItem('user'))).length === 0) {
+         navigate('/')
+         return
+      }
 
-   useEffect(() => {
       ;(async () => {
          if (plans?.length === 0) {
             dispatch(loaderChange(true))
@@ -44,7 +30,7 @@ function App() {
             dispatch(loaderChange(false))
          }
       })()
-   }, [dispatch, user, plans])
+   }, [dispatch, navigate, user, plans])
 
    return (
       <div className={'app'}>

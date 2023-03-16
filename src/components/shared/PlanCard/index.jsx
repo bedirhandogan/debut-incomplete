@@ -11,7 +11,7 @@ function PlanCard({ data }) {
    const navigate = useNavigate()
    const [showPopup, setShowPopup] = useState(false)
 
-   const [planCardRef, popupTriggerRef, cardPopupItemRef] = [
+   const [planCardRef, popupTriggerRef, popupRef] = [
       useRef(),
       useRef(),
       useRef(),
@@ -27,15 +27,17 @@ function PlanCard({ data }) {
          if (
             event.composedPath().includes(planCardRef.current) &&
             !event.composedPath().includes(popupTriggerRef.current) &&
-            !event.composedPath().includes(cardPopupItemRef.current)
+            !event.composedPath().includes(popupRef.current)
          ) {
             navigate(`/app/plans/${data.id}`)
          } else if (event.composedPath().includes(popupTriggerRef.current)) {
-            setShowPopup((prevState) => !prevState)
-         } else if (!event.composedPath().includes(cardPopupItemRef.current))
-            setShowPopup(false)
+            setShowPopup(true)
+            return // don't close popup
+         } else if (event.composedPath().includes(popupRef.current)) return // don't close popup
+
+         setShowPopup(false)
       },
-      [planCardRef, popupTriggerRef, cardPopupItemRef, navigate, data]
+      [planCardRef, popupTriggerRef, navigate, data]
    )
 
    useEffect(() => {
@@ -64,11 +66,9 @@ function PlanCard({ data }) {
                <div
                   className={'plan-card-popup'}
                   style={{ display: showPopup ? 'flex' : 'none' }}
+                  ref={popupRef}
                >
-                  <div
-                     className={'plan-card-popup-item'}
-                     ref={cardPopupItemRef}
-                  >
+                  <div className={'plan-card-popup-item'}>
                      <IconTrash
                         stroke={1.3}
                         width={20}
@@ -77,10 +77,7 @@ function PlanCard({ data }) {
                      />
                      Delete
                   </div>
-                  <div
-                     className={'plan-card-popup-item'}
-                     ref={cardPopupItemRef}
-                  >
+                  <div className={'plan-card-popup-item'}>
                      <IconBookmark
                         stroke={1.3}
                         width={20}

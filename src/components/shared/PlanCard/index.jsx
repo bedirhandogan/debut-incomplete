@@ -1,5 +1,5 @@
 import './styles.scss'
-import { IconDots, IconTrash } from '@tabler/icons-react'
+import { IconBookmark, IconDots, IconTrash } from '@tabler/icons-react'
 import Tooltip from 'components/shared/Tooltip'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import prettyMs from 'pretty-ms'
@@ -76,6 +76,18 @@ function PlanCard({ data }) {
                         style={{ color: 'var(--icon-color-primary)' }}
                      />
                      Delete
+                  </div>
+                  <div
+                     className={'plan-card-popup-item'}
+                     ref={cardPopupItemRef}
+                  >
+                     <IconBookmark
+                        stroke={1.3}
+                        width={20}
+                        height={20}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                     />
+                     Mark it
                   </div>
                </div>
             </div>

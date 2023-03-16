@@ -34,7 +34,9 @@
       .plan-card-popup {
         position: absolute;
         top: 120%;
+        right: 0;
         display: flex;
+        width: max-content;
         flex-direction: column;
         gap: 5px;
         background-color: var(--background-color-primary-variant);
@@ -48,7 +50,7 @@
           align-items: center;
           gap: 10px;
           font-size: 14px;
-          padding: 5px;
+          padding: 5px 8px 5px 5px;
           border-radius: 5px;
           user-select: none;
 

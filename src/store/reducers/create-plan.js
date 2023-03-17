@@ -7,6 +7,7 @@ const createPlan = createSlice({
          title: 'Untitled',
          description: 'No description entered',
          tags: [],
+         users: [],
       },
    },
    reducers: {

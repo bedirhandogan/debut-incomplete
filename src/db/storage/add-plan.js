@@ -6,18 +6,18 @@ import { change } from 'store/reducers/plans'
 const db = getFirestore(app)
 
 async function addPlan(user, data, dispatch) {
-   const docSnap = await getDoc(doc(db, 'users', user.uid))
+   const docSnap = await getDoc(doc(db, 'plans', user.uid))
    try {
       const updatedData = {
          ...docSnap.data(),
-         plans: [...docSnap.data()?.plans, data],
+         data: [...docSnap.data()?.data, data],
       }
 
       if (docSnap.exists()) {
-         await setDoc(doc(db, 'users', user.uid), updatedData)
+         await setDoc(doc(db, 'plans', user.uid), updatedData)
       }
 
-      dispatch(change(updatedData.plans))
+      dispatch(change(updatedData.data))
 
       toast.success('Your plan has been created.', {
          position: 'top-right',

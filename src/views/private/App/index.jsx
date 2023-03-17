@@ -13,7 +13,6 @@ function App() {
    const navigate = useNavigate()
    const dispatch = useDispatch()
    const user = useSelector((state) => state.user.data)
-   const plans = useSelector((state) => state.plans.data)
 
    useEffect(() => {
       if (Object.keys(JSON.parse(localStorage.getItem('user'))).length === 0) {
@@ -22,15 +21,13 @@ function App() {
       }
 
       ;(async () => {
-         if (plans?.length === 0) {
-            dispatch(loaderChange(true))
-            const plans = await getPlans(user)
+         dispatch(loaderChange(true))
+         const plans = await getPlans(user)
 
-            await dispatch(plansChange(plans))
-            dispatch(loaderChange(false))
-         }
+         await dispatch(plansChange(plans))
+         dispatch(loaderChange(false))
       })()
-   }, [dispatch, navigate, user, plans])
+   }, [dispatch, navigate, user])
 
    return (
       <div className={'app'}>

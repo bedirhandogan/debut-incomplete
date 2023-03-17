@@ -4,8 +4,8 @@ import app from 'db/config'
 const db = getFirestore(app)
 
 async function getPlans(user) {
-   const userData = await getDoc(doc(db, 'users', user.uid))
-   return userData.data()?.plans
+   const plansData = await getDoc(doc(db, 'plans', user.uid))
+   return plansData.data()?.data
 }
 
 export default getPlans

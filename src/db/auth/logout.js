@@ -7,9 +7,7 @@ async function Logout(navigate, dispatch) {
    try {
       await signOut(AuthInstance)
 
-      toast.success('Your account has been logged out.', {
-         position: 'top-right',
-      })
+      toast.success('Your account has been logged out.')
 
       navigate('/')
       dispatch(change({}))

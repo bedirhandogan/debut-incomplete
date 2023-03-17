@@ -6,9 +6,7 @@ import toast from 'react-hot-toast'
 async function updatePassword(password) {
    try {
       await _updatePassword(AuthInstance.currentUser, password)
-      toast.success('Your password has been changed.', {
-         position: 'top-right',
-      })
+      toast.success('Your password has been changed.')
    } catch (e) {
       errorMessages(e.code)
       console.error(e)

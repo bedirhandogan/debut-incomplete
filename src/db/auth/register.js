@@ -15,9 +15,7 @@ async function Register(email, password, navigate, dispatch) {
       )
       const user = handleUser(result.user)
 
-      toast.success('Your account has been created.', {
-         position: 'top-right',
-      })
+      toast.success('Your account has been created.')
 
       await createDocument(result.user)
       navigate('/app')

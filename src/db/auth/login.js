@@ -14,9 +14,7 @@ async function Login(email, password, navigate, dispatch) {
       )
       const user = handleUser(result.user)
 
-      toast.success('Your account has been successfully logged in.', {
-         position: 'top-right',
-      })
+      toast.success('Your account has been successfully logged in.')
 
       dispatch(change(user))
       navigate('/app')

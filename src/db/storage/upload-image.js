@@ -12,9 +12,7 @@ async function uploadImage(fileName, image, dispatch) {
 
    try {
       await uploadBytes(storageRef, image)
-      toast.success('Your picture has been successfully saved.', {
-         position: 'top-right',
-      })
+      toast.success('Your picture has been successfully saved.')
 
       const url = await getDownloadURL(ref(storage, fileName))
 

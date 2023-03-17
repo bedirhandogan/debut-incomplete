@@ -19,9 +19,7 @@ async function addPlan(user, data, dispatch) {
 
       dispatch(change(updatedData.data))
 
-      toast.success('Your plan has been created.', {
-         position: 'top-right',
-      })
+      toast.success('Your plan has been created.')
    } catch (e) {
       console.error(e)
    }

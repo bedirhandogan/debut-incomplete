@@ -9,9 +9,7 @@ async function updateName(name, dispatch) {
       await updateProfile(AuthInstance.currentUser, {
          displayName: name,
       })
-      toast.success('Your name has been updated.', {
-         position: 'top-right',
-      })
+      toast.success('Your name has been updated.')
       dispatch(edit({ displayName: name }))
    } catch (e) {
       errorMessages(e.code)

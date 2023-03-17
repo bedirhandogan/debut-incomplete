@@ -7,9 +7,7 @@ import errorMessages from 'db/config/error-messages'
 async function updateEmail(email, dispatch) {
    try {
       await updateMail(AuthInstance.currentUser, email)
-      toast.success('Your email has been updated.', {
-         position: 'top-right',
-      })
+      toast.success('Your email has been updated.')
       dispatch(
          edit({
             email: email,

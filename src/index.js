@@ -46,7 +46,16 @@ function Root() {
          <Router>
             <ModalWrapper />
          </Router>
-         <Toaster />
+         <Toaster
+            toastOptions={{
+               position: 'top-right',
+               style: {
+                  background: 'var(--background-color-primary-variant)',
+                  border: 'var(--g-border)',
+                  color: 'var(--text-color-primary)',
+               },
+            }}
+         />
          <Loader />
       </Provider>
    )

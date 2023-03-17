@@ -18,9 +18,7 @@ async function GoogleAuth(navigate, dispatch) {
       const { isNewUser } = getAdditionalUserInfo(result)
       const user = handleUser(result.user)
 
-      toast.success('Your account has been successfully logged in.', {
-         position: 'top-right',
-      })
+      toast.success('Your account has been successfully logged in.')
 
       if (isNewUser) {
          await createDocument(result.user)

@@ -39,7 +39,7 @@ function PlanCard({ data }) {
          } else if (event.composedPath().includes(popupTriggerRef.current)) {
             setShowPopup((prevState) => !prevState)
             return // don't close popup
-         } else if (event.composedPath().includes(popupRef.current)) return // don't close popup
+         }
 
          setShowPopup(false)
       },

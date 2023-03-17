@@ -9,6 +9,7 @@ import {
    IconPlus,
    IconSettings,
    IconSquareRoundedArrowRight,
+   IconTrash,
 } from '@tabler/icons-react'
 import logo from 'assets/images/logo.svg'
 import defaultProfile from 'assets/images/default-profile.svg'
@@ -70,6 +71,21 @@ function Sidebar() {
                   style={{ color: 'var(--icon-color-primary)' }}
                />
                Bookmarks
+            </Link>
+         </div>
+         <div className={'sidebar-section'}>
+            <div className={'sidebar-section-name'}>Other</div>
+            <Link
+               to={'bin'}
+               className={location.pathname === '/app/bin' ? 'active' : ''}
+            >
+               <IconTrash
+                  stroke={1.3}
+                  width={24}
+                  height={24}
+                  style={{ color: 'var(--icon-color-primary)' }}
+               />
+               Bin
             </Link>
          </div>
          <div className={'sidebar-section'}>

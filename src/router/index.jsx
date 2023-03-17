@@ -5,6 +5,7 @@ import Overview from 'views/private/Overview'
 import Plans from 'views/private/Plans'
 import Bookmarks from 'views/private/Bookmarks'
 import Plan from 'views/private/Plan'
+import Bin from 'views/private/Bin'
 
 function Router({ children }) {
    return (
@@ -16,6 +17,7 @@ function Router({ children }) {
                <Route path={'plans'} element={<Plans />} />
                <Route path={'plans/:id'} element={<Plan />} />
                <Route path={'bookmarks'} element={<Bookmarks />} />
+               <Route path={'bin'} element={<Bin />} />
             </Route>
          </Routes>
          {children}

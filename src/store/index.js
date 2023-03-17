@@ -6,6 +6,7 @@ import createPlan from './reducers/create-plan'
 import sidebar from './reducers/sidebar'
 import plans from './reducers/plans'
 import loader from 'store/reducers/loader'
+import bin from 'store/reducers/bin'
 
 export const store = configureStore({
    reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
       sidebar,
       plans,
       loader,
+      bin,
    },
 })

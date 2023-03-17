@@ -4,7 +4,13 @@ import app from 'db/config'
 const db = getFirestore(app)
 
 async function createDocument(user) {
-   await setDoc(doc(db, 'plans', user.uid), {
+   // plans document
+   setDoc(doc(db, 'plans', user.uid), {
+      data: [],
+   })
+
+   // bin document
+   setDoc(doc(db, 'bin', user.uid), {
       data: [],
    })
 }

@@ -6,10 +6,16 @@ import prettyMs from 'pretty-ms'
 import { useNavigate } from 'react-router-dom'
 import Members from 'components/shared/Members'
 import Tags from 'components/shared/Tags'
+import removePlan from 'db/storage/remove-plan'
+import { useDispatch, useSelector } from 'react-redux'
 
 function PlanCard({ data }) {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
    const [showPopup, setShowPopup] = useState(false)
+   const user = useSelector((state) => state.user.data)
+   const plans = useSelector((state) => state.plans.data)
+   const bin = useSelector((state) => state.bin.data)
 
    const [planCardRef, popupTriggerRef, popupRef] = [
       useRef(),
@@ -68,7 +74,12 @@ function PlanCard({ data }) {
                   style={{ display: showPopup ? 'flex' : 'none' }}
                   ref={popupRef}
                >
-                  <div className={'plan-card-popup-item'}>
+                  <div
+                     className={'plan-card-popup-item'}
+                     onClick={() =>
+                        removePlan(user, plans, bin, data.id, dispatch)
+                     }
+                  >
                      <IconTrash
                         stroke={1.3}
                         width={20}

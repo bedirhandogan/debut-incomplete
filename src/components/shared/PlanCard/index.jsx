@@ -31,13 +31,13 @@ function PlanCard({ data }) {
          ) {
             navigate(`/app/plans/${data.id}`)
          } else if (event.composedPath().includes(popupTriggerRef.current)) {
-            setShowPopup(true)
+            setShowPopup((prevState) => !prevState)
             return // don't close popup
          } else if (event.composedPath().includes(popupRef.current)) return // don't close popup
 
          setShowPopup(false)
       },
-      [planCardRef, popupTriggerRef, navigate, data]
+      [planCardRef, popupTriggerRef, popupRef, navigate, data]
    )
 
    useEffect(() => {

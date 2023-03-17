@@ -6,31 +6,12 @@
 
     .plans-header {
         width: 100%;
-        height: 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         .plans-header-text {
             font-size: 14px;
-        }
-
-        .plans-header-filter {
-            width: 75px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            border-radius: 5px;
-            background-color: var(--background-color-primary-variant);
-            font-size: 14px;
-            cursor: pointer;
-            transition: 200ms all;
-
-            &:hover {
-                background-color: var(--background-color-secondary);
-            }
         }
     }
 

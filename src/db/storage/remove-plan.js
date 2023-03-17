@@ -21,7 +21,7 @@ async function removePlan(user, planData, binData, id, dispatch) {
       })
 
       dispatch(plansChange(filtered))
-      dispatch(binChange(...removedPlan))
+      dispatch(binChange([...binData, ...removedPlan]))
 
       toast.success(
          `The plan was successfully deleted. If you wish, you can see the deleted plans from the bin page.`

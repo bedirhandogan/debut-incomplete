@@ -47,21 +47,6 @@ function CreatePlan() {
                   mark: false,
                   ...user,
                },
-               {
-                  owner: true,
-                  mark: false,
-                  ...user,
-               },
-               {
-                  owner: true,
-                  mark: false,
-                  ...user,
-               },
-               {
-                  owner: true,
-                  mark: false,
-                  ...user,
-               },
             ],
             date: {
                createdAt: date.getTime(),

@@ -8,12 +8,23 @@ import { change as loaderChange } from 'store/reducers/loader'
 import { change as binChange } from 'store/reducers/bin'
 import getBin from 'db/storage/get-bin'
 import undoPlan from 'db/storage/undo-plan'
+import getPlans from 'db/storage/get-plans'
+import { change as plansChange } from 'store/reducers/plans'
 
 function Bin() {
    const bin = useSelector((state) => state.bin.data)
    const user = useSelector((state) => state.user.data)
    const plans = useSelector((state) => state.plans.data)
    const dispatch = useDispatch()
+
+   const handleUndoAllPlan = async () => {
+      if (plans.length === 0) {
+         const planData = await getPlans(user)
+         dispatch(plansChange(planData))
+
+         await undoPlan(user, planData, bin, 0, dispatch, true)
+      }
+   }
 
    useEffect(() => {
       ;(async () => {
@@ -37,7 +48,7 @@ function Bin() {
                   padding: '0 15px 0 10px',
                }}
                type={'fourth'}
-               onClick={() => undoPlan(user, plans, bin, 0, dispatch, true)}
+               onClick={handleUndoAllPlan}
             >
                <IconArrowBackUp
                   stroke={1.3}

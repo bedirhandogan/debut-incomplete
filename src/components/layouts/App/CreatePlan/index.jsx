@@ -22,6 +22,7 @@ function CreatePlan() {
          title: 'Untitled',
          description: 'No description entered',
          tags: [],
+         users: [],
       }
 
       if (stepId !== 1) {
@@ -40,6 +41,28 @@ function CreatePlan() {
          {
             id: CryptoJS.lib.WordArray.random(4).toString(CryptoJS.enc.hex),
             ...createPlan,
+            users: [
+               {
+                  owner: true,
+                  mark: false,
+                  ...user,
+               },
+               {
+                  owner: true,
+                  mark: false,
+                  ...user,
+               },
+               {
+                  owner: true,
+                  mark: false,
+                  ...user,
+               },
+               {
+                  owner: true,
+                  mark: false,
+                  ...user,
+               },
+            ],
             date: {
                createdAt: date.getTime(),
                updatedAt: date.getTime(),

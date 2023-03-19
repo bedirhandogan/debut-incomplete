@@ -1,27 +1,14 @@
 import './styles.scss'
 
-function Members() {
+function Members({ data }) {
    return (
-      <div className={'members'}>
-         <img
-            src={
-               'https://lh3.googleusercontent.com/a/AGNmyxbEkc42O7o24_Her58lNnXcLn2LWX1AKHhJ2IYhRQ=s96-c'
-            }
-            alt={'user'}
-         />
-         <img
-            src={
-               'https://lh3.googleusercontent.com/a/AGNmyxbEkc42O7o24_Her58lNnXcLn2LWX1AKHhJ2IYhRQ=s96-c'
-            }
-            alt={'user'}
-         />
-         <img
-            src={
-               'https://lh3.googleusercontent.com/a/AGNmyxbEkc42O7o24_Her58lNnXcLn2LWX1AKHhJ2IYhRQ=s96-c'
-            }
-            alt={'user'}
-         />
-         <div className={'members-plus'}>+3</div>
+      <div className={'members'} data-member-length={data.users.length}>
+         {data.users.slice(0, 3).map((v, i) => (
+            <img src={v.photoUrl} alt={v.displayName} key={i} />
+         ))}
+         {data.users.length > 3 && (
+            <div className={'members-plus'}>+{data.users.length - 3}</div>
+         )}
       </div>
    )
 }

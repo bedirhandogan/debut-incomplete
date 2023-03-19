@@ -151,8 +151,14 @@ function PlanCard({ data, type }) {
             <div className={'plan-card-body-preview'}></div>
          </div>
          <div className={'plan-card-footer'}>
-            <Tooltip position={'bottom'} text={'Members'}>
-               <Members />
+            <Tooltip
+               style={{
+                  left: 0,
+               }}
+               position={'bottom'}
+               text={'Members'}
+            >
+               {<Members data={data} />}
             </Tooltip>
             <div className={'plan-card-date'}>{date} ago</div>
          </div>

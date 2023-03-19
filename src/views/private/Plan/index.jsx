@@ -107,7 +107,7 @@ function Plan() {
                </div>
                <div className={'plan-header-detail'}>
                   <div className={'plan-header-label'}>Members</div>
-                  <Members />
+                  <Members data={data} />
                </div>
                <div className={'plan-header-button'}>+ Add Member</div>
             </div>

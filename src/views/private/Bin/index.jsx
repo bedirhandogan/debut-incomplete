@@ -7,10 +7,12 @@ import { useEffect } from 'react'
 import { change as loaderChange } from 'store/reducers/loader'
 import { change as binChange } from 'store/reducers/bin'
 import getBin from 'db/storage/get-bin'
+import undoPlan from 'db/storage/undo-plan'
 
 function Bin() {
    const bin = useSelector((state) => state.bin.data)
    const user = useSelector((state) => state.user.data)
+   const plans = useSelector((state) => state.plans.data)
    const dispatch = useDispatch()
 
    useEffect(() => {
@@ -35,6 +37,7 @@ function Bin() {
                   padding: '0 15px 0 10px',
                }}
                type={'fourth'}
+               onClick={() => undoPlan(user, plans, bin, 0, dispatch, true)}
             >
                <IconArrowBackUp
                   stroke={1.3}

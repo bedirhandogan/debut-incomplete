@@ -13,8 +13,11 @@ import Members from 'components/shared/Members'
 import Tags from 'components/shared/Tags'
 import removePlan from 'db/storage/remove-plan'
 import { useDispatch, useSelector } from 'react-redux'
-import { change } from 'store/reducers/bin'
+import { change as binChange } from 'store/reducers/bin'
+import { change as plansChange } from 'store/reducers/plans'
 import getBin from 'db/storage/get-bin'
+import getPlans from 'db/storage/get-plans'
+import undoPlan from 'db/storage/undo-plan'
 
 function PlanCard({ data, type }) {
    const navigate = useNavigate()
@@ -56,13 +59,25 @@ function PlanCard({ data, type }) {
    const handleRemovePlan = async () => {
       if (bin.length === 0) {
          const binData = await getBin(user)
-         dispatch(change(binData))
+         dispatch(binChange(binData))
 
          await removePlan(user, plans, binData, data.id, dispatch)
          return
       }
 
       removePlan(user, plans, bin, data.id, dispatch)
+   }
+
+   const handleUndoPlan = async () => {
+      if (plans.length === 0) {
+         const planData = await getPlans(user)
+         dispatch(plansChange(planData))
+
+         await undoPlan(user, planData, bin, data.id, dispatch)
+         return
+      }
+
+      undoPlan(user, plans, bin, data.id, dispatch)
    }
 
    useEffect(() => {
@@ -95,6 +110,7 @@ function PlanCard({ data, type }) {
                            width={20}
                            height={20}
                            style={{ color: 'var(--icon-color-primary)' }}
+                           onClick={handleUndoPlan}
                         />
                      </Tooltip>
                   )}

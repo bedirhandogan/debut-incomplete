@@ -19,11 +19,14 @@ async function undoPlan(
       const filterDeletedPlans = binData.filter((v) => v.id !== id)
       const undoPlan = binData.filter((v) => v.id === id)
 
-      const newPlansData = undoPlan
+      const newPlansData = undoAll
          ? [...planData, ...binData]
          : [...planData, ...undoPlan]
 
-      const newBinData = undoPlan ? [] : filterDeletedPlans
+      const newBinData = undoAll ? [] : filterDeletedPlans
+
+      console.log(newPlansData)
+      console.log(newBinData)
 
       setDoc(doc(db, 'plans', user.uid), {
          data: newPlansData,
@@ -36,7 +39,11 @@ async function undoPlan(
       dispatch(plansChange(newPlansData))
       dispatch(binChange(newBinData))
 
-      toast.success(`Deleted plan successfully restored.`)
+      toast.success(
+         `Deleted ${
+            undoAll ? 'plans' : 'plan'
+         } have been successfully restored.`
+      )
    } catch (e) {
       console.error(e)
       errorMessages(e.code)

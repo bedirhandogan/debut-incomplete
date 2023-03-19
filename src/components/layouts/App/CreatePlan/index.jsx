@@ -17,12 +17,23 @@ function CreatePlan() {
    const dispatch = useDispatch()
 
    const handleClick = async () => {
+      const date = new Date()
+      const mockData = {
+         title: 'Untitled',
+         description: 'No description entered',
+         tags: [],
+      }
+
       if (stepId !== 1) {
          setStepId((prevState) => prevState + 1)
          return
       }
 
-      const date = new Date()
+      dispatch(
+         edit({
+            active: false,
+         })
+      )
 
       await addPlan(
          user,
@@ -37,20 +48,7 @@ function CreatePlan() {
          dispatch
       )
 
-      dispatch(
-         edit({
-            active: false,
-         })
-      )
-
-      const mockData = {
-         title: 'Untitled',
-         description: 'No description entered',
-         tags: [],
-      }
-
       dispatch(change(mockData))
-
       setStepId(0)
    }
 

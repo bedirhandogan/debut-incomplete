@@ -23,7 +23,10 @@ function Bin() {
          dispatch(plansChange(planData))
 
          await undoPlan(user, planData, bin, 0, dispatch, true)
+         return
       }
+
+      undoPlan(user, plans, bin, 0, dispatch, true)
    }
 
    useEffect(() => {

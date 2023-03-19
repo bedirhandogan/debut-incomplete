@@ -1,3 +1,27 @@
 .bin {
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .bin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-text {
+      font-size: 14px;
+    }
+  }
+
+  .bin-grid {
+    width: 100%;
+    height: calc((100vh - 65px) - 100px);
+    overflow: auto;
+    padding-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: 230px;
+    grid-gap: 20px;
+  }
 }

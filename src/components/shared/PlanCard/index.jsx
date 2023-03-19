@@ -1,5 +1,10 @@
 import './styles.scss'
-import { IconBookmark, IconDots, IconTrash } from '@tabler/icons-react'
+import {
+   IconArrowBackUp,
+   IconBookmark,
+   IconDots,
+   IconTrash,
+} from '@tabler/icons-react'
 import Tooltip from 'components/shared/Tooltip'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import prettyMs from 'pretty-ms'
@@ -9,7 +14,7 @@ import Tags from 'components/shared/Tags'
 import removePlan from 'db/storage/remove-plan'
 import { useDispatch, useSelector } from 'react-redux'
 
-function PlanCard({ data }) {
+function PlanCard({ data, type }) {
    const navigate = useNavigate()
    const dispatch = useDispatch()
    const [showPopup, setShowPopup] = useState(false)
@@ -35,7 +40,7 @@ function PlanCard({ data }) {
             !event.composedPath().includes(popupTriggerRef.current) &&
             !event.composedPath().includes(popupRef.current)
          ) {
-            navigate(`/app/plans/${data.id}`)
+            type !== 'bin' && navigate(`/app/plans/${data.id}`)
          } else if (event.composedPath().includes(popupTriggerRef.current)) {
             setShowPopup((prevState) => !prevState)
             return // don't close popup
@@ -43,7 +48,7 @@ function PlanCard({ data }) {
 
          setShowPopup(false)
       },
-      [planCardRef, popupTriggerRef, popupRef, navigate, data]
+      [planCardRef, popupTriggerRef, popupRef, navigate, data, type]
    )
 
    useEffect(() => {
@@ -62,42 +67,55 @@ function PlanCard({ data }) {
                   }`}
                   ref={popupTriggerRef}
                >
-                  <IconDots
-                     stroke={1.3}
-                     width={20}
-                     height={20}
-                     style={{ color: 'var(--icon-color-primary)' }}
-                  />
+                  {type !== 'bin' ? (
+                     <IconDots
+                        stroke={1.3}
+                        width={20}
+                        height={20}
+                        style={{ color: 'var(--icon-color-primary)' }}
+                     />
+                  ) : (
+                     <Tooltip position={'bottom'} text={'Undo'}>
+                        <IconArrowBackUp
+                           stroke={1.3}
+                           width={20}
+                           height={20}
+                           style={{ color: 'var(--icon-color-primary)' }}
+                        />
+                     </Tooltip>
+                  )}
                </div>
-               <div
-                  className={'plan-card-popup'}
-                  style={{ display: showPopup ? 'flex' : 'none' }}
-                  ref={popupRef}
-               >
+               {type !== 'bin' && (
                   <div
-                     className={'plan-card-popup-item'}
-                     onClick={() =>
-                        removePlan(user, plans, bin, data.id, dispatch)
-                     }
+                     className={'plan-card-popup'}
+                     style={{ display: showPopup ? 'flex' : 'none' }}
+                     ref={popupRef}
                   >
-                     <IconTrash
-                        stroke={1.3}
-                        width={20}
-                        height={20}
-                        style={{ color: 'var(--icon-color-primary)' }}
-                     />
-                     Delete
+                     <div
+                        className={'plan-card-popup-item'}
+                        onClick={() =>
+                           removePlan(user, plans, bin, data.id, dispatch)
+                        }
+                     >
+                        <IconTrash
+                           stroke={1.3}
+                           width={20}
+                           height={20}
+                           style={{ color: 'var(--icon-color-primary)' }}
+                        />
+                        Delete
+                     </div>
+                     <div className={'plan-card-popup-item'}>
+                        <IconBookmark
+                           stroke={1.3}
+                           width={20}
+                           height={20}
+                           style={{ color: 'var(--icon-color-primary)' }}
+                        />
+                        Mark it
+                     </div>
                   </div>
-                  <div className={'plan-card-popup-item'}>
-                     <IconBookmark
-                        stroke={1.3}
-                        width={20}
-                        height={20}
-                        style={{ color: 'var(--icon-color-primary)' }}
-                     />
-                     Mark it
-                  </div>
-               </div>
+               )}
             </div>
          </div>
          <div className={'plan-card-body'}>

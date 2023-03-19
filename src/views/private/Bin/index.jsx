@@ -1,11 +1,27 @@
 import './styles.scss'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import PlanCard from 'components/shared/PlanCard'
 import Button from 'components/shared/Button'
 import { IconArrowBackUp } from '@tabler/icons-react'
+import { useEffect } from 'react'
+import { change as loaderChange } from 'store/reducers/loader'
+import { change as binChange } from 'store/reducers/bin'
+import getBin from 'db/storage/get-bin'
 
 function Bin() {
    const bin = useSelector((state) => state.bin.data)
+   const user = useSelector((state) => state.user.data)
+   const dispatch = useDispatch()
+
+   useEffect(() => {
+      ;(async () => {
+         if (bin.length === 0) {
+            dispatch(loaderChange(true)) // start
+            dispatch(binChange(await getBin(user)))
+            dispatch(loaderChange(false)) // stop
+         }
+      })()
+   }, [dispatch, user, bin.length])
 
    return (
       <div className={'bin'}>

@@ -1,6 +1,6 @@
 import './styles.scss'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import prettyMs from 'pretty-ms'
 import months from 'constants/months'
 import {
@@ -12,15 +12,20 @@ import {
 } from '@tabler/icons-react'
 import Members from 'components/shared/Members'
 import Tags from 'components/shared/Tags'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Notes from 'views/private/Plan/Notes'
 import Tasks from 'views/private/Plan/Tasks'
 import Todos from 'views/private/Plan/Todos'
+import { change as loaderChange } from 'store/reducers/loader'
+import { change as plansChange } from 'store/reducers/plans'
+import getPlans from 'db/storage/get-plans'
 
 function Plan() {
    const { id } = useParams()
    const plans = useSelector((state) => state.plans.data)
+   const user = useSelector((state) => state.user.data)
    const [activeSection, setActiveSection] = useState('notes')
+   const dispatch = useDispatch()
 
    const data = plans?.find((v) => v.id === id) || {}
 
@@ -46,6 +51,16 @@ function Plan() {
       tasks: <Tasks />,
       todos: <Todos />,
    }
+
+   useEffect(() => {
+      ;(async () => {
+         if (plans.length === 0) {
+            dispatch(loaderChange(true)) // start
+            dispatch(plansChange(await getPlans(user)))
+            dispatch(loaderChange(false)) // stop
+         }
+      })()
+   }, [dispatch, user, plans.length])
 
    return (
       <div className={'plan'}>

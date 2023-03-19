@@ -13,6 +13,8 @@ import Members from 'components/shared/Members'
 import Tags from 'components/shared/Tags'
 import removePlan from 'db/storage/remove-plan'
 import { useDispatch, useSelector } from 'react-redux'
+import { change } from 'store/reducers/bin'
+import getBin from 'db/storage/get-bin'
 
 function PlanCard({ data, type }) {
    const navigate = useNavigate()
@@ -50,6 +52,18 @@ function PlanCard({ data, type }) {
       },
       [planCardRef, popupTriggerRef, popupRef, navigate, data, type]
    )
+
+   const handleRemovePlan = async () => {
+      if (bin.length === 0) {
+         const binData = await getBin(user)
+         dispatch(change(binData))
+
+         await removePlan(user, plans, binData, data.id, dispatch)
+         return
+      }
+
+      removePlan(user, plans, bin, data.id, dispatch)
+   }
 
    useEffect(() => {
       document.addEventListener('click', handleClick)
@@ -93,9 +107,7 @@ function PlanCard({ data, type }) {
                   >
                      <div
                         className={'plan-card-popup-item'}
-                        onClick={() =>
-                           removePlan(user, plans, bin, data.id, dispatch)
-                        }
+                        onClick={handleRemovePlan}
                      >
                         <IconTrash
                            stroke={1.3}

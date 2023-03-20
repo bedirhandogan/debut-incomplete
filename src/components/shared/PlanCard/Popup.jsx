@@ -36,7 +36,7 @@ function Popup({ data, state, reference }) {
         </div>
         <div className={'planCard-popup-item'}>
           <IconBookmark stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
-          Mark it
+          Favorite
         </div>
       </div>
     </div>

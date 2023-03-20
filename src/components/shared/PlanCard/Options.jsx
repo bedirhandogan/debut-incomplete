@@ -9,7 +9,6 @@ import { change as plansChange } from 'store/reducers/plans';
 import getBin from 'db/storage/get-bin';
 import getPlans from 'db/storage/get-plans';
 import removeGarbage from 'db/storage/remove-garbage';
-import removePlan from 'db/storage/remove-plan';
 import undoPlan from 'db/storage/undo-plan';
 
 function Options({ data }) {

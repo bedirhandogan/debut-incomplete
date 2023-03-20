@@ -1,4 +1,4 @@
-.plan-card {
+.planCard {
   height: 230px;
   background-color: var(--background-color-primary-variant);
   border-radius: 10px;
@@ -6,12 +6,12 @@
   display: flex;
   flex-direction: column;
 
-  .plan-card-header {
+  .planCard-header {
     display: flex;
     justify-content: space-between;
     height: 25px;
 
-    .plan-card-options {
+    .planCard-popup-container {
       position: relative;
       height: 100%;
       cursor: pointer;
@@ -19,7 +19,7 @@
       align-items: center;
       transition: 200ms all;
 
-      .plan-card-popup-trigger {
+      .planCard-popup-trigger {
         display: flex;
         align-items: center;
         padding: 2px 4px;
@@ -31,7 +31,7 @@
         }
       }
 
-      .plan-card-popup {
+      .planCard-popup {
         position: absolute;
         top: 120%;
         right: 0;
@@ -44,7 +44,7 @@
         padding: 5px;
         z-index: 1;
 
-        .plan-card-popup-item {
+        .planCard-popup-item {
           display: flex;
           align-items: center;
           gap: 10px;
@@ -59,22 +59,39 @@
         }
       }
     }
+
+    .planCard-options {
+      display: flex;
+
+      .planCard-option {
+        width: 27px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: var(--background-color-secondary);
+        }
+      }
+    }
   }
 
-  .plan-card-body {
+  .planCard-body {
     padding: 15px 0;
 
-    .plan-card-body-title {
+    .planCard-body-title {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .plan-card-body-preview {
+    .planCard-body-preview {
     }
   }
 
-  .plan-card-footer {
+  .planCard-footer {
     position: relative;
     border-top: var(--g-border);
     margin-top: auto;
@@ -83,7 +100,7 @@
     justify-content: space-between;
     align-items: center;
 
-    .plan-card-date {
+    .planCard-date {
       height: 20px;
       display: flex;
       align-items: center;

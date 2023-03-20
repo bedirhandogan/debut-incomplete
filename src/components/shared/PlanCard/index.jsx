@@ -1,30 +1,18 @@
-import { IconArrowBackUp, IconBookmark, IconDots, IconTrash } from '@tabler/icons-react';
 import prettyMs from 'pretty-ms';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Members from 'components/shared/Members';
+import Options from 'components/shared/PlanCard/Options';
+import Popup from 'components/shared/PlanCard/Popup';
 import Tags from 'components/shared/Tags';
 import Tooltip from 'components/shared/Tooltip';
-
-import { change as binChange } from 'store/reducers/bin';
-import { change as plansChange } from 'store/reducers/plans';
-
-import getBin from 'db/storage/get-bin';
-import getPlans from 'db/storage/get-plans';
-import removePlan from 'db/storage/remove-plan';
-import undoPlan from 'db/storage/undo-plan';
 
 import './styles.scss';
 
 function PlanCard({ data, type }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
-  const user = useSelector((state) => state.user.data);
-  const plans = useSelector((state) => state.plans.data);
-  const bin = useSelector((state) => state.bin.data);
 
   const [planCardRef, popupTriggerRef, popupRef] = [useRef(), useRef(), useRef()];
 
@@ -51,74 +39,26 @@ function PlanCard({ data, type }) {
     [planCardRef, popupTriggerRef, popupRef, navigate, data, type],
   );
 
-  const handleRemovePlan = async () => {
-    if (bin.length === 0) {
-      const binData = await getBin(user);
-      dispatch(binChange(binData));
-
-      await removePlan(user, plans, binData, data.id, dispatch);
-      return;
-    }
-
-    removePlan(user, plans, bin, data.id, dispatch);
-  };
-
-  const handleUndoPlan = async () => {
-    if (plans.length === 0) {
-      const planData = await getPlans(user);
-      dispatch(plansChange(planData));
-
-      await undoPlan(user, planData, bin, data.id, dispatch);
-      return;
-    }
-
-    undoPlan(user, plans, bin, data.id, dispatch);
-  };
-
   useEffect(() => {
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, [handleClick]);
 
   return (
-    <div className={'plan-card'} ref={planCardRef}>
-      <div className={'plan-card-header'}>
+    <div className={'planCard'} ref={planCardRef}>
+      <div className={'planCard-header'}>
         <Tags data={data} />
-        <div className={'plan-card-options'}>
-          <div className={`plan-card-popup-trigger ${showPopup ? 'active' : ''}`} ref={popupTriggerRef}>
-            {type !== 'bin' ? (
-              <IconDots stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
-            ) : (
-              <Tooltip position={'bottom'} text={'Undo'}>
-                <IconArrowBackUp
-                  stroke={1.3}
-                  width={20}
-                  height={20}
-                  style={{ color: 'var(--icon-color-primary)' }}
-                  onClick={handleUndoPlan}
-                />
-              </Tooltip>
-            )}
-          </div>
-          {type !== 'bin' && (
-            <div className={'plan-card-popup'} style={{ display: showPopup ? 'flex' : 'none' }} ref={popupRef}>
-              <div className={'plan-card-popup-item'} onClick={handleRemovePlan}>
-                <IconTrash stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
-                Delete
-              </div>
-              <div className={'plan-card-popup-item'}>
-                <IconBookmark stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
-                Mark it
-              </div>
-            </div>
-          )}
-        </div>
+        {type !== 'bin' ? (
+          <Popup data={data} state={showPopup} reference={{ popupRef, popupTriggerRef }} />
+        ) : (
+          <Options data={data} />
+        )}
       </div>
-      <div className={'plan-card-body'}>
-        <div className={'plan-card-body-title'}>{data.title}</div>
-        <div className={'plan-card-body-preview'}></div>
+      <div className={'planCard-body'}>
+        <div className={'planCard-body-title'}>{data.title}</div>
+        <div className={'planCard-body-preview'}></div>
       </div>
-      <div className={'plan-card-footer'}>
+      <div className={'planCard-footer'}>
         <Tooltip
           style={{
             left: 0,
@@ -128,7 +68,7 @@ function PlanCard({ data, type }) {
         >
           {<Members data={data} />}
         </Tooltip>
-        <div className={'plan-card-date'}>{date} ago</div>
+        <div className={'planCard-date'}>{date} ago</div>
       </div>
     </div>
   );

@@ -18,9 +18,6 @@ async function undoPlan(user, planData, binData, id = 0, dispatch, undoAll = fal
 
     const newBinData = undoAll ? [] : filterDeletedPlans;
 
-    console.log(newPlansData);
-    console.log(newBinData);
-
     setDoc(doc(db, 'plans', user.uid), {
       data: newPlansData,
     });

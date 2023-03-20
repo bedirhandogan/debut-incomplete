@@ -1,169 +1,137 @@
-import './styles.scss'
-import {
-   IconArrowBackUp,
-   IconBookmark,
-   IconDots,
-   IconTrash,
-} from '@tabler/icons-react'
-import Tooltip from 'components/shared/Tooltip'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import prettyMs from 'pretty-ms'
-import { useNavigate } from 'react-router-dom'
-import Members from 'components/shared/Members'
-import Tags from 'components/shared/Tags'
-import removePlan from 'db/storage/remove-plan'
-import { useDispatch, useSelector } from 'react-redux'
-import { change as binChange } from 'store/reducers/bin'
-import { change as plansChange } from 'store/reducers/plans'
-import getBin from 'db/storage/get-bin'
-import getPlans from 'db/storage/get-plans'
-import undoPlan from 'db/storage/undo-plan'
+import { IconArrowBackUp, IconBookmark, IconDots, IconTrash } from '@tabler/icons-react';
+import prettyMs from 'pretty-ms';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import Members from 'components/shared/Members';
+import Tags from 'components/shared/Tags';
+import Tooltip from 'components/shared/Tooltip';
+
+import { change as binChange } from 'store/reducers/bin';
+import { change as plansChange } from 'store/reducers/plans';
+
+import getBin from 'db/storage/get-bin';
+import getPlans from 'db/storage/get-plans';
+import removePlan from 'db/storage/remove-plan';
+import undoPlan from 'db/storage/undo-plan';
+
+import './styles.scss';
 
 function PlanCard({ data, type }) {
-   const navigate = useNavigate()
-   const dispatch = useDispatch()
-   const [showPopup, setShowPopup] = useState(false)
-   const user = useSelector((state) => state.user.data)
-   const plans = useSelector((state) => state.plans.data)
-   const bin = useSelector((state) => state.bin.data)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [showPopup, setShowPopup] = useState(false);
+  const user = useSelector((state) => state.user.data);
+  const plans = useSelector((state) => state.plans.data);
+  const bin = useSelector((state) => state.bin.data);
 
-   const [planCardRef, popupTriggerRef, popupRef] = [
-      useRef(),
-      useRef(),
-      useRef(),
-   ]
+  const [planCardRef, popupTriggerRef, popupRef] = [useRef(), useRef(), useRef()];
 
-   const date = prettyMs(new Date().getTime() - data.date.updatedAt, {
-      compact: true,
-      verbose: true,
-   })
+  const date = prettyMs(new Date().getTime() - data.date.updatedAt, {
+    compact: true,
+    verbose: true,
+  });
 
-   const handleClick = useCallback(
-      (event) => {
-         if (
-            event.composedPath().includes(planCardRef.current) &&
-            !event.composedPath().includes(popupTriggerRef.current) &&
-            !event.composedPath().includes(popupRef.current)
-         ) {
-            type !== 'bin' && navigate(`/app/plans/${data.id}`)
-         } else if (event.composedPath().includes(popupTriggerRef.current)) {
-            setShowPopup((prevState) => !prevState)
-            return // don't close popup
-         }
-
-         setShowPopup(false)
-      },
-      [planCardRef, popupTriggerRef, popupRef, navigate, data, type]
-   )
-
-   const handleRemovePlan = async () => {
-      if (bin.length === 0) {
-         const binData = await getBin(user)
-         dispatch(binChange(binData))
-
-         await removePlan(user, plans, binData, data.id, dispatch)
-         return
+  const handleClick = useCallback(
+    (event) => {
+      if (
+        event.composedPath().includes(planCardRef.current) &&
+        !event.composedPath().includes(popupTriggerRef.current) &&
+        !event.composedPath().includes(popupRef.current)
+      ) {
+        type !== 'bin' && navigate(`/app/plans/${data.id}`);
+      } else if (event.composedPath().includes(popupTriggerRef.current)) {
+        setShowPopup((prevState) => !prevState);
+        return; // don't close popup
       }
 
-      removePlan(user, plans, bin, data.id, dispatch)
-   }
+      setShowPopup(false);
+    },
+    [planCardRef, popupTriggerRef, popupRef, navigate, data, type],
+  );
 
-   const handleUndoPlan = async () => {
-      if (plans.length === 0) {
-         const planData = await getPlans(user)
-         dispatch(plansChange(planData))
+  const handleRemovePlan = async () => {
+    if (bin.length === 0) {
+      const binData = await getBin(user);
+      dispatch(binChange(binData));
 
-         await undoPlan(user, planData, bin, data.id, dispatch)
-         return
-      }
+      await removePlan(user, plans, binData, data.id, dispatch);
+      return;
+    }
 
-      undoPlan(user, plans, bin, data.id, dispatch)
-   }
+    removePlan(user, plans, bin, data.id, dispatch);
+  };
 
-   useEffect(() => {
-      document.addEventListener('click', handleClick)
-      return () => document.removeEventListener('click', handleClick)
-   }, [handleClick])
+  const handleUndoPlan = async () => {
+    if (plans.length === 0) {
+      const planData = await getPlans(user);
+      dispatch(plansChange(planData));
 
-   return (
-      <div className={'plan-card'} ref={planCardRef}>
-         <div className={'plan-card-header'}>
-            <Tags data={data} />
-            <div className={'plan-card-options'}>
-               <div
-                  className={`plan-card-popup-trigger ${
-                     showPopup ? 'active' : ''
-                  }`}
-                  ref={popupTriggerRef}
-               >
-                  {type !== 'bin' ? (
-                     <IconDots
-                        stroke={1.3}
-                        width={20}
-                        height={20}
-                        style={{ color: 'var(--icon-color-primary)' }}
-                     />
-                  ) : (
-                     <Tooltip position={'bottom'} text={'Undo'}>
-                        <IconArrowBackUp
-                           stroke={1.3}
-                           width={20}
-                           height={20}
-                           style={{ color: 'var(--icon-color-primary)' }}
-                           onClick={handleUndoPlan}
-                        />
-                     </Tooltip>
-                  )}
-               </div>
-               {type !== 'bin' && (
-                  <div
-                     className={'plan-card-popup'}
-                     style={{ display: showPopup ? 'flex' : 'none' }}
-                     ref={popupRef}
-                  >
-                     <div
-                        className={'plan-card-popup-item'}
-                        onClick={handleRemovePlan}
-                     >
-                        <IconTrash
-                           stroke={1.3}
-                           width={20}
-                           height={20}
-                           style={{ color: 'var(--icon-color-primary)' }}
-                        />
-                        Delete
-                     </div>
-                     <div className={'plan-card-popup-item'}>
-                        <IconBookmark
-                           stroke={1.3}
-                           width={20}
-                           height={20}
-                           style={{ color: 'var(--icon-color-primary)' }}
-                        />
-                        Mark it
-                     </div>
-                  </div>
-               )}
+      await undoPlan(user, planData, bin, data.id, dispatch);
+      return;
+    }
+
+    undoPlan(user, plans, bin, data.id, dispatch);
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [handleClick]);
+
+  return (
+    <div className={'plan-card'} ref={planCardRef}>
+      <div className={'plan-card-header'}>
+        <Tags data={data} />
+        <div className={'plan-card-options'}>
+          <div className={`plan-card-popup-trigger ${showPopup ? 'active' : ''}`} ref={popupTriggerRef}>
+            {type !== 'bin' ? (
+              <IconDots stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
+            ) : (
+              <Tooltip position={'bottom'} text={'Undo'}>
+                <IconArrowBackUp
+                  stroke={1.3}
+                  width={20}
+                  height={20}
+                  style={{ color: 'var(--icon-color-primary)' }}
+                  onClick={handleUndoPlan}
+                />
+              </Tooltip>
+            )}
+          </div>
+          {type !== 'bin' && (
+            <div className={'plan-card-popup'} style={{ display: showPopup ? 'flex' : 'none' }} ref={popupRef}>
+              <div className={'plan-card-popup-item'} onClick={handleRemovePlan}>
+                <IconTrash stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
+                Delete
+              </div>
+              <div className={'plan-card-popup-item'}>
+                <IconBookmark stroke={1.3} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
+                Mark it
+              </div>
             </div>
-         </div>
-         <div className={'plan-card-body'}>
-            <div className={'plan-card-body-title'}>{data.title}</div>
-            <div className={'plan-card-body-preview'}></div>
-         </div>
-         <div className={'plan-card-footer'}>
-            <Tooltip
-               style={{
-                  left: 0,
-               }}
-               position={'bottom'}
-               text={'Members'}
-            >
-               {<Members data={data} />}
-            </Tooltip>
-            <div className={'plan-card-date'}>{date} ago</div>
-         </div>
+          )}
+        </div>
       </div>
-   )
+      <div className={'plan-card-body'}>
+        <div className={'plan-card-body-title'}>{data.title}</div>
+        <div className={'plan-card-body-preview'}></div>
+      </div>
+      <div className={'plan-card-footer'}>
+        <Tooltip
+          style={{
+            left: 0,
+          }}
+          position={'bottom'}
+          text={'Members'}
+        >
+          {<Members data={data} />}
+        </Tooltip>
+        <div className={'plan-card-date'}>{date} ago</div>
+      </div>
+    </div>
+  );
 }
 
-export default PlanCard
+export default PlanCard;

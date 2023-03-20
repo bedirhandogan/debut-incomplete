@@ -5,15 +5,15 @@
   height: 30px;
   width: calc((30px * 4) - 30px);
 
-  &[data-member-length="1"] {
+  &[data-member-length='1'] {
     width: 30px;
   }
 
-  &[data-member-length="2"] {
+  &[data-member-length='2'] {
     width: calc((30px * 2) - 30px);
   }
 
-  &[data-member-length="3"] {
+  &[data-member-length='3'] {
     width: calc((30px * 3) - 30px);
   }
 

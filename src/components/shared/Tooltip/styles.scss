@@ -1,42 +1,42 @@
 .tooltip {
-   position: relative;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: max-content;
-   height: max-content;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
 
-   .tooltip-text {
-      width: max-content;
-      position: absolute;
-      background-color: var(--background-color-primary-variant);
-      border: var(--g-border);
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: none;
-      font-size: 12px;
-      z-index: 1;
+  .tooltip-text {
+    width: max-content;
+    position: absolute;
+    background-color: var(--background-color-primary-variant);
+    border: var(--g-border);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none;
+    font-size: 12px;
+    z-index: 1;
 
-      $position: 120%;
+    $position: 120%;
 
-      &.tooltip-position-left {
-         right: $position;
-      }
+    &.tooltip-position-left {
+      right: $position;
+    }
 
-      &.tooltip-position-right {
-         left: $position;
-      }
+    &.tooltip-position-right {
+      left: $position;
+    }
 
-      &.tooltip-position-top {
-         bottom: $position;
-      }
+    &.tooltip-position-top {
+      bottom: $position;
+    }
 
-      &.tooltip-position-bottom {
-         top: $position;
-      }
-   }
+    &.tooltip-position-bottom {
+      top: $position;
+    }
+  }
 
-   &:hover .tooltip-text {
-      display: block;
-   }
+  &:hover .tooltip-text {
+    display: block;
+  }
 }

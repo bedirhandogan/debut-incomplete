@@ -1,91 +1,91 @@
 .settings {
-   width: 900px;
-   padding: 20px;
-   display: flex;
-   gap: 20px;
+  width: 900px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
 
-   .settings-section {
-      position: relative;
+  .settings-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &:nth-of-type(1) {
+      width: 180px;
+      min-height: 500px;
+      padding: 0 20px 0 0;
+      border-right: var(--g-border);
+    }
+
+    &:nth-of-type(2) {
+      width: calc(100% - 200px);
+    }
+
+    .settings-action-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 2px;
 
-      &:nth-of-type(1) {
-         width: 180px;
-         min-height: 500px;
-         padding: 0 20px 0 0;
-         border-right: var(--g-border);
+      .settings-action-name {
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.8;
       }
 
-      &:nth-of-type(2) {
-         width: calc(100% - 200px);
+      .settings-action {
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &.active,
+        &:hover {
+          background-color: var(--background-color-primary-variant);
+        }
       }
+    }
+  }
 
-      .settings-action-list {
-         display: flex;
-         flex-direction: column;
-         gap: 2px;
+  .settings-input-wrapper {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
 
-         .settings-action-name {
-            margin-bottom: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            opacity: 0.8;
-         }
+    .settings-input-name {
+      font-size: 14px;
+    }
 
-         .settings-action {
-            width: 100%;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            border-radius: 5px;
+    .settings-input-note {
+      font-size: 12px;
+    }
+  }
 
-            &.active,
-            &:hover {
-               background-color: var(--background-color-primary-variant);
-            }
-         }
-      }
-   }
+  .settings-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 
-   .settings-input-wrapper {
-      width: 350px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-
-      .settings-input-name {
-         font-size: 14px;
-      }
-
-      .settings-input-note {
-         font-size: 12px;
-      }
-   }
-
-   .settings-button {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-   }
-
-   .settings-profile {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      gap: 40px 120px;
-      flex-wrap: wrap-reverse;
-      cursor: pointer;
-   }
+  .settings-profile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 40px 120px;
+    flex-wrap: wrap-reverse;
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 900px) {
-    .settings {
-        width: 100vw;
-        height: calc(100vh - 65px);
-    }
+  .settings {
+    width: 100vw;
+    height: calc(100vh - 65px);
+  }
 }

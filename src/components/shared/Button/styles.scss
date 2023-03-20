@@ -1,59 +1,59 @@
 .button {
-   width: 200px;
-   height: 35px;
-   background-color: var(--background-color-primary-variant);
-   color: var(--text-color-primary);
-   font-size: 14px;
-   border: var(--g-border);
-   border-radius: 5px;
-   display: flex;
-   gap: 7px;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-   transition: 200ms all;
+  width: 200px;
+  height: 35px;
+  background-color: var(--background-color-primary-variant);
+  color: var(--text-color-primary);
+  font-size: 14px;
+  border: var(--g-border);
+  border-radius: 5px;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 200ms all;
 
-   &:hover {
-      color: var(--text-color-primary);
-      border: 1.5px solid var(--border-color-primary-variant);
-   }
+  &:hover {
+    color: var(--text-color-primary);
+    border: 1.5px solid var(--border-color-primary-variant);
+  }
 
-   &.primary {
-      background: var(--g-background-color-primary);
-      transition: 200ms all;
+  &.primary {
+    background: var(--g-background-color-primary);
+    transition: 200ms all;
 
-      &:hover {
-         background-color: #fa0716;
-      }
-   }
+    &:hover {
+      background-color: #fa0716;
+    }
+  }
 
-   &.secondary {
-      background-color: #00a6ff;
-      color: white;
-      border: none;
-      width: 130px;
-      transition: 200ms all;
+  &.secondary {
+    background-color: #00a6ff;
+    color: white;
+    border: none;
+    width: 130px;
+    transition: 200ms all;
 
-      &:hover {
-         background-color: #008cff;
-      }
-   }
+    &:hover {
+      background-color: #008cff;
+    }
+  }
 
-   &.third {
-      background-color: transparent;
-      border: 2px dashed var(--border-color-primary-variant);
+  &.third {
+    background-color: transparent;
+    border: 2px dashed var(--border-color-primary-variant);
 
-      &:hover {
-         background-color: var(--background-color-primary-variant);
-      }
-   }
-
-   &.fourth {
+    &:hover {
       background-color: var(--background-color-primary-variant);
-      border: none;
+    }
+  }
 
-      &:hover {
-         background-color: var(--background-color-secondary);
-      }
-   }
+  &.fourth {
+    background-color: var(--background-color-primary-variant);
+    border: none;
+
+    &:hover {
+      background-color: var(--background-color-secondary);
+    }
+  }
 }

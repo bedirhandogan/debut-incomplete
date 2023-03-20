@@ -1,7 +1,7 @@
-import './styles.scss'
+import './styles.scss';
 
 function Main({ children }) {
-   return <div className={'main'}>{children}</div>
+  return <div className={'main'}>{children}</div>;
 }
 
-export default Main
+export default Main;

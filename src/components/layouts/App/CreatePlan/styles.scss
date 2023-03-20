@@ -1,144 +1,144 @@
 .create-plan {
+  position: relative;
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  user-select: none;
+
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: calc(100vh - 65px);
+  }
+
+  .create-plan-steps {
+    padding-right: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    .create-plan-step {
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      .create-plan-step-icon {
+        width: 30px;
+        height: 30px;
+        background-color: var(--background-color-primary-variant);
+        color: var(--icon-color-primary-variant);
+        font-weight: 500;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .create-plan-step-text {
+        height: 100%;
+        color: var(--text-color-primary-variant);
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+
+        span {
+          font-size: 12px;
+        }
+      }
+
+      &.active .create-plan-step-text {
+        color: var(--text-color-primary);
+      }
+
+      &.active .create-plan-step-icon {
+        background-color: #00a5fd;
+        color: white;
+      }
+    }
+  }
+
+  .create-plan-main {
     position: relative;
-    width: 450px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-right: 5px;
+  }
+
+  .create-plan-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: auto;
+    background-color: var(--background-color-primary);
+    border-radius: 10px;
+  }
+
+  .create-plan-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .create-plan-wrapper-name {
+      font-size: 14px;
+    }
+
+    .create-plan-wrapper-note {
+      font-size: 12px;
+    }
+  }
+
+  .create-plan-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    span {
+      font-size: 12px;
+      background-color: var(--background-color-primary-variant);
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      svg {
+        transition: 200ms all;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .create-plan-details {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
-    user-select: none;
+  }
 
-    @media screen and (max-width: 500px) {
-        width: 100vw;
-        height: calc(100vh - 65px);
+  .create-plan-check {
+    width: 100%;
+    gap: 20px 50px;
+    flex-wrap: wrap-reverse;
+
+    .create-plan-check-area {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-
-    .create-plan-steps {
-        padding-right: 20px;
-        border-radius: 5px;
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;
-
-        .create-plan-step {
-            width: 100%;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-
-            .create-plan-step-icon {
-                width: 30px;
-                height: 30px;
-                background-color: var(--background-color-primary-variant);
-                color: var(--icon-color-primary-variant);
-                font-weight: 500;
-                border-radius: 5px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 14px;
-            }
-
-            .create-plan-step-text {
-                height: 100%;
-                color: var(--text-color-primary-variant);
-                font-size: 15px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 3px;
-
-                span {
-                    font-size: 12px;
-                }
-            }
-
-            &.active .create-plan-step-text {
-                color: var(--text-color-primary);
-            }
-
-            &.active .create-plan-step-icon {
-                background-color: #00a5fd;
-                color: white;
-            }
-        }
-    }
-
-    .create-plan-main {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        padding-right: 5px;
-    }
-
-    .create-plan-buttons {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        margin-top: auto;
-        background-color: var(--background-color-primary);
-        border-radius: 10px;
-    }
-
-    .create-plan-wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        .create-plan-wrapper-name {
-            font-size: 14px;
-        }
-
-        .create-plan-wrapper-note {
-            font-size: 12px;
-        }
-    }
-
-    .create-plan-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-
-        span {
-            font-size: 12px;
-            background-color: var(--background-color-primary-variant);
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-
-            svg {
-                transition: 200ms all;
-                cursor: pointer;
-
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
-        }
-    }
-
-    .create-plan-details {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .create-plan-check {
-        width: 100%;
-        gap: 20px 50px;
-        flex-wrap: wrap-reverse;
-
-        .create-plan-check-area {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-    }
+  }
 }

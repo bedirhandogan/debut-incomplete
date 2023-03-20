@@ -1,29 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const createPlan = createSlice({
-   name: 'create-project',
-   initialState: {
-      data: {
-         title: 'Untitled',
-         description: 'No description entered',
-         tags: [],
-         users: [],
-      },
-   },
-   reducers: {
-      change: (state, action) => {
-         state.data = action.payload
-      },
-      edit: (state, action) => {
-         const [key, value] = [
-            ...Object.keys(action.payload),
-            ...Object.values(action.payload),
-         ]
+  name: 'create-project',
+  initialState: {
+    data: {
+      title: 'Untitled',
+      description: 'No description entered',
+      tags: [],
+      users: [],
+    },
+  },
+  reducers: {
+    change: (state, action) => {
+      state.data = action.payload;
+    },
+    edit: (state, action) => {
+      const [key, value] = [...Object.keys(action.payload), ...Object.values(action.payload)];
 
-         state.data[key] = value
-      },
-   },
-})
+      state.data[key] = value;
+    },
+  },
+});
 
-export const { change, edit } = createPlan.actions
-export default createPlan.reducer
+export const { change, edit } = createPlan.actions;
+export default createPlan.reducer;

@@ -1,19 +1,21 @@
-import { signOut } from 'firebase/auth'
-import toast from 'react-hot-toast'
-import { AuthInstance } from './index'
-import { change } from 'store/reducers/user'
+import { signOut } from 'firebase/auth';
+import toast from 'react-hot-toast';
+
+import { change } from 'store/reducers/user';
+
+import { AuthInstance } from './index';
 
 async function Logout(navigate, dispatch) {
-   try {
-      await signOut(AuthInstance)
+  try {
+    await signOut(AuthInstance);
 
-      toast.success('Your account has been logged out.')
+    toast.success('Your account has been logged out.');
 
-      navigate('/')
-      dispatch(change({}))
-   } catch (e) {
-      console.error(e)
-   }
+    navigate('/');
+    dispatch(change({}));
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-export default Logout
+export default Logout;

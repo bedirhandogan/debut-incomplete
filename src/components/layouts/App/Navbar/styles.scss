@@ -1,71 +1,71 @@
 .app-navbar {
-   all: unset;
-   display: inline-flex;
-   justify-content: space-between;
-   align-items: center;
-   border-bottom: var(--g-border);
-   padding: 0 20px 0 10px;
-   grid-column: var(--g-navbar-grid-column);
-   grid-row: var(--g-navbar-grid-row);
+  all: unset;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--g-border);
+  padding: 0 20px 0 10px;
+  grid-column: var(--g-navbar-grid-column);
+  grid-row: var(--g-navbar-grid-row);
 
-   .app-navbar-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+  .app-navbar-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-      .app-sidebar-title {
-         text-transform: capitalize;
-      }
+    .app-sidebar-title {
+      text-transform: capitalize;
+    }
 
-      .sidebar-show-trigger {
-         position: relative;
-         width: 35px;
-         height: 35px;
-         border-radius: 5px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         transition: 200ms all;
-
-         &:hover {
-            background-color: var(--background-color-primary-variant);
-         }
-
-         @media screen and (max-width: 500px) {
-            &.active {
-               left: -55px;
-            }
-         }
-      }
-   }
-}
-
-@media screen and (max-width: 768px) {
-   .app-navbar-search {
-      width: 30px;
+    .sidebar-show-trigger {
+      position: relative;
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: 200ms all;
 
-      svg {
-         width: 24px;
-         height: 24px;
-         left: unset;
+      &:hover {
+        background-color: var(--background-color-primary-variant);
       }
 
-      input {
-         width: 30px;
-         height: 30px;
-         padding: 0;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         background-color: transparent;
-         border: transparent;
-
-         &::placeholder {
-            color: transparent;
-         }
+      @media screen and (max-width: 500px) {
+        &.active {
+          left: -55px;
+        }
       }
-   }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-navbar-search {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      left: unset;
+    }
+
+    input {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: transparent;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
 }

@@ -1,29 +1,29 @@
 .input {
-   position: relative;
-   display: flex;
-   align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
 
-   svg {
-      position: absolute;
-      left: 10px;
-   }
+  svg {
+    position: absolute;
+    left: 10px;
+  }
 
-   input {
+  input {
+    color: var(--text-color-primary);
+    border: var(--g-border);
+    background-color: var(--background-color-primary-variant);
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 40px;
+    text-align: right;
+    transition: 200ms all;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
       color: var(--text-color-primary);
-      border: var(--g-border);
-      background-color: var(--background-color-primary-variant);
-      width: 200px;
-      height: 35px;
-      border-radius: 5px;
-      padding: 10px 10px 10px 40px;
-      text-align: right;
-      transition: 200ms all;
-      font-size: 14px;
-
-      &:focus {
-         outline: none;
-         color: var(--text-color-primary);
-         border: 1.5px solid var(--border-color-primary-variant);
-      }
-   }
+      border: 1.5px solid var(--border-color-primary-variant);
+    }
+  }
 }

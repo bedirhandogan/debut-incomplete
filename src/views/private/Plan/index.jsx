@@ -1,4 +1,11 @@
-import { IconBookmark, IconDots, IconLayoutGrid, IconLayoutKanban, IconLayoutList } from '@tabler/icons-react';
+import {
+  IconDots,
+  IconLayoutGrid,
+  IconLayoutKanban,
+  IconLayoutList,
+  IconStar,
+  IconStarFilled,
+} from '@tabler/icons-react';
 import months from 'constants/months';
 import prettyMs from 'pretty-ms';
 import { useEffect, useState } from 'react';
@@ -7,6 +14,7 @@ import { useParams } from 'react-router-dom';
 
 import Members from 'components/shared/Members';
 import Tags from 'components/shared/Tags';
+import Tooltip from 'components/shared/Tooltip';
 
 import Notes from 'views/private/Plan/Notes';
 import Tasks from 'views/private/Plan/Tasks';
@@ -15,6 +23,7 @@ import Todos from 'views/private/Plan/Todos';
 import { change as loaderChange } from 'store/reducers/loader';
 import { change as plansChange } from 'store/reducers/plans';
 
+import changeMarkValue from 'db/storage/change-mark-value';
 import getPlans from 'db/storage/get-plans';
 
 import './styles.scss';
@@ -27,6 +36,7 @@ function Plan() {
   const dispatch = useDispatch();
 
   const data = plans?.find((v) => v.id === id) || {};
+  const findUser = data.users?.find((v) => v.uid === user.uid);
 
   const createdDate = new Date(data.date?.createdAt);
   const [year, month, day] = [createdDate.getFullYear(), createdDate.getMonth(), createdDate.getDate()];
@@ -61,8 +71,14 @@ function Plan() {
           <div className={'plan-header-title'}>{data.title}</div>
           <Tags data={data} />
           <div className={'plan-header-options'}>
-            <div className={'plan-header-option'}>
-              <IconBookmark stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />
+            <div className={'plan-header-option'} onClick={() => changeMarkValue(data, plans, user.uid, dispatch)}>
+              <Tooltip position={'bottom'} text={'Favorite'}>
+                {findUser?.mark ? (
+                  <IconStarFilled stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />
+                ) : (
+                  <IconStar stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />
+                )}
+              </Tooltip>
             </div>
             <div className={'plan-header-option'}>
               <IconDots stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />

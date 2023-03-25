@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from 'views/private/App';
 import Bin from 'views/private/Bin';
-import Favorites from 'views/private/Favorites';
 import Overview from 'views/private/Overview';
 import Plan from 'views/private/Plan';
 import Plans from 'views/private/Plans';
@@ -17,7 +16,6 @@ function Router({ children }) {
           <Route path={'/app'} element={<Overview />} />
           <Route path={'plans'} element={<Plans />} />
           <Route path={'plans/:id'} element={<Plan />} />
-          <Route path={'favorites'} element={<Favorites />} />
           <Route path={'bin'} element={<Bin />} />
         </Route>
       </Routes>

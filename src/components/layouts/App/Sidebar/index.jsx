@@ -1,6 +1,5 @@
 import {
   IconBell,
-  IconBookmarks,
   IconGraph,
   IconLayoutCollage,
   IconMessage2,
@@ -49,10 +48,6 @@ function Sidebar() {
       </div>
       <div className={'sidebar-section'}>
         <div className={'sidebar-section-name'}>Other</div>
-        <Link to={'favorites'} className={location.pathname === '/app/favorites' ? 'active' : ''}>
-          <IconBookmarks stroke={1.3} width={24} height={24} style={{ color: 'var(--icon-color-primary)' }} />
-          Favorites
-        </Link>
         <Link to={'bin'} className={location.pathname === '/app/bin' ? 'active' : ''}>
           <IconTrash stroke={1.3} width={24} height={24} style={{ color: 'var(--icon-color-primary)' }} />
           Bin

@@ -3,8 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: max-content;
-  height: max-content;
+  user-select: none;
 
   .tooltip-text {
     width: max-content;

@@ -31,7 +31,7 @@
         background-color: var(--background-color-primary-variant);
       }
 
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 565px) {
         &.active {
           left: -55px;
         }

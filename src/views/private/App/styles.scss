@@ -5,7 +5,7 @@
   grid-template-columns: var(--g-grid-columns);
   grid-template-rows: var(--g-grid-rows);
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 565px) {
     grid-template-columns: 100% 1fr;
   }
 }

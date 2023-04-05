@@ -18,7 +18,7 @@ function Navbar() {
   const handleSidebarShow = () => dispatch(change(!show));
 
   useEffect(() => {
-    window.innerWidth <= 500 && dispatch(change(false));
+    window.innerWidth <= 565 && dispatch(change(false));
   }, [dispatch]);
 
   return (

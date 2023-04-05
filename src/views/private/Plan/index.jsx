@@ -101,7 +101,6 @@ function Plan() {
             <div className={'plan-header-label'}>Members</div>
             <Members data={data} />
           </div>
-          <div className={'plan-header-button'}>+ Add Member</div>
         </div>
         <div className={'plan-header-navigation'}>
           <div className={'plan-header-item'} onClick={() => setActiveSection('todos')}>

@@ -177,7 +177,7 @@
   }
 
   .todos {
-    @extend .notes;
+    width: 100%;
 
     &-header {
       @extend .notes-header;

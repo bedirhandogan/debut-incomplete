@@ -32,7 +32,7 @@ function Plan() {
   const { id } = useParams();
   const plans = useSelector((state) => state.plans.data);
   const user = useSelector((state) => state.user.data);
-  const [activeSection, setActiveSection] = useState('notes');
+  const [activeSection, setActiveSection] = useState('todos');
   const dispatch = useDispatch();
 
   const data = plans?.find((v) => v.id === id) || {};
@@ -49,9 +49,9 @@ function Plan() {
   const formattedCreateDate = `${day} ${months[month]} ${year}`;
 
   const sections = {
-    notes: <Notes />,
-    tasks: <Tasks />,
     todos: <Todos />,
+    tasks: <Tasks />,
+    notes: <Notes />,
   };
 
   useEffect(() => {
@@ -104,20 +104,20 @@ function Plan() {
           <div className={'plan-header-button'}>+ Add Member</div>
         </div>
         <div className={'plan-header-navigation'}>
-          <div className={'plan-header-item'} onClick={() => setActiveSection('notes')}>
-            <IconLayoutGrid stroke={1.5} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
-            Notes
-            {activeSection === 'notes' ? <span /> : ''}
+          <div className={'plan-header-item'} onClick={() => setActiveSection('todos')}>
+            <IconLayoutList stroke={1.5} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
+            Todos
+            {activeSection === 'todos' ? <span /> : ''}
           </div>
           <div className={'plan-header-item'} onClick={() => setActiveSection('tasks')}>
             <IconLayoutKanban stroke={1.5} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
             Tasks
             {activeSection === 'tasks' ? <span /> : ''}
           </div>
-          <div className={'plan-header-item'} onClick={() => setActiveSection('todos')}>
-            <IconLayoutList stroke={1.5} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
-            Todos
-            {activeSection === 'todos' ? <span /> : ''}
+          <div className={'plan-header-item'} onClick={() => setActiveSection('notes')}>
+            <IconLayoutGrid stroke={1.5} width={20} height={20} style={{ color: 'var(--icon-color-primary)' }} />
+            Notes
+            {activeSection === 'notes' ? <span /> : ''}
           </div>
         </div>
       </div>

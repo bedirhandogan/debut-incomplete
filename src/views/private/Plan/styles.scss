@@ -1,5 +1,6 @@
 .plan {
   height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -103,6 +104,50 @@
           background-color: var(--border-color-primary);
         }
       }
+    }
+  }
+
+  .todo-details {
+    height: 100%;
+    width: 325px;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background-color: var(--background-color-primary);
+    border-left: var(--g-border);
+    padding: 20px;
+    z-index: 1;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &.active {
+      animation: 1s todo-details-active ease;
+      animation-fill-mode: forwards;
+    }
+
+    &.inactive {
+      animation: 1s todo-details-inactive ease;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes todo-details-active {
+      100% {
+        right: 0;
+      }
+    }
+
+    @keyframes todo-details-inactive {
+      0% {
+        right: 0;
+      }
+    }
+
+    @media screen and (max-width: 565px) {
+      width: 100%;
+      border: none;
     }
   }
 

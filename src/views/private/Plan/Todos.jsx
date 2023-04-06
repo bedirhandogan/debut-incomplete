@@ -6,7 +6,7 @@ import TodoItem from 'components/shared/TodoItem';
 
 import './styles.scss';
 
-function Todos() {
+function Todos({ setTodoDetailsActive }) {
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -56,6 +56,7 @@ function Todos() {
                     <TodoItem
                       text={v.text}
                       ref={provided.innerRef}
+                      onClick={() => setTodoDetailsActive(true)}
                       {...provided.dragHandleProps}
                       {...provided.draggableProps}
                     />

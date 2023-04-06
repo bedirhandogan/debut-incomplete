@@ -5,6 +5,7 @@ import {
   IconLayoutList,
   IconStar,
   IconStarFilled,
+  IconX,
 } from '@tabler/icons-react';
 import months from 'constants/months';
 import prettyMs from 'pretty-ms';
@@ -33,6 +34,7 @@ function Plan() {
   const plans = useSelector((state) => state.plans.data);
   const user = useSelector((state) => state.user.data);
   const [activeSection, setActiveSection] = useState('todos');
+  const [todoDetailsActive, setTodoDetailsActive] = useState(null);
   const dispatch = useDispatch();
 
   const data = plans?.find((v) => v.id === id) || {};
@@ -49,7 +51,7 @@ function Plan() {
   const formattedCreateDate = `${day} ${months[month]} ${year}`;
 
   const sections = {
-    todos: <Todos />,
+    todos: <Todos setTodoDetailsActive={setTodoDetailsActive} />,
     tasks: <Tasks />,
     notes: <Notes />,
   };
@@ -118,6 +120,24 @@ function Plan() {
             Notes
             {activeSection === 'notes' ? <span /> : ''}
           </div>
+        </div>
+      </div>
+      <div
+        className={`todo-details ${
+          todoDetailsActive === true ? 'active' : todoDetailsActive === null ? '' : 'inactive'
+        }`}
+      >
+        <div className={'todo-details-header'}>
+          Title
+          <Tooltip position={'left'} text={'Close'}>
+            <IconX
+              stroke={1.5}
+              width={20}
+              height={20}
+              style={{ color: 'var(--icon-color-primary)' }}
+              onClick={() => setTodoDetailsActive(false)}
+            />
+          </Tooltip>
         </div>
       </div>
       {sections[activeSection]}

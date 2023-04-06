@@ -1,4 +1,4 @@
-import { IconStar } from '@tabler/icons-react';
+import { IconGripVertical, IconStar } from '@tabler/icons-react';
 import { forwardRef } from 'react';
 
 import Tooltip from 'components/shared/Tooltip';
@@ -18,6 +18,16 @@ const TodoItem = forwardRef((props, ref) => {
             style={{ color: 'var(--icon-color-primary)', cursor: 'pointer' }}
           />
         </Tooltip>
+        <div className={'todo-item-drag-btn'}>
+          <IconGripVertical
+            stroke={1.3}
+            width={20}
+            height={20}
+            style={{ color: 'var(--icon-color-primary)', cursor: 'grab' }}
+            onMouseEnter={() => props.setDraggable(false)}
+            onMouseLeave={() => props.setDraggable(true)}
+          />
+        </div>
       </div>
     </div>
   );

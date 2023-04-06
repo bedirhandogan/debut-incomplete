@@ -19,5 +19,13 @@
     margin-left: auto;
     display: flex;
     gap: 5px;
+
+    .todo-item-drag-btn {
+      transition: 200ms all;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
   }
 }

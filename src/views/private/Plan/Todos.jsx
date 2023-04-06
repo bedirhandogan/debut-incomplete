@@ -21,6 +21,7 @@ function Todos({ setTodoDetailsActive }) {
       text: 'text3',
     },
   ]);
+  const [draggable, setDraggable] = useState(true);
 
   const handleDrop = (droppedItem) => {
     if (!droppedItem.destination) return;
@@ -30,6 +31,7 @@ function Todos({ setTodoDetailsActive }) {
 
     updatedList.splice(droppedItem.destination.index, 0, reorderedItem);
     setTodos(updatedList);
+    setDraggable(true);
   };
 
   return (
@@ -51,12 +53,13 @@ function Todos({ setTodoDetailsActive }) {
           {(provided) => (
             <div className={'todos-grid'} {...provided.droppableProps} ref={provided.innerRef}>
               {todos.map((v, i) => (
-                <Draggable key={v.id} draggableId={v.id.toString()} index={i}>
+                <Draggable key={v.id} draggableId={v.id.toString()} index={i} isDragDisabled={draggable}>
                   {(provided) => (
                     <TodoItem
                       text={v.text}
                       ref={provided.innerRef}
                       onClick={() => setTodoDetailsActive(true)}
+                      setDraggable={setDraggable}
                       {...provided.dragHandleProps}
                       {...provided.draggableProps}
                     />

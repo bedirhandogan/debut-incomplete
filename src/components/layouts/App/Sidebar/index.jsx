@@ -11,19 +11,16 @@ import {
 import defaultProfile from 'assets/images/default-profile.svg';
 import logo from 'assets/images/logo.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Button from 'components/shared/Button';
 import Tooltip from 'components/shared/Tooltip';
 
 import { change } from 'store/reducers/modal';
 
-import { Logout } from 'db/auth';
-
 import './styles.scss';
 
 function Sidebar() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
   const { data } = useSelector((state) => state.user);
@@ -109,7 +106,6 @@ function Sidebar() {
                 width={24}
                 height={24}
                 style={{ color: 'var(--icon-color-primary)' }}
-                onClick={() => Logout(navigate, dispatch)}
               />
             </Tooltip>
           </div>

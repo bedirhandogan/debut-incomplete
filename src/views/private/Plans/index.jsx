@@ -1,36 +1,14 @@
 import { IconFilter } from '@tabler/icons-react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import Button from 'components/shared/Button';
-import PlanCard from 'components/shared/PlanCard';
-
-import { change as loaderChange } from 'store/reducers/loader';
-import { change as plansChange } from 'store/reducers/plans';
-
-import getPlans from 'db/storage/get-plans';
 
 import './styles.scss';
 
 function Plans() {
-  const plans = useSelector((state) => state.plans.data);
-  const user = useSelector((state) => state.user.data);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    (async () => {
-      if (plans.length === 0) {
-        dispatch(loaderChange(true)); // start
-        dispatch(plansChange(await getPlans(user)));
-        dispatch(loaderChange(false)); // stop
-      }
-    })();
-  }, [dispatch, user, plans.length]);
-
   return (
     <div className={'plans'}>
       <div className={'plans-header'}>
-        <div className={'plans-header-text'}>There is {plans?.length} plans</div>
+        <div className={'plans-header-text'}>There is 0 plans</div>
         <Button
           style={{
             width: 'max-content',
@@ -43,11 +21,7 @@ function Plans() {
         </Button>
       </div>
 
-      <div className={'plans-grid'}>
-        {plans?.map((v) => (
-          <PlanCard key={v.id} data={v} />
-        ))}
-      </div>
+      <div className={'plans-grid'}>{/*<PlanCard key={v.id} data={v} />*/}</div>
     </div>
   );
 }

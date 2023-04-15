@@ -124,12 +124,12 @@
     }
 
     &.active {
-      animation: 1s todo-details-active ease;
+      animation: 0.5s todo-details-active ease;
       animation-fill-mode: forwards;
     }
 
     &.inactive {
-      animation: 1s todo-details-inactive ease;
+      animation: 0.5s todo-details-inactive ease;
       animation-fill-mode: forwards;
     }
 

@@ -1,54 +1,18 @@
-import {
-  IconDots,
-  IconLayoutGrid,
-  IconLayoutKanban,
-  IconLayoutList,
-  IconStar,
-  IconStarFilled,
-  IconX,
-} from '@tabler/icons-react';
-import months from 'constants/months';
-import prettyMs from 'pretty-ms';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { IconDots, IconLayoutGrid, IconLayoutKanban, IconLayoutList, IconStar, IconX } from '@tabler/icons-react';
+import { useState } from 'react';
 
-import Members from 'components/shared/Members';
-import Tags from 'components/shared/Tags';
 import Tooltip from 'components/shared/Tooltip';
 
 import Notes from 'views/private/Plan/Notes';
 import Tasks from 'views/private/Plan/Tasks';
 import Todos from 'views/private/Plan/Todos';
 
-import { change as loaderChange } from 'store/reducers/loader';
-import { change as plansChange } from 'store/reducers/plans';
-
-import changeMarkValue from 'db/storage/change-mark-value';
-import getPlans from 'db/storage/get-plans';
-
 import './styles.scss';
 
 function Plan() {
-  const { id } = useParams();
-  const plans = useSelector((state) => state.plans.data);
-  const user = useSelector((state) => state.user.data);
+  // const { id } = useParams();
   const [activeSection, setActiveSection] = useState('todos');
   const [todoDetailsActive, setTodoDetailsActive] = useState(null);
-  const dispatch = useDispatch();
-
-  const data = plans?.find((v) => v.id === id) || {};
-  const findUser = data.users?.find((v) => v.uid === user.uid);
-
-  const createdDate = new Date(data.date?.createdAt);
-  const [year, month, day] = [createdDate.getFullYear(), createdDate.getMonth(), createdDate.getDate()];
-
-  const formattedUpdateDate = prettyMs(new Date().getTime() - data.date?.updatedAt || 0, {
-    compact: true,
-    verbose: true,
-  });
-
-  const formattedCreateDate = `${day} ${months[month]} ${year}`;
 
   const sections = {
     todos: <Todos setTodoDetailsActive={setTodoDetailsActive} />,
@@ -56,30 +20,16 @@ function Plan() {
     notes: <Notes />,
   };
 
-  useEffect(() => {
-    (async () => {
-      if (plans.length === 0) {
-        dispatch(loaderChange(true)); // start
-        dispatch(plansChange(await getPlans(user)));
-        dispatch(loaderChange(false)); // stop
-      }
-    })();
-  }, [dispatch, user, plans.length]);
-
   return (
     <div className={'plan'}>
       <div className={'plan-header'}>
         <div className={'plan-header-section'}>
-          <div className={'plan-header-title'}>{data.title}</div>
-          <Tags data={data} />
+          <div className={'plan-header-title'}>Title</div>
+          {/*<Tags data={} />*/}
           <div className={'plan-header-options'}>
-            <div className={'plan-header-option'} onClick={() => changeMarkValue(data, plans, user.uid, dispatch)}>
+            <div className={'plan-header-option'}>
               <Tooltip position={'bottom'} text={'Favorite'}>
-                {findUser?.mark ? (
-                  <IconStarFilled stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />
-                ) : (
-                  <IconStar stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />
-                )}
+                <IconStar stroke={1.3} width={22} height={22} style={{ color: 'var(--icon-color-primary)' }} />
               </Tooltip>
             </div>
             <div className={'plan-header-option'}>
@@ -88,20 +38,20 @@ function Plan() {
           </div>
         </div>
         <div className={'plan-header-section'}>
-          <div className={'plan-header-description'}>{data.description}</div>
+          <div className={'plan-header-description'}>Description</div>
         </div>
         <div className={'plan-header-section'}>
           <div className={'plan-header-detail'}>
             <div className={'plan-header-label'}>Created</div>
-            <div className={'plan-header-date'}>{formattedCreateDate}</div>
+            <div className={'plan-header-date'}>0</div>
           </div>
           <div className={'plan-header-detail'}>
             <div className={'plan-header-label'}>Updated</div>
-            <div className={'plan-header-date'}>{formattedUpdateDate} ago</div>
+            <div className={'plan-header-date'}>0 ago</div>
           </div>
           <div className={'plan-header-detail'}>
             <div className={'plan-header-label'}>Members</div>
-            <Members data={data} />
+            {/*<Members data={} />*/}
           </div>
         </div>
         <div className={'plan-header-navigation'}>

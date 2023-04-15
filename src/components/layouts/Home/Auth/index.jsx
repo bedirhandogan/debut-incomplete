@@ -1,42 +1,14 @@
 import { IconBrandGoogle } from '@tabler/icons-react';
 import logo from 'assets/images/logo.svg';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import Button from 'components/shared/Button';
 import Input from 'components/shared/Input';
 
-import { change } from 'store/reducers/modal';
-
-import Auth, { GoogleAuth } from 'db/auth';
-
 import './styles.scss';
 
 function AuthForm() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const [email, password] = [event.target[1].value, event.target[2].value];
-
-    dispatch(
-      change({
-        component: 'auth-form',
-        active: false,
-      }),
-    );
-
-    if (event.nativeEvent.submitter.id === 'password') {
-      if (email.length !== 0 && password.length !== 0) Auth(email, password, navigate, dispatch);
-      return;
-    }
-
-    GoogleAuth(navigate, dispatch);
-  };
-
   return (
-    <form className={'auth-form'} onSubmit={handleSubmit}>
+    <form className={'auth-form'}>
       <img src={logo} alt={'logo'} id={'auth-form-logo'} />
       <p className={'auth-form-note'}>Login with email or google account</p>
       <Button

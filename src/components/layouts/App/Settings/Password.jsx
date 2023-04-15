@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux';
 import Button from 'components/shared/Button';
 import Input from 'components/shared/Input';
 
-import updatePassword from 'db/auth/update-password';
-
 import './styles.scss';
 
 function Password() {
@@ -19,7 +17,7 @@ function Password() {
 
     if (newPassword.value === confirmPassword.value) {
       setConfirmColor('#01d001');
-      await updatePassword(newPassword.value);
+      // code
     } else setConfirmColor('#fd2835');
 
     // normalize

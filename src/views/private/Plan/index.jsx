@@ -1,5 +1,7 @@
 import { IconDots, IconLayoutGrid, IconLayoutKanban, IconLayoutList, IconStar, IconX } from '@tabler/icons-react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import Tooltip from 'components/shared/Tooltip';
 
@@ -7,12 +9,19 @@ import Notes from 'views/private/Plan/Notes';
 import Tasks from 'views/private/Plan/Tasks';
 import Todos from 'views/private/Plan/Todos';
 
+import Members from '../../../components/shared/Members';
+import Tags from '../../../components/shared/Tags';
 import './styles.scss';
 
 function Plan() {
-  // const { id } = useParams();
+  const { id } = useParams();
   const [activeSection, setActiveSection] = useState('todos');
   const [todoDetailsActive, setTodoDetailsActive] = useState(null);
+  const { data } = useSelector((state) => state.plans);
+  const filteredUser = data.find((v) => v.id == id);
+  console.log(id);
+  console.log(data);
+  console.log(filteredUser);
 
   const sections = {
     todos: <Todos setTodoDetailsActive={setTodoDetailsActive} />,
@@ -24,8 +33,8 @@ function Plan() {
     <div className={'plan'}>
       <div className={'plan-header'}>
         <div className={'plan-header-section'}>
-          <div className={'plan-header-title'}>Title</div>
-          {/*<Tags data={} />*/}
+          <div className={'plan-header-title'}>{filteredUser.title}</div>
+          <Tags data={filteredUser} />
           <div className={'plan-header-options'}>
             <div className={'plan-header-option'}>
               <Tooltip position={'bottom'} text={'Favorite'}>
@@ -43,15 +52,15 @@ function Plan() {
         <div className={'plan-header-section'}>
           <div className={'plan-header-detail'}>
             <div className={'plan-header-label'}>Created</div>
-            <div className={'plan-header-date'}>0</div>
+            <div className={'plan-header-date'}>1 hour ago </div>
           </div>
           <div className={'plan-header-detail'}>
             <div className={'plan-header-label'}>Updated</div>
-            <div className={'plan-header-date'}>0 ago</div>
+            <div className={'plan-header-date'}>1 hour ago</div>
           </div>
           <div className={'plan-header-detail'}>
             <div className={'plan-header-label'}>Members</div>
-            {/*<Members data={} />*/}
+            <Members data={filteredUser} />
           </div>
         </div>
         <div className={'plan-header-navigation'}>

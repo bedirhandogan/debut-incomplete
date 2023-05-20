@@ -1,10 +1,71 @@
 import { IconFilter } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Button from 'components/shared/Button';
+import PlanCard from 'components/shared/PlanCard';
+
+import { change } from 'store/reducers/plans';
 
 import './styles.scss';
 
 function Plans() {
+  const dispatch = useDispatch();
+
+  const [mockdata] = useState([
+    {
+      id: 0,
+      title: 'Untitled',
+      date: {
+        updatedAt: 12837281637,
+        createdAt: 11973126389,
+      },
+      tags: ['Lorem', 'Lorem'],
+      users: [
+        {
+          displayName: 'Bedirhan',
+          photoUrl:
+            'https://lh3.googleusercontent.com/-yelEKktIDrw/AAAAAAAAAAI/AAAAAAAAAAA/AGvMrBu8KVGksCcBUfVUVKdcTVNLZs7Eow/photo.jpg?sz=46',
+        },
+      ],
+    },
+    {
+      id: 1,
+      title: 'Untitled',
+      date: {
+        updatedAt: 128372816376,
+        createdAt: 119731263892,
+      },
+      tags: ['Lorem', 'Lorem'],
+      users: [
+        {
+          displayName: 'Bedirhan',
+          photoUrl:
+            'https://lh3.googleusercontent.com/-yelEKktIDrw/AAAAAAAAAAI/AAAAAAAAAAA/AGvMrBu8KVGksCcBUfVUVKdcTVNLZs7Eow/photo.jpg?sz=46',
+        },
+        {
+          displayName: 'Bedirhan',
+          photoUrl:
+            'https://lh3.googleusercontent.com/-yelEKktIDrw/AAAAAAAAAAI/AAAAAAAAAAA/AGvMrBu8KVGksCcBUfVUVKdcTVNLZs7Eow/photo.jpg?sz=46',
+        },
+        {
+          displayName: 'Bedirhan',
+          photoUrl:
+            'https://lh3.googleusercontent.com/-yelEKktIDrw/AAAAAAAAAAI/AAAAAAAAAAA/AGvMrBu8KVGksCcBUfVUVKdcTVNLZs7Eow/photo.jpg?sz=46',
+        },
+        {
+          displayName: 'Bedirhan',
+          photoUrl:
+            'https://lh3.googleusercontent.com/-yelEKktIDrw/AAAAAAAAAAI/AAAAAAAAAAA/AGvMrBu8KVGksCcBUfVUVKdcTVNLZs7Eow/photo.jpg?sz=46',
+        },
+      ],
+    },
+  ]);
+
+  useEffect(() => {
+    dispatch(change(mockdata));
+  }, [dispatch, mockdata]);
+
   return (
     <div className={'plans'}>
       <div className={'plans-header'}>
@@ -21,7 +82,11 @@ function Plans() {
         </Button>
       </div>
 
-      <div className={'plans-grid'}>{/*<PlanCard key={v.id} data={v} />*/}</div>
+      <div className={'plans-grid'}>
+        {mockdata.map((v) => (
+          <PlanCard key={v.id} data={v} />
+        ))}
+      </div>
     </div>
   );
 }

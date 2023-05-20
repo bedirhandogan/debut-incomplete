@@ -18,7 +18,7 @@ function Plan() {
   const [activeSection, setActiveSection] = useState('todos');
   const [todoDetailsActive, setTodoDetailsActive] = useState(null);
   const { data } = useSelector((state) => state.plans);
-  const filteredUser = data.find((v) => v.id == id);
+  const filteredUser = data.find((v) => v.id.toString() === id);
   console.log(id);
   console.log(data);
   console.log(filteredUser);

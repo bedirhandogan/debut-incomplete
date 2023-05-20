@@ -1,5 +1,6 @@
 import { IconBrandGoogle } from '@tabler/icons-react';
 import logo from 'assets/images/logo.svg';
+import { useNavigate } from 'react-router-dom';
 
 import Button from 'components/shared/Button';
 import Input from 'components/shared/Input';
@@ -7,6 +8,8 @@ import Input from 'components/shared/Input';
 import './styles.scss';
 
 function AuthForm() {
+  const navigate = useNavigate();
+
   return (
     <form className={'auth-form'}>
       <img src={logo} alt={'logo'} id={'auth-form-logo'} />
@@ -45,7 +48,14 @@ function AuthForm() {
           height: '40px',
         }}
       />
-      <Button id={'password'} style={{ width: '260px', height: '40px' }}>
+      <Button
+        id={'password'}
+        style={{ width: '260px', height: '40px' }}
+        onClick={(e) => {
+          e.preventDefault();
+          navigate('/app');
+        }}
+      >
         Continue
       </Button>
     </form>
